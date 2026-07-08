@@ -1,0 +1,53 @@
+name: Mibaso-Start zu GitHub Pages veröffentlichen
+
+# Läuft bei jedem Push nach main. Stempelt automatisch eine frische
+# Versionsnummer in sw.js (damit installierte Apps die neue Version laden)
+# und veröffentlicht die Seite.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Dateien holen
+        uses: actions/checkout@v4
+
+      - name: Versionsnummer in sw.js stempeln
+        run: |
+          STAMP="${GITHUB_SHA::7}-$(date -u +%Y%m%d%H%M%S)"
+          sed -i "s/start-shell-v[0-9A-Za-z._-]*/start-shell-${STAMP}/" sw.js
+          echo "Neue Service-Worker-Version: start-shell-${STAMP}"
+
+      - name: Pages vorbereiten
+        uses: actions/configure-pages@v5
+
+      - name: Seite verpacken
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Zweiter Versuch bei Timeout
+        id: deployment2
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
