@@ -32,7 +32,7 @@
   .kopf .marke{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;
     text-transform:uppercase;color:var(--gold);}
   .kopf h1{font-weight:normal;font-size:clamp(30px,9vw,46px);letter-spacing:.01em;margin:6px 0 4px;color:#2F4F3E;}
-  .kopf .unter{font-style:italic;color:var(--leise);font-size:clamp(15px,4vw,18px);}
+  .kopf .unter{font-style:italic;color:var(--leise);font-size:clamp(11px,3.3vw,15px);white-space:nowrap;}
   .kopf .strich{width:46px;height:3px;border-radius:2px;background:var(--gold);margin:14px auto 0;}
 
   /* Kachel-Raster */
@@ -51,14 +51,17 @@
   .app.kochen{background:linear-gradient(150deg,#6E2A3A,#4A1C27);}
   .app.media {background:linear-gradient(150deg,#3E7CB1,#2A5C86);}
 
-  /* Fuß */
-  footer{flex-shrink:0;margin:28px auto 0;max-width:1000px;width:100%;
-    padding:0 clamp(16px,4vw,28px);}
-  footer .karte{background:#fff;border:1px solid var(--linie);border-radius:14px;
-    text-align:center;padding:16px 18px;
-    margin-bottom:max(18px,env(safe-area-inset-bottom));
-    font-family:var(--sans);font-size:13px;color:var(--leise);}
-  footer a{color:#2F4F3E;}
+  /* Fuß — im Stil der anderen Apps (Flora) */
+  footer{flex-shrink:0;margin-top:34px;background:linear-gradient(135deg,#26402F,#3A5F4A);
+    color:#F7F3E8;font-family:var(--sans);
+    padding:24px 18px;padding-bottom:max(24px,calc(env(safe-area-inset-bottom) + 16px));}
+  footer .fin{max-width:720px;margin:0 auto;text-align:center;}
+  footer .chips{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:14px;}
+  footer .chip{background:rgba(247,243,232,.12);border:1px solid rgba(247,243,232,.35);
+    border-radius:18px;padding:4px 11px;font-size:12.5px;color:#F7F3E8;text-decoration:none;}
+  footer .chip:hover{background:rgba(247,243,232,.2);}
+  footer .klein{font-size:13px;color:rgba(247,243,232,.85);line-height:1.95;}
+  footer a{color:#F7F3E8;}
 </style>
 </head>
 <body>
@@ -66,7 +69,7 @@
 <main>
   <div class="kopf">
     <div class="marke">mibaso.de</div>
-    <div class="unter">Meine digitale Naturwerkstatt</div>
+    <div class="unter">Meine digitale Werkstatt für die Hosentasche</div>
     <div class="strich"></div>
   </div>
 
@@ -105,7 +108,15 @@
 </main>
 
 <footer>
-  <div class="karte">© Michael Baur · Kontakt: <a href="mailto:mibaur@me.com">mibaur@me.com</a></div>
+  <div class="fin">
+    <div class="chips">
+      <a class="chip" href="https://mibaso.de">🌻 mibaso.de</a>
+    </div>
+    <div class="klein">
+      © Michael Baur · Kontakt: <a href="mailto:mibaur@me.com">mibaur@me.com</a><br>
+      <a href="https://flora.mibaso.de/ueber/">Über mich</a> · <a href="https://flora.mibaso.de/impressum/">Impressum &amp; Datenschutz</a>
+    </div>
+  </div>
 </footer>
 
 <script>
