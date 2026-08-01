@@ -182,20 +182,35 @@
 </footer>
 
 <script>
-/* Service Worker + Auto-Update-Failsafe (wie bei den anderen Apps) */
+/* Service Worker + vollautomatische Aktualisierung (wie bei den anderen Apps):
+   prüft beim Öffnen, bei Rückkehr zur App und alle 3 Minuten auf eine neue
+   Version, übernimmt sie sofort und lädt die Seite einmal sanft neu. */
 if ('serviceWorker' in navigator) {
+  var refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', function () {
+    if (refreshing) return; refreshing = true; window.location.reload();
+  });
+  function uebernehmen(reg) {
+    if (reg && reg.waiting && navigator.serviceWorker.controller) {
+      reg.waiting.postMessage('SKIP_WAITING');
+      setTimeout(function () { if (!refreshing) { refreshing = true; window.location.reload(); } }, 1500);
+    }
+  }
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('sw.js').then(function (reg) {
+      uebernehmen(reg);
+      reg.addEventListener('updatefound', function () {
+        var neu = reg.installing; if (!neu) return;
+        neu.addEventListener('statechange', function () {
+          if (neu.state === 'installed') uebernehmen(reg);
+        });
+      });
       reg.update();
       document.addEventListener('visibilitychange', function () {
         if (document.visibilityState === 'visible') reg.update();
       });
-      setInterval(function () { reg.update(); }, 60 * 60 * 1000);
+      setInterval(function () { reg.update(); }, 3 * 60 * 1000);
     }).catch(function () {});
-    var neu = false;
-    navigator.serviceWorker.addEventListener('controllerchange', function () {
-      if (neu) return; neu = true; window.location.reload();
-    });
   });
 }
 </script>
