@@ -75,13 +75,14 @@
     padding:14px 18px;font-family:var(--sans);font-size:13.5px;line-height:1.5;
     color:var(--tinte);box-shadow:0 4px 16px rgba(47,79,62,.10);}
   .bubble-content.offen{display:block;}
-  .bubble-content p{font-size:13.5px;margin-bottom:9px;}
-  .bubble-content p:last-child{margin-bottom:0;}
-  /* nicht die große Überschrift aus .willkommen erben */
-  .bubble-content strong{display:inline;font-family:var(--sans);font-size:13.5px;
-    font-weight:700;color:#2F4F3E;margin:0;}
-  .bubble-content em{font-style:italic;font-weight:600;color:#2F4F3E;}
-  .bubble-content .hinweis{color:var(--leise);font-size:12.5px;}
+  /* Zwei Klassen im Selektor, damit die Handy-Regeln für .willkommen p und
+     .willkommen strong weiter unten diese Werte nicht überschreiben. */
+  .willkommen .bubble-content p{font-size:13.5px;line-height:1.5;margin-bottom:9px;}
+  .willkommen .bubble-content p:last-child{margin-bottom:0;}
+  .willkommen .bubble-content strong{display:inline;font-family:var(--sans);
+    font-size:13.5px;font-weight:700;color:#2F4F3E;margin:0;}
+  .willkommen .bubble-content em{font-style:italic;font-weight:600;color:#2F4F3E;}
+  .willkommen .bubble-content .hinweis{color:var(--leise);font-size:12.5px;}
 
   /* Fuß — im Stil der anderen Apps (Flora) */
   footer{flex-shrink:0;margin-top:34px;background:linear-gradient(135deg,#26402F,#3A5F4A);
