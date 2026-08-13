@@ -58,6 +58,8 @@
   .willkommen strong{display:block;color:#2F4F3E;font-size:clamp(18px,4vw,22px);
     font-weight:normal;margin-bottom:4px;}
   .willkommen p{font-family:var(--sans);font-size:13px;line-height:1.5;}
+  .willkommen .merkmale{margin-top:9px;font-size:11.5px;letter-spacing:.05em;
+    color:#8a8070;}
 
   /* „Als App aufs Handy" — aufklappbar, wie in Media */
   .install-bubble{margin-top:16px;}
@@ -93,6 +95,18 @@
   footer .klein{font-size:13px;color:rgba(247,243,232,.85);line-height:1.95;}
   footer a{color:#F7F3E8;}
 
+  /* Tablets (iPad hoch wie quer): drei Kacheln nebeneinander, zwei Reihen —
+     dasselbe Bild wie am Bildschirm und wie im App-Symbol. Ohne diese Regel
+     ergäbe das automatische Raster auf dem iPad im Hochformat nur zwei Spalten. */
+  @media (min-width:601px) and (max-width:1180px){
+    .apps{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+    .app{min-height:104px;padding:15px 16px;}
+    .app .ic{font-size:26px;}
+    .app .nm{font-size:20px;}
+    .app .tx{font-size:11.5px;}
+    .willkommen{margin-top:clamp(20px,3.5vw,32px);}
+  }
+
   /* Handys: alle sechs Ziele auf einen Blick, ohne winzige Tippflächen */
   @media (max-width:600px){
     main{padding:max(58px,calc(env(safe-area-inset-top) + 24px)) 10px 8px;
@@ -111,6 +125,7 @@
     .willkommen{margin:auto auto;padding:14px 12px;width:100%;}
     .willkommen strong{font-size:20px;margin-bottom:3px;}
     .willkommen p{font-size:12.5px;line-height:1.45;}
+    .willkommen .merkmale{margin-top:6px;font-size:11px;}
     .install-bubble{margin-top:12px;}
     .bubble-trigger{font-size:12.5px;padding:8px 14px;}
     footer{margin-top:8px;padding:9px 10px;
@@ -129,6 +144,7 @@
     .willkommen{padding:8px 10px;}
     .willkommen strong{font-size:18px;}
     .willkommen p{font-size:11.5px;line-height:1.4;}
+    .willkommen .merkmale{margin-top:5px;font-size:10.5px;}
     .install-bubble{margin-top:9px;}
     .bubble-trigger{font-size:11.5px;padding:7px 13px;}
     footer{padding-top:7px;padding-bottom:max(7px,calc(env(safe-area-inset-bottom) + 4px));}
@@ -150,6 +166,7 @@
     .willkommen{padding:5px 10px;}
     .willkommen strong{font-size:14px;display:inline;margin-right:4px;}
     .willkommen p{font-size:9px;display:inline;}
+    .willkommen .merkmale{display:none;}
     .install-bubble{display:none;}
     footer{margin-top:5px;padding-top:5px;padding-bottom:max(5px,env(safe-area-inset-bottom));}
     footer .chips{display:none;}
@@ -207,9 +224,10 @@
 
   <div class="willkommen">
     <strong>Schön, dass du da bist.</strong>
-    <p>Hier sammle ich, was mich umtreibt: Pflanzen und Tiere, die Geschichte des
-    Lebens, gutes Essen und die Frage, wie man sich im Digitalen zurechtfindet.
-    Alles frei zugänglich, ohne Anmeldung und ohne Werbung.</p>
+    <p>Hier findest du, was mich umtreibt: Pflanzen und Tiere, digitale Ideen,
+    gutes Essen und die Geschichte des Lebens. Stöbere, entdecke und lerne.
+    Und wenn dir danach ist: Mach einfach eine kleine Zeitreise.</p>
+    <p class="merkmale">Kostenlos · Ohne Anmeldung</p>
 
     <div class="install-bubble" id="installBubble">
       <button class="bubble-trigger" id="bubbleTrigger" aria-expanded="false" aria-controls="bubbleContent">

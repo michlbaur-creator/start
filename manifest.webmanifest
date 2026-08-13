@@ -1,7 +1,7 @@
 {
   "name": "Mibaso",
   "short_name": "Mibaso",
-  "description": "Alle Mibaso-Apps auf einen Blick: Flora, Fauna, bio, Zeitreise, Kochen und Media.",
+  "description": "Alle Mibaso-Apps auf einen Blick: Flora, Fauna, Bio, Zeitreise, Kochen und Media.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
