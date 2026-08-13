@@ -1,6 +1,6 @@
 /* Mibaso-Start – Service Worker, network-first (immer aktuell), offline aus dem Cache. */
 const VERSION = 'start-shell-v8';
-const KERN = ['./', './index.html', './manifest.webmanifest', './assets/icon.svg', './assets/icon-192.png'];
+const KERN = ['./', './index.html', './ueber/', './impressum/', './manifest.webmanifest', './assets/icon.svg', './assets/icon-192.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(KERN)).then(() => self.skipWaiting()));
