@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mibaso — Meine digitale Naturwerkstatt</title>
-<meta name="description" content="Alle Mibaso-Apps auf einen Blick: Flora, Fauna, bio, Zeitreise, Kochen und Media.">
+<meta name="description" content="Alle Mibaso-Apps auf einen Blick: Flora, Fauna, Bio, Zeitreise, Kochen und Media.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
@@ -59,6 +59,25 @@
     font-weight:normal;margin-bottom:4px;}
   .willkommen p{font-family:var(--sans);font-size:13px;line-height:1.5;}
 
+  /* „Als App aufs Handy" — aufklappbar, wie in Media */
+  .install-bubble{margin-top:16px;}
+  .bubble-trigger{display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+    background:#2F4F3E;color:#F7F3E8;border:none;border-radius:999px;
+    padding:9px 16px;font-family:var(--sans);font-size:13.5px;line-height:1.2;
+    box-shadow:0 3px 12px rgba(47,79,62,.18);}
+  .bubble-trigger:hover{background:#3A5F4A;}
+  .bubble-trigger .chevron{font-size:.8rem;transition:transform .2s;}
+  .bubble-trigger[aria-expanded="true"] .chevron{transform:rotate(180deg);}
+  .bubble-content{display:none;max-width:520px;margin:10px auto 0;text-align:left;
+    background:#fff;border:1px solid var(--linie);border-radius:14px;
+    padding:14px 18px;font-family:var(--sans);font-size:13.5px;line-height:1.5;
+    color:var(--tinte);box-shadow:0 4px 16px rgba(47,79,62,.10);}
+  .bubble-content.offen{display:block;}
+  .bubble-content p{font-size:13.5px;margin-bottom:9px;}
+  .bubble-content p:last-child{margin-bottom:0;}
+  .bubble-content em{font-style:italic;font-weight:600;color:#2F4F3E;}
+  .bubble-content .hinweis{color:var(--leise);font-size:12.5px;}
+
   /* Fuß — im Stil der anderen Apps (Flora) */
   footer{flex-shrink:0;margin-top:34px;background:linear-gradient(135deg,#26402F,#3A5F4A);
     color:#F7F3E8;font-family:var(--sans);
@@ -89,6 +108,8 @@
     .willkommen{margin:auto auto;padding:14px 12px;width:100%;}
     .willkommen strong{font-size:20px;margin-bottom:3px;}
     .willkommen p{font-size:12.5px;line-height:1.45;}
+    .install-bubble{margin-top:12px;}
+    .bubble-trigger{font-size:12.5px;padding:8px 14px;}
     footer{margin-top:8px;padding:9px 10px;
       padding-bottom:max(9px,calc(env(safe-area-inset-bottom) + 5px));}
     footer .chips{margin-bottom:4px;}
@@ -105,6 +126,8 @@
     .willkommen{padding:8px 10px;}
     .willkommen strong{font-size:18px;}
     .willkommen p{font-size:11.5px;line-height:1.4;}
+    .install-bubble{margin-top:9px;}
+    .bubble-trigger{font-size:11.5px;padding:7px 13px;}
     footer{padding-top:7px;padding-bottom:max(7px,calc(env(safe-area-inset-bottom) + 4px));}
     footer .chip{font-size:11px;}
     footer .klein{font-size:11px;line-height:1.4;}
@@ -124,6 +147,7 @@
     .willkommen{padding:5px 10px;}
     .willkommen strong{font-size:14px;display:inline;margin-right:4px;}
     .willkommen p{font-size:9px;display:inline;}
+    .install-bubble{display:none;}
     footer{margin-top:5px;padding-top:5px;padding-bottom:max(5px,env(safe-area-inset-bottom));}
     footer .chips{display:none;}
     footer .klein{font-size:9.5px;line-height:1.3;}
@@ -154,7 +178,7 @@
     </a>
     <a class="app bio" href="https://bio.mibaso.de">
       <span class="ic" aria-hidden="true">🌱</span>
-      <span class="nm">bio</span>
+      <span class="nm">Bio</span>
       <span class="tx">Lernpfade für Naturentdecker</span>
       <span class="pf" aria-hidden="true">›</span>
     </a>
@@ -180,7 +204,25 @@
 
   <div class="willkommen">
     <strong>Schön, dass du da bist.</strong>
-    <p>Stöbere, entdecke und lerne – ganz in deinem Tempo. Und wenn dir danach ist: Mach einfach eine kleine Zeitreise.</p>
+    <p>Hier sammle ich, was mich umtreibt: Pflanzen und Tiere, die Geschichte des
+    Lebens, gutes Essen und die Frage, wie man sich im Digitalen zurechtfindet.
+    Alles frei zugänglich, ohne Anmeldung und ohne Werbung.</p>
+
+    <div class="install-bubble" id="installBubble">
+      <button class="bubble-trigger" id="bubbleTrigger" aria-expanded="false" aria-controls="bubbleContent">
+        <span aria-hidden="true">📱</span>
+        <span>Als App aufs Handy legen</span>
+        <span class="chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="bubble-content" id="bubbleContent">
+        <p><strong>iPhone / iPad:</strong> Im Browser auf das <em>Teilen-Symbol</em>
+        tippen → <em>„Zum Home-Bildschirm"</em> → <em>„Hinzufügen"</em>.</p>
+        <p><strong>Android:</strong> Oben rechts auf das <em>Drei-Punkte-Menü</em> (⋮)
+        → <em>„App installieren"</em> oder <em>„Zum Startbildschirm hinzufügen"</em>.</p>
+        <p class="hinweis">Danach liegt mibaso.de wie eine echte App auf deinem
+        Startbildschirm – alle sechs Apps nur einen Fingertipp entfernt.</p>
+      </div>
+    </div>
   </div>
 </main>
 
@@ -197,6 +239,22 @@
 </footer>
 
 <script>
+/* „Als App aufs Handy" — auf- und zuklappen. Läuft die Seite bereits als
+   installierte App, ist der Hinweis überflüssig und wird ausgeblendet. */
+(function () {
+  var bubble  = document.getElementById('installBubble');
+  var trigger = document.getElementById('bubbleTrigger');
+  var inhalt  = document.getElementById('bubbleContent');
+  if (!bubble || !trigger || !inhalt) return;
+  var alsApp = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
+               || window.navigator.standalone === true;
+  if (alsApp) { bubble.style.display = 'none'; return; }
+  trigger.addEventListener('click', function () {
+    var offen = inhalt.classList.toggle('offen');
+    trigger.setAttribute('aria-expanded', offen ? 'true' : 'false');
+  });
+})();
+
 /* Service Worker + vollautomatische Aktualisierung (wie bei den anderen Apps):
    prüft beim Öffnen, bei Rückkehr zur App und alle 3 Minuten auf eine neue
    Version, übernimmt sie sofort und lädt die Seite einmal sanft neu. */
