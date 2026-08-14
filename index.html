@@ -100,6 +100,9 @@
      dasselbe Bild wie am Bildschirm und wie im App-Symbol. Ohne diese Regel
      ergäbe das automatische Raster auf dem iPad im Hochformat nur zwei Spalten. */
   @media (min-width:601px) and (max-width:1180px){
+    /* Kacheln tiefer setzen – wie am Handy, damit sie mittiger stehen */
+    main{padding-top:max(clamp(60px,10vh,120px),calc(env(safe-area-inset-top) + 40px));}
+    .kopf{margin-bottom:clamp(30px,5vh,52px);}
     .apps{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
     .app{min-height:104px;padding:15px 16px;}
     .app .ic{font-size:26px;}
@@ -225,10 +228,10 @@
 
   <div class="willkommen">
     <strong>Schön, dass du da bist.</strong>
-    <p>Hier findest du, was mich umtreibt: Pflanzen und Tiere, digitale Ideen,
-    gutes Essen und die Geschichte des Lebens. Stöbere, entdecke und lerne –
-    ganz in deinem Tempo. Und wenn dir danach ist: Mach einfach eine kleine
-    Zeitreise.</p>
+    <p>Hier findest du, was mich begeistert: Spannendes aus der Natur, digitale
+    Ideen, gutes Essen und die Geschichte des Lebens. Stöbere, entdecke und
+    lerne – ganz in deinem Tempo. Und wenn dir danach ist: Mach einfach eine
+    kleine Zeitreise.</p>
     <p class="merkmale">Kostenlos · Ohne Anmeldung</p>
 
     <div class="install-bubble" id="installBubble">
