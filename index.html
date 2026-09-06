@@ -164,6 +164,14 @@
     footer .klein{font-size:11.5px;line-height:1.5;}
   }
 
+  /* In der installierten App entfällt der Installationsknopf. Den dadurch
+     freien Platz teilen Haupt- und Fußbereich, statt ihn vollständig als
+     cremefarbene Lücke vor dem Footer stehen zu lassen. */
+  @media (max-width:600px){
+    html.als-app main{flex-grow:.25;}
+    html.als-app footer{flex-grow:.75;}
+  }
+
   /* Browserfenster mit sichtbarer Adress- und Navigationsleiste: dieselben
      Inhalte kompakter, damit der Fußbereich ebenfalls im Bild bleibt. */
   @media (max-width:600px) and (max-height:760px) and (orientation:portrait){
@@ -324,7 +332,11 @@
   if (!bubble || !trigger || !inhalt) return;
   var alsApp = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
                || window.navigator.standalone === true;
-  if (alsApp) { bubble.style.display = 'none'; return; }
+  if (alsApp) {
+    document.documentElement.classList.add('als-app');
+    bubble.style.display = 'none';
+    return;
+  }
   trigger.addEventListener('click', function () {
     var offen = inhalt.classList.toggle('offen');
     trigger.setAttribute('aria-expanded', offen ? 'true' : 'false');
