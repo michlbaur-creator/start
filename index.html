@@ -170,10 +170,13 @@
   @media (max-width:600px){
     html.als-app main{
       flex-grow:.74;
-      padding-top:max(48px,calc(env(safe-area-inset-top) + 18px));
+      padding-top:max(42px,calc(env(safe-area-inset-top) + 16px));
     }
     html.als-app .kopf{margin-bottom:28px;}
-    html.als-app footer{flex-grow:.26;}
+    html.als-app footer{
+      flex-grow:.26;
+      padding-bottom:max(20px,calc(env(safe-area-inset-bottom) + 10px));
+    }
   }
 
   /* Browserfenster mit sichtbarer Adress- und Navigationsleiste: dieselben
