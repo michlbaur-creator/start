@@ -130,54 +130,66 @@
     .willkommen{margin-top:clamp(20px,3.5vw,32px);}
   }
 
-  /* Handys: alle sechs Ziele auf einen Blick, ohne winzige Tippflächen */
+  /* Handys: alle sieben Ziele samt Fußbereich auf einen Blick. Die Tafeln
+     bleiben gut tippbar, nutzen die knappe Höhe aber deutlich besser. */
   @media (max-width:600px){
-    main{padding:max(58px,calc(env(safe-area-inset-top) + 24px)) 10px 8px;
+    main{padding:max(34px,calc(env(safe-area-inset-top) + 14px)) 10px 5px;
       display:flex;flex-direction:column;}
-    .kopf{margin-bottom:40px;padding-top:0;}
+    .kopf{margin-bottom:22px;padding-top:0;}
     .kopf .marke{font-size:12px;line-height:1.25;}
     .kopf .unter{font-size:13px;line-height:1.3;}
     .kopf .strich{width:34px;height:2px;margin-top:10px;}
-    .apps{gap:8px;}
-    .app-reihe{gap:8px;}
+    .apps{gap:7px;}
+    .app-reihe{gap:7px;}
     .app-reihe.drei{grid-template-columns:repeat(2,minmax(0,1fr));}
-    .app-reihe.drei .app:last-child{grid-column:1 / -1;width:calc(50% - 4px);justify-self:center;}
+    .app-reihe.drei .app:last-child{grid-column:1 / -1;width:calc(50% - 3.5px);justify-self:center;}
     .app-reihe.zwei{width:100%;}
-    .app{min-height:98px;padding:10px 12px;border-radius:13px;gap:4px;
+    .app{min-height:82px;padding:8px 12px;border-radius:13px;gap:3px;
       box-shadow:0 3px 10px rgba(0,0,0,.10);}
     .app .app-kopf{gap:6px;padding-right:16px;}
     .app .ic{font-size:20px;}
     .app .nm{font-size:17px;line-height:1.12;}
     .app .tx{font-size:10.5px;line-height:1.2;}
     .app .pf{top:8px;right:10px;font-size:17px;}
-    .willkommen{margin:auto auto;padding:14px 12px;width:100%;}
+    .willkommen{margin:11px auto 0;padding:7px 12px;width:100%;}
     .willkommen strong{font-size:20px;margin-bottom:3px;}
     .willkommen p{font-size:12.5px;line-height:1.45;}
     .willkommen .merkmale{margin-top:6px;font-size:11px;}
-    .install-bubble{margin-top:12px;}
+    .install-bubble{margin-top:9px;}
     .bubble-trigger{font-size:11px;padding:5px 11px;}
-    footer{margin-top:8px;padding:9px 10px;
+    footer{margin-top:4px;padding:8px 10px;
       padding-bottom:max(9px,calc(env(safe-area-inset-bottom) + 5px));}
     footer .chips{margin-bottom:4px;}
     footer .chip{padding:3px 10px;font-size:11.5px;}
     footer .klein{font-size:11.5px;line-height:1.5;}
   }
 
-  /* Sehr kurze Hochformat-Displays: weiterhin alles ohne Scrollen */
-  @media (max-width:600px) and (max-height:650px) and (orientation:portrait){
-    main{padding-top:max(28px,calc(env(safe-area-inset-top) + 8px));}
-    .kopf{margin-bottom:10px;}
+  /* Browserfenster mit sichtbarer Adress- und Navigationsleiste: dieselben
+     Inhalte kompakter, damit der Fußbereich ebenfalls im Bild bleibt. */
+  @media (max-width:600px) and (max-height:760px) and (orientation:portrait){
+    main{padding-top:max(20px,calc(env(safe-area-inset-top) + 6px));}
+    .kopf{margin-bottom:9px;}
     .kopf .marke{font-size:11px;}
     .kopf .unter{font-size:12px;}
-    .willkommen{padding:8px 10px;}
+    .kopf .strich{margin-top:7px;}
+    .apps,.app-reihe{gap:5px;}
+    .app-reihe.drei .app:last-child{width:calc(50% - 2.5px);}
+    .app{min-height:71px;padding:6px 10px;gap:2px;border-radius:12px;}
+    .app .app-kopf{gap:5px;}
+    .app .ic{font-size:18px;}
+    .app .nm{font-size:16px;}
+    .app .tx{font-size:9.8px;line-height:1.15;}
+    .app .pf{top:6px;right:9px;font-size:16px;}
+    .willkommen{margin-top:6px;padding:4px 10px;}
     .willkommen strong{font-size:18px;}
-    .willkommen p{font-size:11.5px;line-height:1.4;}
-    .willkommen .merkmale{margin-top:5px;font-size:10.5px;}
-    .install-bubble{margin-top:9px;}
-    .bubble-trigger{font-size:10.5px;padding:4px 10px;}
-    footer{padding-top:7px;padding-bottom:max(7px,calc(env(safe-area-inset-bottom) + 4px));}
-    footer .chip{font-size:11px;}
-    footer .klein{font-size:11px;line-height:1.4;}
+    .willkommen p{font-size:11px;line-height:1.3;}
+    .willkommen .merkmale{margin-top:4px;font-size:10px;}
+    .install-bubble{margin-top:6px;}
+    .bubble-trigger{font-size:10px;padding:3px 9px;}
+    footer{margin-top:2px;padding-top:6px;padding-bottom:max(6px,calc(env(safe-area-inset-bottom) + 3px));}
+    footer .chips{margin-bottom:3px;}
+    footer .chip{font-size:10.5px;padding:2px 9px;}
+    footer .klein{font-size:10.5px;line-height:1.35;}
   }
 
   /* Kurze Handy-Displays im Querformat */
@@ -220,7 +232,7 @@
     <div class="app-reihe drei">
       <a class="app flora" href="https://flora.mibaso.de">
         <span class="app-kopf"><span class="ic" aria-hidden="true">🌼</span><span class="nm">Flora</span></span>
-        <span class="tx">150 heimische Pflanzen entdecken</span>
+        <span class="tx">Heimische Pflanzen entdecken</span>
         <span class="pf" aria-hidden="true">›</span>
       </a>
       <a class="app fauna" href="https://fauna.mibaso.de">
