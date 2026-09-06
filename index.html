@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mibaso — Meine digitale Naturwerkstatt</title>
-<meta name="description" content="Alle Mibaso-Apps auf einen Blick: Flora, Fauna, Bio, Zeitreise, Kochen und Media.">
+<meta name="description" content="Alle Mibaso-Apps auf einen Blick: Flora, Fauna, Bio, Große Zeitreise, Historia, Kochen und Media.">
 <link rel="canonical" href="https://mibaso.de/">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32">
@@ -37,12 +37,17 @@
   .kopf .strich{width:46px;height:3px;border-radius:2px;background:var(--gold);margin:14px auto 0;}
 
   /* Kachel-Raster */
-  .apps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));}
+  .apps{display:flex;flex-direction:column;gap:14px;}
+  .app-reihe{display:grid;gap:14px;}
+  .app-reihe.drei{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .app-reihe.zwei{grid-template-columns:repeat(2,minmax(0,1fr));
+    width:calc(66.666667% - 4.6667px);margin:0 auto;}
   .app{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:5px;
     min-height:118px;padding:18px 20px;border-radius:16px;text-decoration:none;color:#fff;
     box-shadow:0 4px 16px rgba(0,0,0,.10);transition:transform .15s ease, box-shadow .15s ease;}
   .app:hover,.app:focus-visible{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.18);outline:none;}
-  .app .ic{font-size:30px;line-height:1;margin-bottom:4px;}
+  .app .app-kopf{display:flex;align-items:center;gap:8px;padding-right:20px;}
+  .app .ic{font-size:25px;line-height:1;}
   .app .nm{font-size:22px;letter-spacing:.01em;}
   .app .tx{font-family:var(--sans);font-size:12.5px;opacity:.92;line-height:1.35;}
   .app .pf{position:absolute;top:16px;right:18px;font-family:var(--sans);font-size:20px;opacity:.7;}
@@ -50,8 +55,19 @@
   .app.fauna {background:linear-gradient(150deg,#33587c,#233D5C);}
   .app.bio   {background:linear-gradient(150deg,#3A6B5F,#2C544A);}
   .app.evo   {background:linear-gradient(150deg,#26352f,#0a1411);}
+  .app.historia{background:linear-gradient(150deg,#C66B49,#8F3F30);}
   .app.kochen{background:linear-gradient(150deg,#6E2A3A,#4A1C27);}
   .app.media {background:linear-gradient(150deg,#3E7CB1,#2A5C86);}
+
+  /* Die beiden Geschichts-Apps bleiben getrennte Tafeln. Nur der kurze
+     Farbverlauf mit Pfeil verbindet die große Zeitreise mit Historia. */
+  .geschichte{position:relative;isolation:isolate;}
+  .geschichte::before{position:absolute;z-index:2;top:calc(50% - 2px);left:calc(50% - 17px);
+    width:34px;height:4px;border-radius:999px;
+    background:linear-gradient(90deg,#8AA981,#D7845F);content:"";pointer-events:none;}
+  .geschichte::after{position:absolute;z-index:3;top:calc(50% - 5px);left:calc(50% + 8px);
+    width:8px;height:8px;border-top:2px solid #D7845F;border-right:2px solid #D7845F;
+    transform:rotate(45deg);content:"";pointer-events:none;}
 
   /* Persönlicher Gruß */
   .willkommen{max-width:620px;margin:clamp(24px,5vw,46px) auto 0;text-align:center;
@@ -104,9 +120,11 @@
     /* Kacheln tiefer setzen – wie am Handy, damit sie mittiger stehen */
     main{padding-top:max(clamp(60px,10vh,120px),calc(env(safe-area-inset-top) + 40px));}
     .kopf{margin-bottom:clamp(30px,5vh,52px);}
-    .apps{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+    .apps{gap:12px;}
+    .app-reihe{gap:12px;}
+    .app-reihe.zwei{width:calc(66.666667% - 4px);}
     .app{min-height:104px;padding:15px 16px;}
-    .app .ic{font-size:26px;}
+    .app .ic{font-size:23px;}
     .app .nm{font-size:20px;}
     .app .tx{font-size:11.5px;}
     .willkommen{margin-top:clamp(20px,3.5vw,32px);}
@@ -120,10 +138,15 @@
     .kopf .marke{font-size:12px;line-height:1.25;}
     .kopf .unter{font-size:13px;line-height:1.3;}
     .kopf .strich{width:34px;height:2px;margin-top:10px;}
-    .apps{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
-    .app{min-height:88px;padding:10px 12px;border-radius:13px;gap:2px;
+    .apps{gap:8px;}
+    .app-reihe{gap:8px;}
+    .app-reihe.drei{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .app-reihe.drei .app:last-child{grid-column:1 / -1;width:calc(50% - 4px);justify-self:center;}
+    .app-reihe.zwei{width:100%;}
+    .app{min-height:98px;padding:10px 12px;border-radius:13px;gap:4px;
       box-shadow:0 3px 10px rgba(0,0,0,.10);}
-    .app .ic{font-size:23px;margin-bottom:1px;}
+    .app .app-kopf{gap:6px;padding-right:16px;}
+    .app .ic{font-size:20px;}
     .app .nm{font-size:17px;line-height:1.12;}
     .app .tx{font-size:10.5px;line-height:1.2;}
     .app .pf{top:8px;right:10px;font-size:17px;}
@@ -163,9 +186,14 @@
     .kopf{margin-bottom:6px;}
     .kopf .unter{font-size:10px;}
     .kopf .strich{display:none;}
-    .apps{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;}
+    .apps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;}
+    .app-reihe{display:contents;}
+    .app-reihe.drei .app:last-child{grid-column:auto;width:auto;justify-self:stretch;}
+    .app-reihe.zwei{width:auto;margin:0;}
+    .geschichte::before,.geschichte::after{display:none;}
     .app{min-height:70px;padding:7px 10px;gap:1px;}
-    .app .ic{font-size:19px;margin-bottom:0;}
+    .app .app-kopf{gap:5px;padding-right:13px;}
+    .app .ic{font-size:17px;}
     .app .nm{font-size:15px;}
     .app .tx{font-size:9.5px;}
     .willkommen{padding:5px 10px;}
@@ -189,42 +217,49 @@
   </div>
 
   <div class="apps">
-    <a class="app flora" href="https://flora.mibaso.de">
-      <span class="ic" aria-hidden="true">🌼</span>
-      <span class="nm">Flora</span>
-      <span class="tx">150 heimische Pflanzen entdecken</span>
-      <span class="pf" aria-hidden="true">›</span>
-    </a>
-    <a class="app fauna" href="https://fauna.mibaso.de">
-      <span class="ic" aria-hidden="true">🦋</span>
-      <span class="nm">Fauna</span>
-      <span class="tx">Tiere &amp; Insekten der Wiese</span>
-      <span class="pf" aria-hidden="true">›</span>
-    </a>
-    <a class="app bio" href="https://bio.mibaso.de">
-      <span class="ic" aria-hidden="true">🌱</span>
-      <span class="nm">Bio</span>
-      <span class="tx">Lernpfade für Naturentdecker</span>
-      <span class="pf" aria-hidden="true">›</span>
-    </a>
-    <a class="app evo" href="https://evo.mibaso.de">
-      <span class="ic" aria-hidden="true">🕰️</span>
-      <span class="nm">Zeitreise</span>
-      <span class="tx">Die Geschichte des Lebens</span>
-      <span class="pf" aria-hidden="true">›</span>
-    </a>
-    <a class="app kochen" href="https://kochen.mibaso.de">
-      <span class="ic" aria-hidden="true">🍳</span>
-      <span class="nm">Kochen</span>
-      <span class="tx">Meine Lieblingsrezepte</span>
-      <span class="pf" aria-hidden="true">›</span>
-    </a>
-    <a class="app media" href="https://media.mibaso.de">
-      <span class="ic" aria-hidden="true">📱</span>
-      <span class="nm">Media</span>
-      <span class="tx">Vorträge &amp; Kursmaterialien</span>
-      <span class="pf" aria-hidden="true">›</span>
-    </a>
+    <div class="app-reihe drei">
+      <a class="app flora" href="https://flora.mibaso.de">
+        <span class="app-kopf"><span class="ic" aria-hidden="true">🌼</span><span class="nm">Flora</span></span>
+        <span class="tx">150 heimische Pflanzen entdecken</span>
+        <span class="pf" aria-hidden="true">›</span>
+      </a>
+      <a class="app fauna" href="https://fauna.mibaso.de">
+        <span class="app-kopf"><span class="ic" aria-hidden="true">🦋</span><span class="nm">Fauna</span></span>
+        <span class="tx">Tiere &amp; Insekten der Wiese</span>
+        <span class="pf" aria-hidden="true">›</span>
+      </a>
+      <a class="app bio" href="https://bio.mibaso.de">
+        <span class="app-kopf"><span class="ic" aria-hidden="true">🌱</span><span class="nm">Bio</span></span>
+        <span class="tx">Lernpfade für Naturentdecker</span>
+        <span class="pf" aria-hidden="true">›</span>
+      </a>
+    </div>
+
+    <div class="app-reihe zwei geschichte">
+      <a class="app evo" href="https://evo.mibaso.de">
+        <span class="app-kopf"><span class="ic" aria-hidden="true">🕰️</span><span class="nm">Große Zeitreise</span></span>
+        <span class="tx">Vom Urknall bis heute</span>
+        <span class="pf" aria-hidden="true">›</span>
+      </a>
+      <a class="app historia" href="https://historia.mibaso.de">
+        <span class="app-kopf"><span class="ic" aria-hidden="true">🏛️</span><span class="nm">Historia</span></span>
+        <span class="tx">Klassische Weltgeschichte</span>
+        <span class="pf" aria-hidden="true">›</span>
+      </a>
+    </div>
+
+    <div class="app-reihe zwei">
+      <a class="app kochen" href="https://kochen.mibaso.de">
+        <span class="app-kopf"><span class="ic" aria-hidden="true">🍳</span><span class="nm">Kochen</span></span>
+        <span class="tx">Meine Lieblingsrezepte</span>
+        <span class="pf" aria-hidden="true">›</span>
+      </a>
+      <a class="app media" href="https://media.mibaso.de">
+        <span class="app-kopf"><span class="ic" aria-hidden="true">📱</span><span class="nm">Media</span></span>
+        <span class="tx">Vorträge &amp; Kursmaterialien</span>
+        <span class="pf" aria-hidden="true">›</span>
+      </a>
+    </div>
   </div>
 
   <div class="willkommen">
@@ -249,7 +284,7 @@
         <p><strong>Android:</strong> Oben rechts auf die <em>drei Punkte</em> tippen,
         dann <em>„App installieren“</em> bzw. <em>„Zum Startbildschirm hinzufügen“</em>.</p>
         <p class="hinweis">Danach liegt mibaso.de wie eine echte App auf deinem
-        Startbildschirm – alle sechs Apps nur einen Fingertipp entfernt.</p>
+        Startbildschirm – alle sieben Apps nur einen Fingertipp entfernt.</p>
       </div>
     </div>
   </div>
