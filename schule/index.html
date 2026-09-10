@@ -52,30 +52,40 @@
   .zusagen .hk{color:var(--gruen);font-size:16px;line-height:1.2;flex:none;}
   .zusagen b{color:var(--gruen);font-weight:700;}
 
-  /* Fach-Abschnitte */
-  .fach{margin-bottom:clamp(30px,5vw,46px);}
-  .fach > h2{font-size:clamp(21px,4vw,28px);font-weight:normal;color:var(--gruen);
-    padding-bottom:8px;border-bottom:2px solid var(--linie);margin-bottom:6px;}
+  /* Fach-Abschnitte — jedes Fach mit eigener Leitfarbe, aus den Apps übernommen:
+     Biologie im Flora-Grün, Geschichte im Historia-Terrakotta, Erdgeschichte in Ocker. */
+  .fach{margin-bottom:clamp(30px,5vw,46px);--akzent:var(--gruen);}
+  .fach.gesch{--akzent:#B65A42;}
+  .fach.evo{--akzent:#9C6B2E;}
+  .fach > h2{font-size:clamp(21px,4vw,28px);font-weight:normal;color:var(--akzent);
+    padding-bottom:8px;border-bottom:2px solid var(--akzent);margin-bottom:6px;}
   .fach > .fsub{font-family:var(--sans);font-size:13.5px;color:var(--leise);margin-bottom:16px;}
 
   .karten{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
   .karte{background:var(--papier);border:1px solid var(--linie);border-radius:14px;
     padding:16px 18px 14px;display:flex;flex-direction:column;}
-  .karte h3{font-size:19px;font-weight:normal;color:var(--gruen);margin-bottom:5px;}
+  .karte h3{font-size:19px;font-weight:normal;color:var(--akzent);margin-bottom:5px;}
   .karte .was{font-family:var(--sans);font-size:13.5px;color:var(--tinte);
     line-height:1.45;margin-bottom:10px;flex:1 0 auto;}
   .marker{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px;}
   .marker span{font-family:var(--sans);font-size:11.5px;line-height:1;
-    background:rgba(47,79,62,.07);color:var(--gruen);border-radius:999px;padding:5px 9px;}
+    background:color-mix(in srgb, var(--akzent) 9%, transparent);
+    color:var(--akzent);border-radius:999px;padding:5px 9px;}
   .karte ul{list-style:none;font-family:var(--sans);font-size:13px;line-height:1.5;
     margin-bottom:12px;}
   .karte ul li{padding-left:13px;position:relative;color:var(--leise);}
-  .karte ul li::before{content:"·";position:absolute;left:3px;color:var(--gold);font-weight:700;}
-  .los{display:inline-block;align-self:flex-start;background:var(--gruen);color:#F7F3E8;
+  .karte ul li::before{content:"·";position:absolute;left:3px;color:var(--akzent);font-weight:700;}
+  .los{display:inline-block;align-self:flex-start;background:var(--akzent);color:#F7F3E8;
     text-decoration:none;font-family:var(--sans);font-size:13.5px;
     padding:8px 16px;border-radius:999px;margin-top:auto;}
-  .los:hover{background:var(--gruen-hell);}
+  .los:hover{filter:brightness(1.15);}
   .karte .adresse{display:none;}
+  /* Lehrplanbezug — eine knappe Zeile je Karte */
+  .kc{font-family:var(--sans);font-size:11.5px;line-height:1.4;color:var(--leise);
+    margin-top:10px;padding-top:8px;border-top:1px solid var(--linie);}
+  .kc b{color:var(--akzent);font-weight:700;}
+  .kc-hinweis{font-family:var(--sans);font-size:12px;color:var(--leise);
+    text-align:center;margin:-6px 0 clamp(24px,4vw,34px);}
 
   /* Einsatz-Hinweise */
   .praxis{background:var(--papier);border:1px solid var(--linie);border-radius:16px;
@@ -149,6 +159,9 @@
     .marker span{background:none;border:0.5pt solid #999;color:#000;font-size:7.4pt;padding:1pt 4pt;}
     .karte ul{font-size:8pt;margin-bottom:3px;}
     .karte ul li{color:#000;}
+    .kc{font-size:7.4pt;margin-top:4px;padding-top:3px;border-top:0.4pt solid #bbb;}
+    .kc b{color:#000;}
+    .kc-hinweis{font-size:7.6pt;margin:0 0 9px;}
     .los{display:none;}
     .karte .adresse{display:block;font-family:var(--sans);font-size:7.6pt;color:#333;
       word-break:break-all;}
@@ -177,10 +190,11 @@
     <div class="strich"></div>
   </div>
 
-  <p class="lead">Über dreißig Jahre Biologie- und Chemieunterricht, danach Fachberater
-  für Medienkompetenz: Aus dieser Mischung sind kleine Web-Apps entstanden, die man
-  ohne Vorbereitung im Unterricht einsetzen kann — drinnen am Beamer, draußen auf der
-  Wiese, oder von den Schülerinnen und Schülern zu Hause.</p>
+  <p class="lead">Über dreißig Jahre Biologie- und Chemieunterricht und Fachberater
+  für Medienkompetenz an der Hessischen Lehrkräfteakademie: Aus dieser Mischung sind
+  kleine Web-Apps entstanden, die man ohne Vorbereitung im Unterricht einsetzen kann —
+  drinnen am Beamer, draußen auf der Wiese, oder von den Schülerinnen und Schülern
+  zu Hause.</p>
 
   <section class="zusagen">
     <h2>Ohne Hürden einsetzbar</h2>
@@ -195,6 +209,10 @@
         Ein privates, nicht-kommerzielles Projekt ohne Geschäftsmodell.</span></li>
     </ul>
   </section>
+
+  <p class="kc-hinweis">Die Angaben zum Kerncurriculum beziehen sich auf die hessischen
+  Kerncurricula für Biologie und Geschichte (Sekundarstufe I) sowie Sachunterricht
+  (Primarstufe).</p>
 
   <section class="fach">
     <h2>Biologie · Sachunterricht · Naturwissenschaften</h2>
@@ -215,6 +233,7 @@
           <li>Warum der Wald so wichtig ist · Invasive Arten</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/flora/">Zu den Waldpfaden</a>
+        <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Bewertung: Handeln und Umwelt</p>
         <div class="adresse">bio.mibaso.de/flora/</div>
       </article>
 
@@ -230,6 +249,7 @@
           <li>Was wir nicht sehen — Bodenleben</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/fauna/">Zu den Wiesenpfaden</a>
+        <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen</p>
         <div class="adresse">bio.mibaso.de/fauna/</div>
       </article>
 
@@ -245,6 +265,7 @@
           <li>Auf großer Reise — Samenverbreitung</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/flora/">Zu den Lernpfaden</a>
+        <p class="kc"><b>Kerncurriculum:</b> Fortpflanzung und Entwicklung</p>
         <div class="adresse">bio.mibaso.de/flora/</div>
       </article>
 
@@ -260,6 +281,7 @@
           <li>Überlebenskünstler — Pflanzenstrategien</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/flora/">Zu den Lernpfaden</a>
+        <p class="kc"><b>Kerncurriculum:</b> Stoffwechsel und Regelmechanismen</p>
         <div class="adresse">bio.mibaso.de/flora/</div>
       </article>
 
@@ -275,6 +297,7 @@
           <li>Mein Sammelpass — gefundene Arten sammeln</li>
         </ul>
         <a class="los" href="https://flora.mibaso.de/bestimmen-gefuehrt.html">Bestimmung öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
         <div class="adresse">flora.mibaso.de · fauna.mibaso.de</div>
       </article>
 
@@ -290,6 +313,7 @@
           <li>Quizze zu Pflanzen und Tieren</li>
         </ul>
         <a class="los" href="https://fauna.mibaso.de/interaktiv/stammbaum.html">Stammbaum öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
         <div class="adresse">fauna.mibaso.de/interaktiv/stammbaum.html</div>
       </article>
 
@@ -304,6 +328,7 @@
           <li>Expedition Wiese — Tiere</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/">Pässe öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Erkenntnisgewinnung</p>
         <div class="adresse">bio.mibaso.de</div>
       </article>
 
@@ -319,13 +344,14 @@
           <li>Warum drehen sich Sonnenblumen?</li>
         </ul>
         <a class="los" href="https://flora.mibaso.de/">Zum Staunen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Sachunterricht: Natur</p>
         <div class="adresse">flora.mibaso.de · fauna.mibaso.de</div>
       </article>
 
     </div>
   </section>
 
-  <section class="fach">
+  <section class="fach gesch">
     <h2>Geschichte</h2>
     <p class="fsub">Weltgeschichte als chronologische Reise: kurze Szenen mit
     Orientierungskarte, historischem Bild, Sprechertext und Quiz.</p>
@@ -343,6 +369,7 @@
           <li>Untertitel für alle Sprechertexte</li>
         </ul>
         <a class="los" href="https://historia.mibaso.de/">Episode 1 öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Ur- und Frühgeschichte sowie Antike</p>
         <div class="adresse">historia.mibaso.de</div>
       </article>
 
@@ -357,13 +384,30 @@
           <li>Vertiefung und Quiz wie in Episode 1</li>
         </ul>
         <a class="los" href="https://historia.mibaso.de/episode-2">Episode 2 öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Mittelalter und Neuzeit</p>
         <div class="adresse">historia.mibaso.de/episode-2</div>
+      </article>
+
+      <article class="karte">
+        <h3>Historia — Episode 3</h3>
+        <p class="was">Nationen, Weltkriege und Gegenwart: von der Industrialisierung
+        bis zur global vernetzten Welt, in sechzehn Szenen.</p>
+        <div class="marker"><span>Kl. 8–12</span><span>je Szene 2–4 Min</span><span>erscheint in Kürze</span></div>
+        <ul>
+          <li>Industrialisierung und Soziale Frage</li>
+          <li>Nationalstaaten und Weltkriege</li>
+          <li>Neuordnung nach 1945 und 1989</li>
+          <li>Aufbau und Bedienung wie Episode 1 und 2</li>
+        </ul>
+        <a class="los" href="https://historia.mibaso.de/">Zu Historia</a>
+        <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Neuzeit und Neueste Zeit</p>
+        <div class="adresse">historia.mibaso.de</div>
       </article>
 
     </div>
   </section>
 
-  <section class="fach">
+  <section class="fach evo">
     <h2>Erdgeschichte und Evolution</h2>
     <p class="fsub">Fächerübergreifend zwischen Biologie und Geschichte —
     und ein guter Einstieg in beide.</p>
@@ -381,6 +425,7 @@
           <li>Als App auf dem Tablet installierbar</li>
         </ul>
         <a class="los" href="https://evo.mibaso.de/">Zeitreise starten</a>
+        <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung · Sachunterricht: Geschichte und Zeit</p>
         <div class="adresse">evo.mibaso.de</div>
       </article>
 
@@ -405,8 +450,6 @@
   <div class="kontakt">
     <div class="txt">
       <strong>Sie möchten mehr wissen?</strong>
-      Ich stelle die Sammlung gern an Ihrer Schule vor, zeige den Einsatz im
-      Unterricht und beantworte Fragen — auch zum Datenschutz.<br>
       <a href="mailto:mibaur@me.com">mibaur@me.com</a>
     </div>
     <figure class="qr">

@@ -1,5 +1,5 @@
 /* Mibaso-Start – Service Worker, network-first (immer aktuell), offline aus dem Cache. */
-const VERSION = 'start-shell-v24';
+const VERSION = 'start-shell-v25';
 const KERN = ['./', './index.html', './ueber/', './impressum/', './schule/', './manifest.webmanifest?v=18', './assets/icon.svg?v=2', './assets/icon-192.png?v=2'];
 
 self.addEventListener('install', e => {
