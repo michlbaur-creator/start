@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mibaso für den Unterricht — Lernangebote für Schule und Bildung</title>
+<meta name="description" content="Kostenlose, werbefreie Lern-Apps für Biologie und Geschichte. Ohne Anmeldung, ohne Datenerhebung, offline nutzbar — von Michael Baur.">
+<link rel="canonical" href="https://mibaso.de/schule/">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2F4F3E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Mibaso Unterricht">
+<style>
+  :root{
+    --creme:#F7F3E8; --papier:#FFFDF8; --linie:#d7cfba; --gold:#C28A3A;
+    --gruen:#2F4F3E; --gruen-hell:#3A5F4A; --tinte:#3b2a1c; --leise:#6b6152;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{background:#26402F;-webkit-text-size-adjust:100%;}
+  body{background:var(--creme);color:var(--tinte);
+    font-family:'Iowan Old Style','Palatino Linotype','Book Antiqua',Palatino,'Noto Serif',Georgia,serif;
+    line-height:1.55;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;}
+  main{max-width:1000px;width:100%;margin:0 auto;flex:1 0 auto;
+    padding:clamp(22px,5vw,48px) clamp(16px,4vw,28px) 40px;}
+  a{color:var(--gruen);}
+
+  /* Kopf */
+  .kopf{text-align:center;margin-bottom:clamp(20px,4vw,32px);padding-top:max(0px,env(safe-area-inset-top));}
+  .kopf .marke{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--gold);}
+  .kopf h1{font-weight:normal;font-size:clamp(28px,7vw,42px);margin:6px 0 6px;color:var(--gruen);}
+  .kopf .unter{font-style:italic;color:var(--leise);font-size:clamp(13px,3.4vw,17px);}
+  .kopf .strich{width:46px;height:3px;border-radius:2px;background:var(--gold);margin:16px auto 0;}
+
+  .lead{max-width:660px;margin:0 auto clamp(24px,4vw,34px);text-align:center;
+    font-size:clamp(15px,2.6vw,18px);color:var(--tinte);}
+
+  /* Datenschutz-Block */
+  .zusagen{background:var(--papier);border:1px solid var(--linie);border-radius:16px;
+    padding:clamp(16px,3vw,24px);margin-bottom:clamp(26px,5vw,40px);}
+  .zusagen h2{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:14px;}
+  .zusagen ul{list-style:none;display:grid;gap:10px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+  .zusagen li{display:flex;gap:10px;align-items:flex-start;
+    font-family:var(--sans);font-size:14px;line-height:1.45;}
+  .zusagen .hk{color:var(--gruen);font-size:16px;line-height:1.2;flex:none;}
+  .zusagen b{color:var(--gruen);font-weight:700;}
+
+  /* Fach-Abschnitte */
+  .fach{margin-bottom:clamp(30px,5vw,46px);}
+  .fach > h2{font-size:clamp(21px,4vw,28px);font-weight:normal;color:var(--gruen);
+    padding-bottom:8px;border-bottom:2px solid var(--linie);margin-bottom:6px;}
+  .fach > .fsub{font-family:var(--sans);font-size:13.5px;color:var(--leise);margin-bottom:16px;}
+
+  .karten{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+  .karte{background:var(--papier);border:1px solid var(--linie);border-radius:14px;
+    padding:16px 18px 14px;display:flex;flex-direction:column;}
+  .karte h3{font-size:19px;font-weight:normal;color:var(--gruen);margin-bottom:5px;}
+  .karte .was{font-family:var(--sans);font-size:13.5px;color:var(--tinte);
+    line-height:1.45;margin-bottom:10px;flex:1 0 auto;}
+  .marker{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px;}
+  .marker span{font-family:var(--sans);font-size:11.5px;line-height:1;
+    background:rgba(47,79,62,.07);color:var(--gruen);border-radius:999px;padding:5px 9px;}
+  .karte ul{list-style:none;font-family:var(--sans);font-size:13px;line-height:1.5;
+    margin-bottom:12px;}
+  .karte ul li{padding-left:13px;position:relative;color:var(--leise);}
+  .karte ul li::before{content:"·";position:absolute;left:3px;color:var(--gold);font-weight:700;}
+  .los{display:inline-block;align-self:flex-start;background:var(--gruen);color:#F7F3E8;
+    text-decoration:none;font-family:var(--sans);font-size:13.5px;
+    padding:8px 16px;border-radius:999px;margin-top:auto;}
+  .los:hover{background:var(--gruen-hell);}
+  .karte .adresse{display:none;}
+
+  /* Einsatz-Hinweise */
+  .praxis{background:var(--papier);border:1px solid var(--linie);border-radius:16px;
+    padding:clamp(16px,3vw,24px);margin-bottom:clamp(26px,5vw,38px);}
+  .praxis h2{font-size:clamp(19px,3.4vw,24px);font-weight:normal;color:var(--gruen);margin-bottom:12px;}
+  .praxis p{font-family:var(--sans);font-size:14px;line-height:1.6;margin-bottom:10px;}
+  .praxis p:last-child{margin-bottom:0;}
+
+  /* Kontakt + QR */
+  .kontakt{display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:center;
+    text-align:center;margin-bottom:10px;}
+  .kontakt .txt{max-width:460px;font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--leise);}
+  .kontakt .txt strong{display:block;font-family:'Iowan Old Style',Palatino,Georgia,serif;
+    font-size:20px;font-weight:normal;color:var(--gruen);margin-bottom:6px;}
+  .qr{flex:none;text-align:center;}
+  .qr img{width:104px;height:104px;display:block;}
+  .qr figcaption{font-family:var(--sans);font-size:11px;color:var(--leise);margin-top:5px;}
+
+  /* Fuß — wie in allen Mibaso-Apps */
+  footer{flex-shrink:0;margin-top:34px;background:linear-gradient(135deg,#26402F,#3A5F4A);
+    color:#F7F3E8;font-family:var(--sans);
+    padding:24px 18px;padding-bottom:max(24px,calc(env(safe-area-inset-bottom) + 16px));}
+  footer .fin{max-width:720px;margin:0 auto;text-align:center;}
+  footer .chips{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:14px;}
+  footer .chip{background:rgba(247,243,232,.12);border:1px solid rgba(247,243,232,.35);
+    border-radius:18px;padding:4px 11px;font-size:12.5px;color:#F7F3E8;text-decoration:none;}
+  footer .chip:hover{background:rgba(247,243,232,.2);}
+  footer .klein{font-size:13px;color:rgba(247,243,232,.85);line-height:1.95;}
+  footer a{color:#F7F3E8;}
+
+  /* Beamer: ab Full-HD alles eine Spur größer, damit es aus der letzten Reihe lesbar bleibt */
+  @media (min-width:1400px){
+    main{max-width:1180px;}
+    .lead{font-size:20px;max-width:760px;}
+    .karte h3{font-size:21px;}
+    .karte .was, .karte ul li{font-size:15px;}
+    .zusagen li{font-size:15.5px;}
+    .praxis p{font-size:15.5px;}
+  }
+
+  @media (max-width:600px){
+    main{padding:max(26px,calc(env(safe-area-inset-top) + 16px)) 14px 26px;}
+    .karten{grid-template-columns:1fr;}
+    .zusagen ul{grid-template-columns:1fr;}
+  }
+
+  /* Handzettel: eine Seite Papier, Adressen ausgeschrieben, keine Farbflächen */
+  @media print{
+    @page{margin:14mm 13mm;}
+    html,body{background:#fff;color:#000;font-size:9.6pt;line-height:1.34;}
+    main{max-width:none;padding:0;}
+    a{color:#000;text-decoration:none;}
+    .kopf{margin-bottom:8px;}
+    .kopf h1{font-size:21pt;margin:2px 0 3px;}
+    .kopf .unter{font-size:10pt;}
+    .kopf .strich{margin-top:7px;height:2px;}
+    .lead{font-size:10pt;margin-bottom:10px;max-width:none;}
+    .zusagen,.praxis,.karte{border:0.6pt solid #999;border-radius:5pt;background:#fff;
+      padding:7pt 9pt;break-inside:avoid;}
+    .zusagen{margin-bottom:11px;}
+    .zusagen h2,.fach > h2{color:#000;}
+    .zusagen ul{grid-template-columns:1fr 1fr 1fr 1fr;gap:6pt;}
+    .zusagen li{font-size:8.4pt;}
+    .fach{margin-bottom:11px;break-inside:avoid;}
+    .fach > h2{font-size:12.5pt;border-bottom:1pt solid #000;margin-bottom:3px;padding-bottom:3px;}
+    .fach > .fsub{font-size:8.4pt;margin-bottom:6px;}
+    .karten{gap:6pt;grid-template-columns:1fr 1fr 1fr;}
+    .karte h3{font-size:10.5pt;color:#000;margin-bottom:2px;}
+    .karte .was{font-size:8.4pt;margin-bottom:4px;}
+    .marker{margin-bottom:4px;}
+    .marker span{background:none;border:0.5pt solid #999;color:#000;font-size:7.4pt;padding:1pt 4pt;}
+    .karte ul{font-size:8pt;margin-bottom:3px;}
+    .karte ul li{color:#000;}
+    .los{display:none;}
+    .karte .adresse{display:block;font-family:var(--sans);font-size:7.6pt;color:#333;
+      word-break:break-all;}
+    .praxis{margin-bottom:10px;}
+    .praxis h2{font-size:11pt;margin-bottom:4px;}
+    .praxis p{font-size:8.6pt;margin-bottom:3px;}
+    .kontakt{gap:14pt;break-inside:avoid;}
+    .kontakt .txt{font-size:9pt;}
+    .kontakt .txt strong{font-size:13pt;}
+    .qr img{width:74pt;height:74pt;}
+    footer{background:none;color:#000;margin-top:9px;padding:6pt 0 0;
+      border-top:0.6pt solid #999;}
+    footer .chips{display:none;}
+    footer .klein{color:#000;font-size:8pt;line-height:1.4;}
+    footer a{color:#000;}
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="kopf">
+    <div class="marke">mibaso.de/schule</div>
+    <h1>Für den Unterricht</h1>
+    <div class="unter">Lern-Apps zu Biologie und Geschichte — von Michael Baur</div>
+    <div class="strich"></div>
+  </div>
+
+  <p class="lead">Über dreißig Jahre Biologie- und Chemieunterricht, danach Fachberater
+  für Medienkompetenz: Aus dieser Mischung sind kleine Web-Apps entstanden, die man
+  ohne Vorbereitung im Unterricht einsetzen kann — drinnen am Beamer, draußen auf der
+  Wiese, oder von den Schülerinnen und Schülern zu Hause.</p>
+
+  <section class="zusagen">
+    <h2>Ohne Hürden einsetzbar</h2>
+    <ul>
+      <li><span class="hk" aria-hidden="true">✓</span><span><b>Keine Anmeldung.</b>
+        Kein Konto, kein Passwort, keine Schullizenz.</span></li>
+      <li><span class="hk" aria-hidden="true">✓</span><span><b>Keine Daten.</b>
+        Nichts wird erhoben oder weitergegeben, kein Tracking, keine Werbung.</span></li>
+      <li><span class="hk" aria-hidden="true">✓</span><span><b>Läuft offline.</b>
+        Einmal geladen, funktioniert alles auch ohne WLAN — etwa im Wald.</span></li>
+      <li><span class="hk" aria-hidden="true">✓</span><span><b>Kostenlos.</b>
+        Ein privates, nicht-kommerzielles Projekt ohne Geschäftsmodell.</span></li>
+    </ul>
+  </section>
+
+  <section class="fach">
+    <h2>Biologie · Sachunterricht · Naturwissenschaften</h2>
+    <p class="fsub">Zwei Ökosysteme in voller Tiefe, dazu Bestimmungswerkzeuge mit
+    150 Pflanzen- und zahlreichen Tierarten aus der Region.</p>
+    <div class="karten">
+
+      <article class="karte">
+        <h3>Ökosystem Wald</h3>
+        <p class="was">Acht Lernpfade, die den Wald von oben nach unten durchgehen —
+        vom Kronendach bis in den Boden.</p>
+        <div class="marker"><span>Kl. 5–10</span><span>je 15–25 Min</span><span>Beamer oder Tablet</span></div>
+        <ul>
+          <li>Der Aufbau des Waldes — Stockwerke</li>
+          <li>Das Geheimnis des Waldbodens</li>
+          <li>Bäume erkennen · Waldpflanzen entdecken</li>
+          <li>Frühblüher · Der Wald im Jahreslauf</li>
+          <li>Warum der Wald so wichtig ist · Invasive Arten</li>
+        </ul>
+        <a class="los" href="https://bio.mibaso.de/flora/">Zu den Waldpfaden</a>
+        <div class="adresse">bio.mibaso.de/flora/</div>
+      </article>
+
+      <article class="karte">
+        <h3>Ökosystem Wiese</h3>
+        <p class="was">Sieben Lernpfade rund um die Wiese und ihre Bewohner —
+        von der Frage, wem sie eigentlich gehört, bis zum Nahrungsnetz.</p>
+        <div class="marker"><span>Kl. 5–9</span><span>je 15–25 Min</span><span>Beamer oder Tablet</span></div>
+        <ul>
+          <li>Wem gehört die Wiese? · Wo wohnen Insekten?</li>
+          <li>Wie wird man Insekt? — Metamorphose</li>
+          <li>Wer bestäubt wen? · Wer frisst wen?</li>
+          <li>Was wir nicht sehen — Bodenleben</li>
+        </ul>
+        <a class="los" href="https://bio.mibaso.de/fauna/">Zu den Wiesenpfaden</a>
+        <div class="adresse">bio.mibaso.de/fauna/</div>
+      </article>
+
+      <article class="karte">
+        <h3>Blüte, Bestäubung, Samen</h3>
+        <p class="was">Der Kreislauf einer Pflanze in vier animierten Schritten —
+        vom Bauplan über die Bestäubung bis zur Reise des Samens.</p>
+        <div class="marker"><span>Kl. 5–8</span><span>je 15–20 Min</span><span>Beamer</span></div>
+        <ul>
+          <li>Der Bauplan — Aufbau einer Pflanze</li>
+          <li>Von der Blüte zum Samen</li>
+          <li>Bestäubung Schritt für Schritt</li>
+          <li>Auf großer Reise — Samenverbreitung</li>
+        </ul>
+        <a class="los" href="https://bio.mibaso.de/flora/">Zu den Lernpfaden</a>
+        <div class="adresse">bio.mibaso.de/flora/</div>
+      </article>
+
+      <article class="karte">
+        <h3>Fotosynthese und Stoffkreislauf</h3>
+        <p class="was">Wie Pflanzen „essen" und atmen — der Gaskreislauf als
+        Animation, die man Schritt für Schritt anhalten kann.</p>
+        <div class="marker"><span>Kl. 7–10</span><span>20–30 Min</span><span>Beamer</span></div>
+        <ul>
+          <li>Pflanzen &amp; Energie</li>
+          <li>Der Gas-Kreislauf — Photosynthese &amp; Atmung</li>
+          <li>Ein Jahr im Apfelbaum</li>
+          <li>Überlebenskünstler — Pflanzenstrategien</li>
+        </ul>
+        <a class="los" href="https://bio.mibaso.de/flora/">Zu den Lernpfaden</a>
+        <div class="adresse">bio.mibaso.de/flora/</div>
+      </article>
+
+      <article class="karte">
+        <h3>Bestimmen im Gelände</h3>
+        <p class="was">Zwei Bestimmungswege — geführt über Fragen oder frei über
+        Filter. Funktioniert auf dem Handy und ohne Empfang.</p>
+        <div class="marker"><span>Kl. 5–13</span><span>Exkursion</span><span>draußen, Handy</span></div>
+        <ul>
+          <li>Frag dich durch — geführte Bestimmung</li>
+          <li>Was blüht denn hier? — 150 Arten</li>
+          <li>Was kreucht und fleucht? — Tiere bestimmen</li>
+          <li>Mein Sammelpass — gefundene Arten sammeln</li>
+        </ul>
+        <a class="los" href="https://flora.mibaso.de/bestimmen-gefuehrt.html">Bestimmung öffnen</a>
+        <div class="adresse">flora.mibaso.de · fauna.mibaso.de</div>
+      </article>
+
+      <article class="karte">
+        <h3>Ordnen und Verwandtschaft</h3>
+        <p class="was">Systematik zum Anfassen: vom Reich bis zur Art klicken,
+        Stammbäume verzweigen, Verwandtschaften erkennen.</p>
+        <div class="marker"><span>Kl. 7–11</span><span>20–45 Min</span><span>Tablet oder Beamer</span></div>
+        <ul>
+          <li>Systematik &amp; Ränge — jede Ebene eigene Farbe</li>
+          <li>Stammbaum der Tiere — verzweigt und dichotom</li>
+          <li>Verwandte finden — drei gehören zusammen</li>
+          <li>Quizze zu Pflanzen und Tieren</li>
+        </ul>
+        <a class="los" href="https://fauna.mibaso.de/interaktiv/stammbaum.html">Stammbaum öffnen</a>
+        <div class="adresse">fauna.mibaso.de/interaktiv/stammbaum.html</div>
+      </article>
+
+      <article class="karte">
+        <h3>Forscherpässe</h3>
+        <p class="was">Spielerische Sammelaufgaben für eine ganze Einheit oder einen
+        Wandertag: Aufgaben lösen, Abzeichen sammeln, Meister werden.</p>
+        <div class="marker"><span>Kl. 4–8</span><span>Projekttag</span><span>drinnen und draußen</span></div>
+        <ul>
+          <li>Expedition Wiese — Pflanzen</li>
+          <li>Expedition Wald — vom Zapfen zum Wald-Meister</li>
+          <li>Expedition Wiese — Tiere</li>
+        </ul>
+        <a class="los" href="https://bio.mibaso.de/">Pässe öffnen</a>
+        <div class="adresse">bio.mibaso.de</div>
+      </article>
+
+      <article class="karte">
+        <h3>Naturphänomene erklärt</h3>
+        <p class="was">Kurze Antworten auf Kinderfragen — gut als Einstieg in eine
+        Stunde oder als Puffer für die letzten zehn Minuten.</p>
+        <div class="marker"><span>Kl. 3–7</span><span>je 5–10 Min</span><span>Beamer</span></div>
+        <ul>
+          <li>Warum brennen Brennnesseln?</li>
+          <li>Warum leuchten Glühwürmchen?</li>
+          <li>Warum haben Marienkäfer Punkte?</li>
+          <li>Warum drehen sich Sonnenblumen?</li>
+        </ul>
+        <a class="los" href="https://flora.mibaso.de/">Zum Staunen</a>
+        <div class="adresse">flora.mibaso.de · fauna.mibaso.de</div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="fach">
+    <h2>Geschichte</h2>
+    <p class="fsub">Weltgeschichte als chronologische Reise: kurze Szenen mit
+    Orientierungskarte, historischem Bild, Sprechertext und Quiz.</p>
+    <div class="karten">
+
+      <article class="karte">
+        <h3>Historia — Episode 1</h3>
+        <p class="was">Pharaonen, Griechen und Cäsaren: sechzehn Schlüsselszenen von
+        Narmer bis zum Ende des Weströmischen Reiches.</p>
+        <div class="marker"><span>Kl. 6–10</span><span>je Szene 2–4 Min</span><span>Beamer, Ton nötig</span></div>
+        <ul>
+          <li>Jede Szene zuerst mit Karte, dann mit Bild</li>
+          <li>Zwei Vertiefungspunkte je Szene</li>
+          <li>Zwei Quizfragen je Szene</li>
+          <li>Untertitel für alle Sprechertexte</li>
+        </ul>
+        <a class="los" href="https://historia.mibaso.de/">Episode 1 öffnen</a>
+        <div class="adresse">historia.mibaso.de</div>
+      </article>
+
+      <article class="karte">
+        <h3>Historia — Episode 2</h3>
+        <p class="was">Kaiser, Kreuzfahrer und Revolutionäre: von der Hidschra 622
+        bis Waterloo 1815, ebenfalls in sechzehn Szenen.</p>
+        <div class="marker"><span>Kl. 7–11</span><span>je Szene 2–4 Min</span><span>Beamer</span></div>
+        <ul>
+          <li>Bilder und Karten vollständig</li>
+          <li>Sprecheraufnahmen folgen noch</li>
+          <li>Vertiefung und Quiz wie in Episode 1</li>
+        </ul>
+        <a class="los" href="https://historia.mibaso.de/episode-2">Episode 2 öffnen</a>
+        <div class="adresse">historia.mibaso.de/episode-2</div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="fach">
+    <h2>Erdgeschichte und Evolution</h2>
+    <p class="fsub">Fächerübergreifend zwischen Biologie und Geschichte —
+    und ein guter Einstieg in beide.</p>
+    <div class="karten">
+
+      <article class="karte">
+        <h3>Die große Zeitreise</h3>
+        <p class="was">4,6 Milliarden Jahre in zweiundzwanzig Szenen: von der
+        glühenden Erde über die erste Zelle bis zu den Säugetieren.</p>
+        <div class="marker"><span>Kl. 6–12</span><span>ca. 25 Min gesamt</span><span>Beamer, Ton nötig</span></div>
+        <ul>
+          <li>Sprechertexte, Animationen und Atmosphäre</li>
+          <li>Zwei Quizfragen je Szene, dazu ein Abschlussquiz</li>
+          <li>Interaktiver Tierstammbaum zur Vertiefung</li>
+          <li>Als App auf dem Tablet installierbar</li>
+        </ul>
+        <a class="los" href="https://evo.mibaso.de/">Zeitreise starten</a>
+        <div class="adresse">evo.mibaso.de</div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="praxis">
+    <h2>Wie das im Unterricht läuft</h2>
+    <p><b>Am Beamer.</b> Die Lernpfade und Zeitreisen sind für die Projektion gebaut:
+    große Bilder, wenig Text, alles lässt sich anhalten und zurückspulen. Ein Rechner
+    mit Browser genügt, keine Installation.</p>
+    <p><b>Auf dem Handy im Gelände.</b> Die Bestimmungswerkzeuge und Forscherpässe
+    funktionieren draußen — auch ohne Empfang, wenn die Seite vorher einmal geöffnet
+    wurde. Ein Gerät je Zweier- oder Dreiergruppe reicht.</p>
+    <p><b>Zu Hause.</b> Alles ist frei zugänglich. Ein Link oder QR-Code genügt, es
+    gibt nichts einzurichten und nichts anzumelden.</p>
+    <p><b>Datenschutz.</b> Die Apps erheben keine Daten. Was Schülerinnen und Schüler
+    sammeln — etwa gefundene Arten — bleibt allein auf ihrem eigenen Gerät und
+    verlässt es nicht.</p>
+  </section>
+
+  <div class="kontakt">
+    <div class="txt">
+      <strong>Sie möchten mehr wissen?</strong>
+      Ich stelle die Sammlung gern an Ihrer Schule vor, zeige den Einsatz im
+      Unterricht und beantworte Fragen — auch zum Datenschutz.<br>
+      <a href="mailto:mibaur@me.com">mibaur@me.com</a>
+    </div>
+    <figure class="qr">
+      <img src="qr-schule.svg" alt="QR-Code zu mibaso.de/schule" width="104" height="104">
+      <figcaption>mibaso.de/schule</figcaption>
+    </figure>
+  </div>
+</main>
+
+<footer>
+  <div class="fin">
+    <div class="chips">
+      <a class="chip" href="https://mibaso.de">⌂ Alle Mibaso-Apps</a>
+    </div>
+    <div class="klein">
+      <a href="../ueber/">Über mich</a> · <a href="../impressum/">Impressum &amp; Datenschutz</a><br>
+      © 2026 Michael Baur · Kontakt: <a href="mailto:mibaur@me.com">mibaur@me.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Service Worker der Startseite mitbenutzen — dadurch ist auch diese Seite
+   offline verfügbar und aktualisiert sich wie die übrigen Apps von selbst. */
+if ('serviceWorker' in navigator) {
+  var refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', function () {
+    if (refreshing) return; refreshing = true; window.location.reload();
+  });
+  function uebernehmen(reg) {
+    if (reg && reg.waiting && navigator.serviceWorker.controller) {
+      reg.waiting.postMessage('SKIP_WAITING');
+      setTimeout(function () { if (!refreshing) { refreshing = true; window.location.reload(); } }, 1500);
+    }
+  }
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').then(function (reg) {
+      uebernehmen(reg);
+      reg.addEventListener('updatefound', function () {
+        var neu = reg.installing; if (!neu) return;
+        neu.addEventListener('statechange', function () {
+          if (neu.state === 'installed') uebernehmen(reg);
+        });
+      });
+      reg.update();
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') reg.update();
+      });
+      setInterval(function () { reg.update(); }, 3 * 60 * 1000);
+    }).catch(function () {});
+  });
+}
+</script>
+</body>
+</html>
