@@ -178,6 +178,38 @@
     footer .klein{color:#000;font-size:8pt;line-height:1.4;}
     footer a{color:#000;}
   }
+
+  /* Sprungmenü zu den Fächern (Neubau Oktober 2026) */
+  .sprung{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+    margin:0 0 clamp(18px,3vw,24px);}
+  .sprung a{font-family:var(--sans);font-size:13.5px;text-decoration:none;
+    border:1.5px solid var(--c);color:var(--c);border-radius:999px;padding:7px 16px;}
+  .sprung a:hover{background:color-mix(in srgb, var(--c) 10%, transparent);}
+  .sprung .s-bio{--c:#2F4F3E;} .sprung .s-gesch{--c:#B65A42;} .sprung .s-evo{--c:#9C6B2E;}
+  .fach{scroll-margin-top:14px;}
+  html{scroll-behavior:smooth;}
+
+  /* Jeder Listenpunkt ist ein direkter Link zur passenden Station */
+  .karte .was{flex:0 0 auto;}
+  .karte ul{flex:1 0 auto;}
+  .karte ul li{padding-top:2px;padding-bottom:2px;}
+  .karte ul li::before{content:"›";}
+  .karte ul li a{color:var(--tinte);text-decoration:none;
+    border-bottom:1px solid color-mix(in srgb, var(--akzent) 40%, transparent);}
+  .karte ul li a:hover{color:var(--akzent);border-bottom-color:var(--akzent);}
+  .karte ul li .her{display:block;font-size:11.5px;color:var(--leise);font-style:italic;}
+  @media (pointer:coarse){ .karte ul li{padding-top:4px;padding-bottom:4px;} }
+  @media print{
+    .sprung{display:none;}
+    .karte ul li{padding-top:0;padding-bottom:0;}
+    .karte ul li a{border:0;color:#000;}
+    .karte ul li .her{display:inline;font-size:7pt;color:#333;}
+    /* Fächer dürfen über die Seite laufen, nur Karten und Überschriften bleiben beisammen */
+    .fach{break-inside:auto;}
+    .fach.gesch, .fach.evo{break-inside:avoid;}
+    .fach > h2, .fach > .fsub{break-after:avoid;}
+    .praxis{break-inside:auto;}
+  }
 </style>
 </head>
 <body>
@@ -200,89 +232,177 @@
     <h2>Ohne Hürden einsetzbar</h2>
     <ul>
       <li><span class="hk" aria-hidden="true">✓</span><span><b>Keine Anmeldung.</b>
-        Kein Konto, kein Passwort, keine Schullizenz.</span></li>
+      Kein Konto, kein Passwort, keine Schullizenz.</span></li>
       <li><span class="hk" aria-hidden="true">✓</span><span><b>Keine Daten.</b>
-        Nichts wird erhoben oder weitergegeben, kein Tracking, keine Werbung.</span></li>
+      Nichts wird erhoben oder weitergegeben, kein Tracking, keine Werbung.</span></li>
       <li><span class="hk" aria-hidden="true">✓</span><span><b>Läuft offline.</b>
-        Einmal geladen, funktioniert alles auch ohne WLAN — etwa im Wald.</span></li>
+      Einmal geladen, funktioniert alles auch ohne WLAN — etwa im Wald.</span></li>
       <li><span class="hk" aria-hidden="true">✓</span><span><b>Kostenlos.</b>
-        Ein privates, nicht-kommerzielles Projekt ohne Geschäftsmodell.</span></li>
+      Ein privates, nicht-kommerzielles Projekt ohne Geschäftsmodell.</span></li>
     </ul>
   </section>
+
+  <nav class="sprung" aria-label="Zu den Fächern springen">
+    <a href="#biologie" class="s-bio">Biologie</a>
+    <a href="#geschichte" class="s-gesch">Geschichte</a>
+    <a href="#erdgeschichte" class="s-evo">Erdgeschichte</a>
+  </nav>
 
   <p class="kc-hinweis">Die Angaben zum Kerncurriculum beziehen sich auf die hessischen
   Kerncurricula für Biologie und Geschichte (Sekundarstufe I) sowie Sachunterricht
   (Primarstufe).</p>
 
-  <section class="fach">
+  <!-- ===================== BIOLOGIE ===================== -->
+  <section class="fach" id="biologie">
     <h2>Biologie · Sachunterricht · Naturwissenschaften</h2>
-    <p class="fsub">Zwei Ökosysteme in voller Tiefe, dazu Bestimmungswerkzeuge mit
-    150 Pflanzen- und zahlreichen Tierarten aus der Region.</p>
+    <p class="fsub">Zwei Ökosysteme in voller Tiefe, dazu Bestimmen und Ordnen mit
+    150 Pflanzen- und zahlreichen Tierarten aus der Region. Jeder Eintrag führt
+    direkt zur passenden Station — ohne Umweg über eine Übersicht.</p>
+
     <div class="karten">
 
       <article class="karte">
         <h3>Ökosystem Wald</h3>
-        <p class="was">Acht Lernpfade, die den Wald von oben nach unten durchgehen —
+        <p class="was">Acht Stationen, die den Wald von oben nach unten durchgehen —
         vom Kronendach bis in den Boden.</p>
         <div class="marker"><span>Kl. 5–10</span><span>je 15–25 Min</span><span>Handy, Tablet oder Beamer</span></div>
         <ul>
-          <li>Der Aufbau des Waldes — Stockwerke</li>
-          <li>Das Geheimnis des Waldbodens</li>
-          <li>Bäume erkennen · Waldpflanzen entdecken</li>
-          <li>Frühblüher · Der Wald im Jahreslauf</li>
-          <li>Warum der Wald so wichtig ist · Invasive Arten</li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-stockwerke.html">Der Aufbau des Waldes — Stockwerke</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-waldboden.html">Das Geheimnis des Waldbodens</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-baeume.html">Bäume erkennen</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-erkennen.html">Waldpflanzen entdecken</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-fruehblueher.html">Frühblüher im Wald</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-jahreslauf.html">Der Wald im Jahreslauf</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-nutzen.html">Warum der Wald so wichtig ist</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-invasive.html">Invasive Arten</a></li>
         </ul>
-        <a class="los" href="https://bio.mibaso.de/flora/">Zu den Waldpfaden</a>
+        <a class="los" href="https://bio.mibaso.de/flora/waldpass.html">Forscherpass „Expedition Wald“</a>
         <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Bewertung: Handeln und Umwelt</p>
-        <div class="adresse">bio.mibaso.de/flora/</div>
+        <div class="adresse">bio.mibaso.de/flora/waldpass.html</div>
       </article>
 
       <article class="karte">
         <h3>Ökosystem Wiese</h3>
-        <p class="was">Sieben Lernpfade rund um die Wiese und ihre Bewohner —
+        <p class="was">Sieben Stationen rund um die Wiese und ihre Bewohner —
         von der Frage, wem sie eigentlich gehört, bis zum Nahrungsnetz.</p>
         <div class="marker"><span>Kl. 5–9</span><span>je 15–25 Min</span><span>Handy, Tablet oder Beamer</span></div>
         <ul>
-          <li>Wem gehört die Wiese? · Wo wohnen Insekten?</li>
-          <li>Wie wird man Insekt? — Metamorphose</li>
-          <li>Wer bestäubt wen? · Wer frisst wen?</li>
-          <li>Was wir nicht sehen — Bodenleben</li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/grundlagen.html">Wem gehört die Wiese?</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/lebensraum.html">Wo wohnen Insekten?</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/verwandlung.html">Wie wird man Insekt? — Metamorphose</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/bestaeubung.html">Wer bestäubt wen?</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/nahrungsnetz.html">Wer frisst wen? — Nahrungsnetz</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/bodenleben.html">Was wir nicht sehen — Bodenleben</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/wiese-lebt.html">Wie hängt alles zusammen?</a></li>
         </ul>
-        <a class="los" href="https://bio.mibaso.de/fauna/">Zu den Wiesenpfaden</a>
+        <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/wiesenpass.html">Forscherpass „Expedition Wiese“</a>
         <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen</p>
-        <div class="adresse">bio.mibaso.de/fauna/</div>
+        <div class="adresse">bio.mibaso.de/fauna/interaktiv/wiesenpass.html</div>
       </article>
 
       <article class="karte">
-        <h3>Blüte, Bestäubung, Samen</h3>
-        <p class="was">Der Kreislauf einer Pflanze in vier animierten Schritten —
-        vom Bauplan über die Bestäubung bis zur Reise des Samens.</p>
+        <h3>Bestäubung</h3>
+        <p class="was">Blüte und Bestäuber als Team — einmal aus Sicht der Pflanze,
+        einmal aus Sicht der Insekten. Zwei Stationen stammen aus den Forscherpässen
+        „Expedition Wiese“.</p>
         <div class="marker"><span>Kl. 5–8</span><span>je 15–20 Min</span><span>Handy, Tablet oder Beamer</span></div>
         <ul>
-          <li>Der Bauplan — Aufbau einer Pflanze</li>
-          <li>Von der Blüte zum Samen</li>
-          <li>Bestäubung Schritt für Schritt</li>
-          <li>Auf großer Reise — Samenverbreitung</li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/bestaeubung.html">Wer bestäubt wen?</a> <span class="her">Expedition Wiese · Tiere</span></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/bestaeubung-erklaerung.html">Von der Blüte zum Samen</a> <span class="her">Expedition Wiese · Pflanzen</span></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/bestaeubung-animiert.html">Bestäubung Schritt für Schritt — Animation</a></li>
+          <li><a href="https://flora.mibaso.de/interaktiv/bluetenoekologie.html">Blütenökologie — wer besucht wen?</a></li>
+          <li><a href="https://fauna.mibaso.de/interaktiv/hummeln-flyer.html">Unsere Hummeln</a></li>
         </ul>
-        <a class="los" href="https://bio.mibaso.de/flora/">Zu den Lernpfaden</a>
-        <p class="kc"><b>Kerncurriculum:</b> Fortpflanzung und Entwicklung</p>
-        <div class="adresse">bio.mibaso.de/flora/</div>
+        <a class="los" href="https://bio.mibaso.de/flora/pflanzenpass.html">Forscherpass „Expedition Wiese“</a>
+        <p class="kc"><b>Kerncurriculum:</b> Fortpflanzung und Entwicklung · Wechselwirkungen in Ökosystemen</p>
+        <div class="adresse">bio.mibaso.de/flora/pflanzenpass.html</div>
       </article>
 
       <article class="karte">
-        <h3>Fotosynthese und Stoffkreislauf</h3>
-        <p class="was">Wie Pflanzen „essen" und atmen — der Gaskreislauf als
-        Animation, die man Schritt für Schritt anhalten kann.</p>
+        <h3>Bauplan und Samen</h3>
+        <p class="was">Wie eine Pflanze gebaut ist, wie sie ihre Samen auf die Reise
+        schickt und wie sie schwierige Bedingungen übersteht.</p>
+        <div class="marker"><span>Kl. 5–8</span><span>je 15–20 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <ul>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/pflanze-verstehen.html">Der Bauplan — Aufbau einer Pflanze</a></li>
+          <li><a href="https://flora.mibaso.de/interaktiv/pflanze-zuordnung.html">Pflanze beschriften — Anatomie-Check</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/samenreise.html">Auf großer Reise — Samenverbreitung</a></li>
+          <li><a href="https://flora.mibaso.de/interaktiv/samenverbreitung.html">Wie Pflanzen reisen — Zuordnen und Üben</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/pflanzenstrategien.html">Überlebenskünstler — Pflanzenstrategien</a></li>
+        </ul>
+        <a class="los" href="https://bio.mibaso.de/flora/interaktiv/pflanze-verstehen.html">Mit dem Bauplan beginnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Fortpflanzung und Entwicklung</p>
+        <div class="adresse">bio.mibaso.de/flora/interaktiv/pflanze-verstehen.html</div>
+      </article>
+
+      <article class="karte">
+        <h3>Fotosynthese und Atmung</h3>
+        <p class="was">Ein Lernpfad in fünf Schritten — jeder Schritt lässt sich
+        einzeln aufrufen, etwa nur die Animation für den Einstieg am Beamer.</p>
         <div class="marker"><span>Kl. 7–10</span><span>20–30 Min</span><span>Handy, Tablet oder Beamer</span></div>
         <ul>
-          <li>Pflanzen &amp; Energie</li>
-          <li>Der Gas-Kreislauf — Photosynthese &amp; Atmung</li>
-          <li>Ein Jahr im Apfelbaum</li>
-          <li>Überlebenskünstler — Pflanzenstrategien</li>
+          <li><a href="https://flora.mibaso.de/interaktiv/energie-pfad.html#schritt-1">Schritt 1 · Fotosynthese — Licht wird Zucker</a></li>
+          <li><a href="https://flora.mibaso.de/interaktiv/energie-pfad.html#schritt-2">Schritt 2 · Atmung — Zucker wird Energie</a></li>
+          <li><a href="https://flora.mibaso.de/interaktiv/energie-pfad.html#schritt-3">Schritt 3 · Der Gas-Kreislauf als Animation</a></li>
+          <li><a href="https://flora.mibaso.de/interaktiv/energie-pfad.html#schritt-4">Schritt 4 · Üben mit Lückentext</a></li>
+          <li><a href="https://flora.mibaso.de/interaktiv/energie-pfad.html#schritt-5">Schritt 5 · Quiz</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/jahreszeiten-baum.html">Dazu: Ein Jahr im Apfelbaum</a></li>
         </ul>
-        <a class="los" href="https://bio.mibaso.de/flora/">Zu den Lernpfaden</a>
+        <a class="los" href="https://flora.mibaso.de/interaktiv/energie-pfad.html#schritt-1">Lernpfad starten</a>
         <p class="kc"><b>Kerncurriculum:</b> Stoffwechsel und Regelmechanismen</p>
-        <div class="adresse">bio.mibaso.de/flora/</div>
+        <div class="adresse">flora.mibaso.de/interaktiv/energie-pfad.html</div>
+      </article>
+
+      <article class="karte">
+        <h3>Pflanzen ordnen</h3>
+        <p class="was">Das Pflanzenreich zum Durchklicken — von den Moosen bis zu den
+        Blütenpflanzen, hinunter bis zu den Familien und ihren heimischen Arten.</p>
+        <div class="marker"><span>Kl. 5–10</span><span>15–30 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <ul>
+          <li><a href="https://flora.mibaso.de/interaktiv/systematik.html#root">Das Reich der Pflanzen — Überblick</a></li>
+          <li>Großgruppen:
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#moose">Moose</a> ·
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#farne">Farne</a> ·
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#nacktsamer">Nadelbäume</a> ·
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#bedecktsamer">Blütenpflanzen</a></li>
+          <li><a href="https://flora.mibaso.de/interaktiv/systematik.html#einkeimblaettrige">Einkeimblättrige</a> ·
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#zweikeimblaettrige">Zweikeimblättrige</a></li>
+          <li>Familien:
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#korbbluetler">Korbblütler</a> ·
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#lippenbluetler">Lippenblütler</a> ·
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#schmetterlingsbluetler">Schmetterlingsblütler</a> ·
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#rosengewaechse">Rosengewächse</a> ·
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#doldenbluetler">Doldenblütler</a> ·
+            <a href="https://flora.mibaso.de/interaktiv/systematik.html#kreuzbluetler">Kreuzblütler</a></li>
+          <li><a href="https://flora.mibaso.de/quiz/familien-quiz.html">Welche Pflanze passt nicht? — Familien-Quiz</a></li>
+          <li><a href="https://flora.mibaso.de/quiz/pflanzenquiz.html">Pflanzenquiz</a></li>
+        </ul>
+        <a class="los" href="https://flora.mibaso.de/interaktiv/systematik.html#root">Pflanzenreich öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
+        <div class="adresse">flora.mibaso.de/interaktiv/systematik.html</div>
+      </article>
+
+      <article class="karte">
+        <h3>Tiere ordnen</h3>
+        <p class="was">Systematik zum Anfassen: die Rangstufen verstehen, im Stammbaum
+        verzweigen, Verwandtschaften erkennen.</p>
+        <div class="marker"><span>Kl. 7–11</span><span>20–45 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <ul>
+          <li><a href="https://fauna.mibaso.de/interaktiv/systematik.html">Systematik &amp; Ränge — vom Reich bis zur Art</a></li>
+          <li><a href="https://fauna.mibaso.de/interaktiv/stammbaum.html">Stammbaum der Tiere — Überblick</a></li>
+          <li>Direkt im Stammbaum:
+            <a href="https://fauna.mibaso.de/interaktiv/stammbaum.html?gruppe=Insekten">Insekten</a> ·
+            <a href="https://fauna.mibaso.de/interaktiv/stammbaum.html?gruppe=Libellen">Libellen</a> ·
+            <a href="https://fauna.mibaso.de/interaktiv/stammbaum.html?gruppe=Spinnentiere">Spinnentiere</a> ·
+            <a href="https://fauna.mibaso.de/interaktiv/stammbaum.html?gruppe=Krebstiere">Krebstiere</a> ·
+            <a href="https://fauna.mibaso.de/interaktiv/stammbaum.html?gruppe=Weichtiere">Weichtiere</a></li>
+          <li><a href="https://fauna.mibaso.de/interaktiv/verwandte-finden.html">Verwandte finden — welches Tier gehört dazu?</a></li>
+          <li><a href="https://fauna.mibaso.de/interaktiv/tierquiz.html">Tierquiz</a></li>
+          <li><a href="#erdgeschichte">Wie die Tiergruppen entstanden: Die große Zeitreise</a></li>
+        </ul>
+        <a class="los" href="https://fauna.mibaso.de/interaktiv/stammbaum.html">Stammbaum öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
+        <div class="adresse">fauna.mibaso.de/interaktiv/stammbaum.html</div>
       </article>
 
       <article class="karte">
@@ -291,10 +411,10 @@
         Filter. Funktioniert auf dem Handy und ohne Empfang.</p>
         <div class="marker"><span>Kl. 5–13</span><span>Exkursion</span><span>draußen, Handy</span></div>
         <ul>
-          <li>Frag dich durch — geführte Bestimmung</li>
-          <li>Was blüht denn hier? — 150 Arten</li>
-          <li>Was kreucht und fleucht? — Tiere bestimmen</li>
-          <li>Mein Sammelpass — gefundene Arten sammeln</li>
+          <li><a href="https://flora.mibaso.de/bestimmen-gefuehrt.html">Frag dich durch — geführte Pflanzenbestimmung</a></li>
+          <li><a href="https://flora.mibaso.de/bestimmen.html">Was blüht hier? — 150 Arten frei filtern</a></li>
+          <li><a href="https://fauna.mibaso.de/interaktiv/schluessel.html">Was kreucht und fleucht? — Tiere bestimmen</a></li>
+          <li><a href="https://flora.mibaso.de/sammelpass.html">Mein Sammelpass — gefundene Arten sammeln</a></li>
         </ul>
         <a class="los" href="https://flora.mibaso.de/bestimmen-gefuehrt.html">Bestimmung öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
@@ -302,56 +422,25 @@
       </article>
 
       <article class="karte">
-        <h3>Ordnen und Verwandtschaft</h3>
-        <p class="was">Systematik zum Anfassen: vom Reich bis zur Art klicken,
-        Stammbäume verzweigen, Verwandtschaften erkennen.</p>
-        <div class="marker"><span>Kl. 7–11</span><span>20–45 Min</span><span>Handy, Tablet oder Beamer</span></div>
-        <ul>
-          <li>Systematik &amp; Ränge — jede Ebene eigene Farbe</li>
-          <li>Stammbaum der Tiere — verzweigt und dichotom</li>
-          <li>Verwandte finden — drei gehören zusammen</li>
-          <li>Quizze zu Pflanzen und Tieren</li>
-        </ul>
-        <a class="los" href="https://fauna.mibaso.de/interaktiv/stammbaum.html">Stammbaum öffnen</a>
-        <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
-        <div class="adresse">fauna.mibaso.de/interaktiv/stammbaum.html</div>
-      </article>
-
-      <article class="karte">
-        <h3>Forscherpässe</h3>
+        <h3>Forscherpässe für den Projekttag</h3>
         <p class="was">Spielerische Sammelaufgaben für eine ganze Einheit oder einen
-        Wandertag: Aufgaben lösen, Abzeichen sammeln, Meister werden.</p>
+        Wandertag: Stationen lösen, Abzeichen sammeln, Meister werden.</p>
         <div class="marker"><span>Kl. 4–8</span><span>Projekttag</span><span>drinnen und draußen</span></div>
         <ul>
-          <li>Expedition Wiese — Pflanzen</li>
-          <li>Expedition Wald — vom Zapfen zum Wald-Meister</li>
-          <li>Expedition Wiese — Tiere</li>
+          <li><a href="https://bio.mibaso.de/flora/pflanzenpass.html">Expedition Wiese — die Pflanzen</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/wiesenpass.html">Expedition Wiese — die Tiere</a></li>
+          <li><a href="https://bio.mibaso.de/flora/waldpass.html">Expedition Wald — vom Zapfen zum Wald-Meister</a></li>
         </ul>
-        <a class="los" href="https://bio.mibaso.de/">Pässe öffnen</a>
+        <a class="los" href="https://bio.mibaso.de/">Alle Pässe auf bio.mibaso.de</a>
         <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Erkenntnisgewinnung</p>
         <div class="adresse">bio.mibaso.de</div>
-      </article>
-
-      <article class="karte">
-        <h3>Naturphänomene erklärt</h3>
-        <p class="was">Kurze Antworten auf Kinderfragen — gut als Einstieg in eine
-        Stunde oder als Puffer für die letzten zehn Minuten.</p>
-        <div class="marker"><span>Kl. 3–7</span><span>je 5–10 Min</span><span>Handy, Tablet oder Beamer</span></div>
-        <ul>
-          <li>Warum brennen Brennnesseln?</li>
-          <li>Warum leuchten Glühwürmchen?</li>
-          <li>Warum haben Marienkäfer Punkte?</li>
-          <li>Warum drehen sich Sonnenblumen?</li>
-        </ul>
-        <a class="los" href="https://flora.mibaso.de/">Zum Staunen</a>
-        <p class="kc"><b>Kerncurriculum:</b> Sachunterricht: Natur</p>
-        <div class="adresse">flora.mibaso.de · fauna.mibaso.de</div>
       </article>
 
     </div>
   </section>
 
-  <section class="fach gesch">
+
+  <section class="fach gesch" id="geschichte">
     <h2>Geschichte</h2>
     <p class="fsub">Weltgeschichte als chronologische Reise: kurze Szenen mit
     Orientierungskarte, historischem Bild, Sprechertext und Quiz. Alle drei Episoden
@@ -409,7 +498,7 @@
     </div>
   </section>
 
-  <section class="fach evo">
+  <section class="fach evo" id="erdgeschichte">
     <h2>Erdgeschichte und Evolution</h2>
     <p class="fsub">Fächerübergreifend zwischen Biologie und Geschichte —
     und ein guter Einstieg in beide. Auch hier gehört gesprochener Text dazu:
