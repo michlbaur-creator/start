@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mibaso — Meine digitale Naturwerkstatt</title>
-<meta name="description" content="Alle Mibaso-Apps auf einen Blick: Flora, Fauna, Bio, Große Zeitreise, Historia, Kochen und Media.">
+<meta name="description" content="Alle Mibaso-Apps auf einen Blick: Flora, Fauna, Bio, Chemie, Große Zeitreise, Historia, Kochen und Media.">
 <link rel="canonical" href="https://mibaso.de/">
-<link rel="manifest" href="manifest.webmanifest?v=18">
-<link rel="icon" href="assets/favicon-32.png?v=2" sizes="32x32">
-<link rel="icon" href="assets/icon.svg?v=2" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
+<link rel="manifest" href="manifest.webmanifest?v=19">
+<link rel="icon" href="assets/favicon-32.png?v=3" sizes="32x32">
+<link rel="icon" href="assets/icon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
 <meta name="theme-color" content="#2F4F3E">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -58,6 +58,7 @@
   .app.historia{background:linear-gradient(150deg,#C66B49,#8F3F30);}
   .app.kochen{background:linear-gradient(150deg,#6E2A3A,#4A1C27);}
   .app.media {background:linear-gradient(150deg,#3E7CB1,#2A5C86);}
+  .app.chemie{background:linear-gradient(150deg,#2C7D90,#1E5C6C);}
 
   /* Die beiden Geschichts-Apps bleiben getrennte Tafeln. Nur der kurze
      Farbverlauf mit Pfeil verbindet die große Zeitreise mit Historia. */
@@ -131,7 +132,7 @@
     .willkommen{margin-top:clamp(20px,3.5vw,32px);}
   }
 
-  /* Handys: alle sieben Ziele samt Fußbereich auf einen Blick. Die Tafeln
+  /* Handys: alle acht Ziele samt Fußbereich auf einen Blick. Die Tafeln
      bleiben gut tippbar, nutzen die knappe Höhe aber deutlich besser. */
   @media (max-width:600px){
     main{padding:max(34px,calc(env(safe-area-inset-top) + 14px)) 10px 5px;
@@ -233,6 +234,16 @@
     footer .chips{display:none;}
     footer .klein{font-size:9.5px;line-height:1.3;}
   }
+  /* Acht Apps am Handy: ein gemeinsames Zweier-Raster in vier Reihen.
+     Bio und Chemie stehen nebeneinander, die Zeitreise behält ihren Pfeil zu Historia. */
+  @media (max-width:600px){
+    .apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
+    .app-reihe.drei{display:contents;}
+    .app-reihe.drei .app:last-child{grid-column:auto;width:auto;justify-self:stretch;}
+    .geschichte{grid-column:1 / -1;order:5;}
+    .app.flora{order:1;} .app.fauna{order:2;} .app.bio{order:3;} .app.chemie{order:4;}
+    .app.kochen{order:6;} .app.media{order:7;}
+  }
 </style>
 </head>
 <body>
@@ -276,7 +287,12 @@
       </a>
     </div>
 
-    <div class="app-reihe zwei">
+    <div class="app-reihe drei">
+      <a class="app chemie" href="https://chemie.mibaso.de">
+        <span class="app-kopf"><span class="ic" aria-hidden="true">🧪</span><span class="nm">Chemie</span></span>
+        <span class="tx">Säuren, Laugen, Salze &amp; Co.</span>
+        <span class="pf" aria-hidden="true">›</span>
+      </a>
       <a class="app kochen" href="https://kochen.mibaso.de">
         <span class="app-kopf"><span class="ic" aria-hidden="true">🍳</span><span class="nm">Kochen</span></span>
         <span class="tx">Meine Lieblingsrezepte</span>
@@ -312,7 +328,7 @@
         <p><strong>Android:</strong> Oben rechts auf die <em>drei Punkte</em> tippen,
         dann <em>„App installieren“</em> bzw. <em>„Zum Startbildschirm hinzufügen“</em>.</p>
         <p class="hinweis">Danach liegt mibaso.de wie eine echte App auf deinem
-        Startbildschirm – alle sieben Apps nur einen Fingertipp entfernt.</p>
+        Startbildschirm – alle acht Apps nur einen Fingertipp entfernt.</p>
       </div>
     </div>
   </div>

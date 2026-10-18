@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mibaso für den Unterricht — Lernangebote für Schule und Bildung</title>
-<meta name="description" content="Kostenlose, werbefreie Lern-Apps für Biologie und Geschichte. Ohne Anmeldung, ohne Datenerhebung, offline nutzbar — von Michael Baur.">
+<meta name="description" content="Kostenlose, werbefreie Lern-Apps für Biologie, Chemie und Geschichte. Ohne Anmeldung, ohne Datenerhebung, offline nutzbar — von Michael Baur.">
 <link rel="canonical" href="https://mibaso.de/schule/">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
@@ -57,6 +57,7 @@
   .fach{margin-bottom:clamp(30px,5vw,46px);--akzent:var(--gruen);}
   .fach.gesch{--akzent:#B65A42;}
   .fach.evo{--akzent:#9C6B2E;}
+  .fach.chem{--akzent:#1E5C6C;}
   .fach > h2{font-size:clamp(21px,4vw,28px);font-weight:normal;color:var(--akzent);
     padding-bottom:8px;border-bottom:2px solid var(--akzent);margin-bottom:6px;}
   .fach > .fsub{font-family:var(--sans);font-size:13.5px;color:var(--leise);margin-bottom:16px;}
@@ -185,7 +186,7 @@
   .sprung a{font-family:var(--sans);font-size:13.5px;text-decoration:none;
     border:1.5px solid var(--c);color:var(--c);border-radius:999px;padding:7px 16px;}
   .sprung a:hover{background:color-mix(in srgb, var(--c) 10%, transparent);}
-  .sprung .s-bio{--c:#2F4F3E;} .sprung .s-gesch{--c:#B65A42;} .sprung .s-evo{--c:#9C6B2E;}
+  .sprung .s-bio{--c:#2F4F3E;} .sprung .s-gesch{--c:#B65A42;} .sprung .s-evo{--c:#9C6B2E;} .sprung .s-chem{--c:#1E5C6C;}
   .fach{scroll-margin-top:14px;}
   html{scroll-behavior:smooth;}
 
@@ -244,12 +245,13 @@
 
   <nav class="sprung" aria-label="Zu den Fächern springen">
     <a href="#biologie" class="s-bio">Biologie</a>
+    <a href="#chemie" class="s-chem">Chemie</a>
     <a href="#geschichte" class="s-gesch">Geschichte</a>
     <a href="#erdgeschichte" class="s-evo">Erdgeschichte</a>
   </nav>
 
   <p class="kc-hinweis">Die Angaben zum Kerncurriculum beziehen sich auf die hessischen
-  Kerncurricula für Biologie und Geschichte (Sekundarstufe I) sowie Sachunterricht
+  Kerncurricula für Biologie, Chemie und Geschichte (Sekundarstufe I) sowie Sachunterricht
   (Primarstufe).</p>
 
   <!-- ===================== BIOLOGIE ===================== -->
@@ -439,6 +441,93 @@
     </div>
   </section>
 
+
+  <!-- ===================== CHEMIE ===================== -->
+  <section class="fach chem" id="chemie">
+    <h2>Chemie</h2>
+    <p class="fsub">Fünf Expeditionen, jede passend für eine Schulstunde — ideal auch für
+    die Vertretungsstunde. Kurze Versuchsfilme ohne Ton, Animationen zum Ausprobieren und
+    nach jeder Station drei Fragen. Im Laborpass sammeln die Schülerinnen und Schüler
+    Tropfen, Ränge und Abzeichen; am Ende drucken sie eine Urkunde mit ihrem Namen aus.</p>
+    <div class="karten">
+
+      <article class="karte">
+        <h3>Säuren I — Sauer erkennen</h3>
+        <p class="was">Säuren im Alltag und im Labor: gefährlich oder harmlos, was alle
+        Säuren gemeinsam haben, Indikatoren wie Rotkohlsaft und der pH-Wert.</p>
+        <div class="marker"><span>Kl. 7–9</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <ul>
+          <li>Säure-Steckbrief und Sortierspiele</li>
+          <li>Rotkohl-Indikator zum Ausprobieren</li>
+          <li>pH-Skala mit Alltagsstoffen</li>
+        </ul>
+        <a class="los" href="https://chemie.mibaso.de/#e1">Expedition öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Schatzkiste der Natur – Chemie in Alltag und Technik · Welt der Stoffe</p>
+        <div class="adresse">chemie.mibaso.de</div>
+      </article>
+
+      <article class="karte">
+        <h3>Säuren II — Wie Säuren entstehen</h3>
+        <p class="was">Von der Kohlensäure über CO₂, Klima und sauren Regen bis zum
+        Springbrunnen-Versuch und dem Zerfall der Säuren in Ionen.</p>
+        <div class="marker"><span>Kl. 8–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <ul>
+          <li>Kohlenstoffdioxid-Kreislauf zum Antippen</li>
+          <li>Springbrunnen-Versuch als Animation</li>
+          <li>Elektrolytische Dissoziation im Teilchenmodell</li>
+        </ul>
+        <a class="los" href="https://chemie.mibaso.de/#e2">Expedition öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Schatzkiste der Natur – Chemie in Alltag und Technik · Verwandlungen – Chemische Reaktion</p>
+        <div class="adresse">chemie.mibaso.de</div>
+      </article>
+
+      <article class="karte">
+        <h3>Laugen — Seifig, glitschig, alkalisch</h3>
+        <p class="was">Vom Seifenstück bis zur Brezel: wie Laugen entstehen, was sie
+        gemeinsam haben und was passiert, wenn Säure auf Lauge trifft.</p>
+        <div class="marker"><span>Kl. 8–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <ul>
+          <li>Metall trifft Wasser als Animation</li>
+          <li>Ammoniak-Springbrunnen im Film</li>
+          <li>Neutralisation Schritt für Schritt</li>
+        </ul>
+        <a class="los" href="https://chemie.mibaso.de/#e3">Expedition öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Schatzkiste der Natur – Chemie in Alltag und Technik</p>
+        <div class="adresse">chemie.mibaso.de</div>
+      </article>
+
+      <article class="karte">
+        <h3>Salze — Das Salz in der Suppe</h3>
+        <p class="was">Aus zwei Giften wird ein Gewürz: Natrium trifft Chlor, das
+        Ionengitter, Salze lösen, Kristalle züchten und Salze benennen.</p>
+        <div class="marker"><span>Kl. 8–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <ul>
+          <li>Elektronenübergang als Animation</li>
+          <li>Ionengitter und Sprödigkeit zum Ausprobieren</li>
+          <li>Salz-Baukasten für Formeln und Namen</li>
+        </ul>
+        <a class="los" href="https://chemie.mibaso.de/#e4">Expedition öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Schatzkiste der Natur – Chemie in Alltag und Technik · Blick hinter die Kulissen – Aufbau von Stoffen und chemische Bindung</p>
+        <div class="adresse">chemie.mibaso.de</div>
+      </article>
+
+      <article class="karte">
+        <h3>Bindungen — Was die Stoffe zusammenhält</h3>
+        <p class="was">Warum Atome sich verbinden: Elektronenpaarbindung, Moleküle bauen,
+        das besondere Wassermolekül und die Metallbindung.</p>
+        <div class="marker"><span>Kl. 9–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <ul>
+          <li>Molekül-Baukasten mit Elektronen- und Strichformel</li>
+          <li>Tauziehen um das Elektronenpaar</li>
+          <li>Elektronengas mit Strom und Hammerschlag</li>
+        </ul>
+        <a class="los" href="https://chemie.mibaso.de/#e5">Expedition öffnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Blick hinter die Kulissen – Aufbau von Stoffen und chemische Bindung</p>
+        <div class="adresse">chemie.mibaso.de</div>
+      </article>
+
+    </div>
+  </section>
 
   <section class="fach gesch" id="geschichte">
     <h2>Geschichte</h2>
