@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quizbogen Historia · Episode 3 · mibaso.de</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:'Source Sans 3';font-weight:400;font-display:swap;src:url('fonts/source-sans-3-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:600;font-display:swap;src:url('fonts/source-sans-3-latin-600-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:700;font-display:swap;src:url('fonts/source-sans-3-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Serif 4';font-weight:600;font-display:swap;src:url('fonts/source-serif-4-latin-600-normal.woff2') format('woff2')}
+*{box-sizing:border-box}
+html,body{margin:0;background:#E9E4D8;color:#22201C;font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.leiste{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:10px 12px;background:#F7F3E8;border-bottom:1px solid #d7cfba}
+.leiste a,.leiste button{font:600 15px/1 'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;border-radius:999px;padding:10px 16px;text-decoration:none;cursor:pointer;border:1.5px solid #8F3F30;color:#8F3F30;background:#fff}
+.leiste button{background:#8F3F30;color:#fff}
+.leiste .hinweis{flex-basis:100%;margin:2px 0 0;text-align:center;font-size:13px;color:#6b6152}
+.leiste .zurueck{border-color:transparent;background:none;padding:10px 8px}
+.blatt{max-width:794px;margin:16px auto 32px;background:#fff;padding:44px 56px 40px;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8F3F30}
+h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:27px;line-height:1.1;margin:4px 0 0;color:#8F3F30}
+.felder{display:flex;gap:18px;margin:12px 0 0;font-size:13px;color:#55504A}
+.felder span{flex:3 1 0;border-bottom:1.2px solid #8a8378;padding-bottom:2px}
+.felder span.k{flex:1.2 1 0}
+.auftrag{margin:12px 0 4px;font-size:13.5px;line-height:1.4;padding:7px 12px;border-left:3px solid #8F3F30;background:#F6F3EE}
+.szene{display:grid;grid-template-columns:28px 1fr;column-gap:10px;padding:4px 0 4px;border-top:1px solid #DDD6CA;break-inside:avoid}
+.nr{width:24px;height:24px;border-radius:50%;border:1.6px solid #8F3F30;color:#8F3F30;font-weight:700;font-size:13.5px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.skopf{font-size:12px;color:#6b6152;margin:2px 0 0}
+.skopf b{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:14px;color:#8F3F30;margin-right:6px}
+.frage{margin:1px 0 0;break-inside:avoid}
+.teilbar .szene{break-inside:auto;padding:3px 0}
+.teilbar .opt{gap:0 12px;line-height:1.16}
+.teilbar .frage p{line-height:1.16}
+.skopf{break-after:avoid}
+.frage p{margin:0;font-size:13px;line-height:1.22;font-weight:600}
+.frage p i{font-style:normal;color:#8F3F30;margin-right:3px}
+.opt{list-style:none;margin:1px 0 0;padding:0 0 0 18px;display:flex;flex-wrap:wrap;gap:0 16px;font-size:12.5px;line-height:1.2}
+.opt li{display:flex;gap:6px;align-items:baseline}
+.opt li::before{content:"";flex:none;width:11px;height:11px;border:1.4px solid #4a453f;border-radius:2px;transform:translateY(1px)}
+.opt b{font-weight:700;color:#55504A}
+.ende{display:flex;justify-content:space-between;gap:16px;align-items:center;border-top:1.5px solid #8a8378;margin-top:4px;padding-top:12px;font-size:12.5px;color:#6b6152;break-inside:avoid}
+.ende .punkte{font-size:15px;font-weight:700;color:#22201C}
+.ende .punkte span{display:inline-block;width:46px;border-bottom:1.2px solid #22201C}
+/* Lösung */
+.ablauf{margin:12px 0 4px;padding:10px 16px;background:#F6F3EE;border-radius:10px;font-size:13.5px;line-height:1.4}
+.ablauf h2{margin:0 0 6px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8F3F30}
+.ablauf ol{margin:0;padding-left:20px}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12.5px;line-height:1.25}
+th{text-align:left;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#6b6152;padding:0 6px 4px;border-bottom:1.5px solid #8a8378}
+td{padding:3px 6px;border-bottom:1px solid #E4DED3;vertical-align:top}
+tr{break-inside:avoid}
+td.n{width:30px;font-weight:700;color:#8F3F30}
+td.t{width:30%;color:#55504A}
+td b{display:inline-block;min-width:16px;color:#8F3F30}
+.fuss{margin-top:12px;font-size:12px;color:#6b6152}
+@page{size:A4;margin:9mm 0 11mm;@bottom-center{content:"Seite " counter(page) " von " counter(pages);font:11px 'Source Sans 3',sans-serif;color:#8a8378}}
+@media (max-width:600px){.blatt{padding:24px 16px 28px;margin:0} h1{font-size:25px} .felder{flex-wrap:wrap} td.t,th:nth-child(2){display:none} td{overflow-wrap:anywhere}}
+@media print{
+  html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .leiste{display:none}
+  .blatt{max-width:none;margin:0;box-shadow:none;padding:0 14mm}
+}
+
+</style>
+</head>
+<body>
+<div class="leiste">
+<a class="zurueck" href="./#geschichte">‹ mibaso.de/schule</a>
+<button type="button" id="drucken">🖨️ Drucken</button>
+<a href="quizbogen-historia-3.pdf" id="pdf" download>📄 PDF herunterladen</a>
+<p class="hinweis" id="hinweis" hidden>iPhone/iPad: „Drucken“ öffnet das Teilen-Menü – dort „Drucken“ wählen.</p>
+</div>
+<main class="blatt">
+<header>
+<div class="kicker">Historia · Episode 3 · Quizbogen</div>
+<h1>Nationen, Weltkriege und Gegenwart</h1>
+<div class="felder"><span>Name</span><span class="k">Klasse</span><span class="k">Datum</span></div>
+<p class="auftrag"><b>So geht’s:</b> Wir schauen die Szenen gemeinsam an. Lies vor jeder Szene die beiden Fragen.
+Nach der Szene kreuzt du bei jeder Frage <b>eine</b> Antwort an.</p>
+</header>
+<section class="szene"><div class="nr">1</div><div><div class="skopf"><b>Dampf treibt die Industrialisierung an</b>18.–19. Jahrhundert</div><div class="frage"><p><i>1a</i> Wo beginnt die Industrialisierung besonders früh?</p><ul class="opt"><li><b>A</b> Im Römischen Reich</li><li><b>B</b> Im Inkareich</li><li><b>C</b> In Großbritannien</li></ul></div><div class="frage"><p><i>1b</i> Welche wichtige Folge haben Fabriken und Eisenbahnen?</p><ul class="opt"><li><b>A</b> Städte verlieren ihre Einwohner</li><li><b>B</b> Handarbeit verschwindet sofort vollständig</li><li><b>C</b> Produktion und Transport werden schneller</li></ul></div></div></section>
+<section class="szene"><div class="nr">2</div><div><div class="skopf"><b>Europa revoltiert</b>1848–1849</div><div class="frage"><p><i>2a</i> Was fordern viele Revolutionäre von 1848?</p><ul class="opt"><li><b>A</b> Die Rückkehr zum Feudalismus</li><li><b>B</b> Verfassungen und politische Mitbestimmung</li><li><b>C</b> Die Abschaffung aller Parlamente</li></ul></div><div class="frage"><p><i>2b</i> Warum bleibt 1848 trotz des Scheiterns bedeutsam?</p><ul class="opt"><li><b>A</b> Alle europäischen Monarchien enden sofort</li><li><b>B</b> Viele Forderungen wirken langfristig weiter</li><li><b>C</b> Europa bildet einen gemeinsamen Staat</li></ul></div></div></section>
+<section class="szene"><div class="nr">3</div><div><div class="skopf"><b>Der Amerikanische Bürgerkrieg</b>1861–1865</div><div class="frage"><p><i>3a</i> Welcher Konflikt steht im Zentrum des Bürgerkriegs?</p><ul class="opt"><li><b>A</b> Die Zukunft der Sklaverei</li><li><b>B</b> Die Kaiserkrönung in Rom</li><li><b>C</b> Der Bau der ersten Pyramide</li></ul></div><div class="frage"><p><i>3b</i> Was erreicht der Sieg der Nordstaaten?</p><ul class="opt"><li><b>A</b> Erhalt der Union und Verbot der Sklaverei</li><li><b>B</b> Sofortige vollständige Gleichberechtigung</li><li><b>C</b> Auflösung der Vereinigten Staaten</li></ul></div></div></section>
+<section class="szene"><div class="nr">4</div><div><div class="skopf"><b>Italien wird geeint</b>1859–1870</div><div class="frage"><p><i>4a</i> Wann entsteht das Königreich Italien?</p><ul class="opt"><li><b>A</b> 1815</li><li><b>B</b> 1861</li><li><b>C</b> 1914</li></ul></div><div class="frage"><p><i>4b</i> Welche Kräfte tragen zur Einigung bei?</p><ul class="opt"><li><b>A</b> Diplomatie, Freiwilligenbewegung und Krieg</li><li><b>B</b> Nur eine Entscheidung des Papstes</li><li><b>C</b> Ausschließlich eine Volksabstimmung in Rom</li></ul></div></div></section>
+<section class="szene"><div class="nr">5</div><div><div class="skopf"><b>Bismarck und die Gründung des Deutschen Reichs</b>1862–1871</div><div class="frage"><p><i>5a</i> Welcher Staat führt die deutsche Einigung an?</p><ul class="opt"><li><b>A</b> Österreich</li><li><b>B</b> Frankreich</li><li><b>C</b> Preußen</li></ul></div><div class="frage"><p><i>5b</i> Was entsteht 1871?</p><ul class="opt"><li><b>A</b> Eine gemeinsame Republik mit Frankreich</li><li><b>B</b> Die Europäische Wirtschaftsgemeinschaft</li><li><b>C</b> Ein deutscher Nationalstaat ohne Österreich</li></ul></div></div></section>
+<section class="szene"><div class="nr">6</div><div><div class="skopf"><b>Europäische Mächte teilen die Welt</b>1880er Jahre–1914</div><div class="frage"><p><i>6a</i> Wer fehlt bei der Berliner Konferenz am Verhandlungstisch?</p><ul class="opt"><li><b>A</b> Vertreter afrikanischer Gesellschaften</li><li><b>B</b> Europäische Diplomaten</li><li><b>C</b> Das Deutsche Reich</li></ul></div><div class="frage"><p><i>6b</i> Welche Folge hat der Imperialismus in Europa?</p><ul class="opt"><li><b>A</b> Alle Armeen werden abgeschafft</li><li><b>B</b> Die Rivalität der Großmächte verschärft sich</li><li><b>C</b> Nationalstaaten verlieren jedes Interesse an Macht</li></ul></div></div></section>
+<section class="szene"><div class="nr">7</div><div><div class="skopf"><b>Europa stürzt in den Ersten Weltkrieg</b>1914–1918</div><div class="frage"><p><i>7a</i> Warum führt das Attentat von Sarajevo zum großen Krieg?</p><ul class="opt"><li><b>A</b> Alle Staaten hatten denselben Herrscher</li><li><b>B</b> Der Krieg war nach einem Tag beendet</li><li><b>C</b> Bündnisse und politische Entscheidungen erzeugen eine Kettenreaktion</li></ul></div><div class="frage"><p><i>7b</i> Was kennzeichnet die Westfront besonders?</p><ul class="opt"><li><b>A</b> Ausschließlich Seeschlachten</li><li><b>B</b> Kämpfe ohne moderne Waffen</li><li><b>C</b> Ein langer Stellungskrieg</li></ul></div></div></section>
+<section class="szene"><div class="nr">8</div><div><div class="skopf"><b>Lenin, Revolution und Stalins Aufstieg</b>1917–1928</div><div class="frage"><p><i>8a</i> Wer übernimmt im Oktober 1917 die Macht?</p><ul class="opt"><li><b>A</b> Lenins Bolschewiki</li><li><b>B</b> Die französische Nationalversammlung</li><li><b>C</b> Die NATO</li></ul></div><div class="frage"><p><i>8b</i> Wie sichert Stalin seine Herrschaft?</p><ul class="opt"><li><b>A</b> Durch Partei, Terror und Personenkult</li><li><b>B</b> Durch freie Wahlen mit wechselnden Regierungen</li><li><b>C</b> Durch die Auflösung der Sowjetunion</li></ul></div></div></section>
+<section class="szene"><div class="nr">9</div><div><div class="skopf"><b>Die Weimarer Republik unter Druck</b>1919–1932</div><div class="frage"><p><i>9a</i> Welche Krise stärkt ab 1929 radikale Parteien besonders?</p><ul class="opt"><li><b>A</b> Die Weltwirtschaftskrise</li><li><b>B</b> Die Industrialisierung Englands</li><li><b>C</b> Die Kubakrise</li></ul></div><div class="frage"><p><i>9b</i> Welche Neuerung prägt die Wahl zur Nationalversammlung 1919?</p><ul class="opt"><li><b>A</b> Frauen und Männer dürfen auf nationaler Ebene wählen</li><li><b>B</b> Nur ehemalige Soldaten dürfen wählen</li><li><b>C</b> Der Reichskanzler wird direkt gewählt</li></ul></div></div></section>
+<section class="szene"><div class="nr">10</div><div><div class="skopf"><b>Hitler wird zum Reichskanzler ernannt</b>Januar 1933</div><div class="frage"><p><i>10a</i> Wie gelangt Hitler am 30. Januar 1933 ins Amt?</p><ul class="opt"><li><b>A</b> Hindenburg ernennt ihn zum Reichskanzler</li><li><b>B</b> Er wird direkt zum Reichskanzler gewählt</li><li><b>C</b> Der Völkerbund setzt ihn ein</li></ul></div><div class="frage"><p><i>10b</i> Welche Fehleinschätzung begünstigt die Ernennung?</p><ul class="opt"><li><b>A</b> Die NSDAP habe keine politischen Gegner</li><li><b>B</b> Die Weltwirtschaftskrise sei bereits beendet</li><li><b>C</b> Konservative Politiker glauben, Hitler kontrollieren zu können</li></ul></div></div></section>
+<section class="szene"><div class="nr">11</div><div><div class="skopf"><b>Hitler errichtet die nationalsozialistische Diktatur</b>1933–1939</div><div class="frage"><p><i>11a</i> Wozu dient das Ermächtigungsgesetz von 1933?</p><ul class="opt"><li><b>A</b> Es führt freie Gewerkschaften ein</li><li><b>B</b> Es beendet die Aufrüstung</li><li><b>C</b> Es ermöglicht Regieren ohne parlamentarische Zustimmung</li></ul></div><div class="frage"><p><i>11b</i> Was bewirken die Nürnberger Gesetze?</p><ul class="opt"><li><b>A</b> Sie stellen alle Bürger rechtlich gleich</li><li><b>B</b> Sie gründen den Völkerbund</li><li><b>C</b> Sie entrechten jüdische Menschen</li></ul></div></div></section>
+<section class="szene"><div class="nr">12</div><div><div class="skopf"><b>Der Zweite Weltkrieg</b>1939–1945</div><div class="frage"><p><i>12a</i> Welches Ereignis beginnt 1939 den Krieg in Europa?</p><ul class="opt"><li><b>A</b> Die Berliner Blockade</li><li><b>B</b> Die Kubakrise</li><li><b>C</b> Der deutsche Überfall auf Polen</li></ul></div><div class="frage"><p><i>12b</i> Welche Staaten bilden den Kern der späteren großen Allianz gegen Hitler?</p><ul class="opt"><li><b>A</b> Deutschland, Italien und Japan</li><li><b>B</b> Spanien, Portugal und Schweden</li><li><b>C</b> Großbritannien, USA und Sowjetunion</li></ul></div></div></section>
+<section class="szene"><div class="nr">13</div><div><div class="skopf"><b>Der Holocaust</b>1941–1945</div><div class="frage"><p><i>13a</i> Was bezeichnet der Begriff Holocaust?</p><ul class="opt"><li><b>A</b> Nur eine einzelne Schlacht</li><li><b>B</b> Den systematischen Mord an etwa sechs Millionen europäischen Juden</li><li><b>C</b> Die Teilung Deutschlands nach 1945</li></ul></div><div class="frage"><p><i>13b</i> Wo finden nationalsozialistische Massenmorde statt?</p><ul class="opt"><li><b>A</b> Bei Erschießungen und in Vernichtungslagern</li><li><b>B</b> Nur in einer einzigen Stadt</li><li><b>C</b> Ausschließlich nach dem Krieg</li></ul></div></div></section>
+<section class="szene"><div class="nr">14</div><div><div class="skopf"><b>Kalter Krieg und Berliner Luftbrücke</b>1945–1949</div><div class="frage"><p><i>14a</i> Warum entsteht 1948 die Berliner Luftbrücke?</p><ul class="opt"><li><b>A</b> Berlin soll nach Amerika verlegt werden</li><li><b>B</b> Die Landwege nach West-Berlin sind blockiert</li><li><b>C</b> Der Zweite Weltkrieg beginnt</li></ul></div><div class="frage"><p><i>14b</i> Was kennzeichnet den Kalten Krieg?</p><ul class="opt"><li><b>A</b> Rivalität zweier Machtblöcke ohne direkten großen Krieg der Supermächte</li><li><b>B</b> Vollständige weltweite Friedenszeit</li><li><b>C</b> Ein Bündnis aller Staaten unter einer Regierung</li></ul></div></div></section>
+<section class="szene"><div class="nr">15</div><div><div class="skopf"><b>Die Kubakrise bringt die Welt an den Abgrund</b>Oktober 1962</div><div class="frage"><p><i>15a</i> Was löst die Kubakrise 1962 aus?</p><ul class="opt"><li><b>A</b> Die Berliner Luftbrücke</li><li><b>B</b> Sowjetische Atomraketen auf Kuba</li><li><b>C</b> Der Fall der Berliner Mauer</li></ul></div><div class="frage"><p><i>15b</i> Wie endet die unmittelbare Krise?</p><ul class="opt"><li><b>A</b> Mit einem Atomkrieg</li><li><b>B</b> Mit einem ausgehandelten gegenseitigen Nachgeben</li><li><b>C</b> Mit der Besetzung Moskaus</li></ul></div></div></section>
+<section class="szene"><div class="nr">16</div><div><div class="skopf"><b>Kolonialreiche zerfallen</b>1947–1975</div><div class="frage"><p><i>16a</i> Was begleitet die Unabhängigkeit Indiens 1947?</p><ul class="opt"><li><b>A</b> Der Beitritt zum Römischen Reich</li><li><b>B</b> Die Teilung in Indien und Pakistan</li><li><b>C</b> Die Gründung der Europäischen Gemeinschaft</li></ul></div><div class="frage"><p><i>16b</i> Was bleibt nach dem Ende der Kolonialherrschaft häufig bestehen?</p><ul class="opt"><li><b>A</b> Wirtschaftliche Abhängigkeiten und problematische Grenzen</li><li><b>B</b> Die direkte Herrschaft aller europäischen Gouverneure</li><li><b>C</b> Eine einzige Regierung für Afrika und Asien</li></ul></div></div></section>
+<section class="szene"><div class="nr">17</div><div><div class="skopf"><b>China, Korea und Vietnam</b>1949–1975</div><div class="frage"><p><i>17a</i> Wer gründet 1949 die Volksrepublik China?</p><ul class="opt"><li><b>A</b> Abraham Lincoln</li><li><b>B</b> Mao Zedong</li><li><b>C</b> Michail Gorbatschow</li></ul></div><div class="frage"><p><i>17b</i> Warum gelten Korea und Vietnam als Stellvertreterkriege?</p><ul class="opt"><li><b>A</b> Dort kämpfen nur europäische Ritter</li><li><b>B</b> Die Supermächte unterstützen gegnerische Seiten</li><li><b>C</b> Beide Kriege finden ohne ausländische Beteiligung statt</li></ul></div></div></section>
+<section class="szene"><div class="nr">18</div><div><div class="skopf"><b>Westeuropa wächst wirtschaftlich zusammen</b>1951–1957</div><div class="frage"><p><i>18a</i> Was gründen sechs Staaten 1957?</p><ul class="opt"><li><b>A</b> Die Europäische Wirtschaftsgemeinschaft</li><li><b>B</b> Den Warschauer Pakt</li><li><b>C</b> Das Deutsche Kaiserreich</li></ul></div><div class="frage"><p><i>18b</i> Welches Ziel verbindet die ersten Gemeinschaften?</p><ul class="opt"><li><b>A</b> Neue Kolonien außerhalb Europas</li><li><b>B</b> Wirtschaftliche Zusammenarbeit und dauerhafter Frieden</li><li><b>C</b> Die Abschaffung aller nationalen Regierungen</li></ul></div></div></section>
+<section class="szene"><div class="nr">19</div><div><div class="skopf"><b>Friedliche Revolution und Wiedervereinigung</b>1985–1991</div><div class="frage"><p><i>19a</i> Was geschieht am 9. November 1989?</p><ul class="opt"><li><b>A</b> Die EWG wird gegründet</li><li><b>B</b> Die Sowjetunion entsteht</li><li><b>C</b> Die Berliner Mauer öffnet sich</li></ul></div><div class="frage"><p><i>19b</i> Warum heißt der Umbruch in der DDR friedliche Revolution?</p><ul class="opt"><li><b>A</b> Massenproteste erzwingen Wandel weitgehend ohne Gewalt</li><li><b>B</b> Eine ausländische Armee erobert Berlin</li><li><b>C</b> Die DDR-Regierung verbietet alle Demonstrationen erfolgreich</li></ul></div></div></section>
+<section class="szene"><div class="nr">20</div><div><div class="skopf"><b>Die vernetzte Gegenwart</b>1991–heute</div><div class="frage"><p><i>20a</i> Was macht Krisen der Gegenwart häufig besonders weitreichend?</p><ul class="opt"><li><b>A</b> Das Ende aller Handelswege</li><li><b>B</b> Die enge globale Vernetzung</li><li><b>C</b> Die vollständige politische Einheit der Welt</li></ul></div><div class="frage"><p><i>20b</i> Welches Ereignis beginnt am 24. Februar 2022?</p><ul class="opt"><li><b>A</b> Der Fall der Berliner Mauer</li><li><b>B</b> Die Gründung der Europäischen Wirtschaftsgemeinschaft</li><li><b>C</b> Russlands großangelegter Angriff auf die Ukraine</li></ul></div></div></section>
+<div class="ende"><span>Historia · historia.mibaso.de/episode-3 · Quizbögen: mibaso.de/schule</span><span class="punkte">Richtig: <span></span> von 40</span></div>
+</main>
+<script>
+(function(){
+  var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var pdf=document.getElementById('pdf');
+  var datei=null, url=pdf.getAttribute('href');
+  if(ios){ document.getElementById('hinweis').hidden=false; pdf.style.display='none';
+    if(navigator.share&&navigator.canShare&&window.fetch) fetch(url).then(function(r){return r.blob();}).then(function(b){ var f=new File([b],url,{type:'application/pdf'}); if(navigator.canShare({files:[f]})) datei=f; }).catch(function(){}); }
+  document.getElementById('drucken').addEventListener('click',function(){
+    if(!ios) return window.print();
+    if(datei) navigator.share({files:[datei],title:document.title}).catch(function(){}); else window.location.href=url; });
+  if(!ios && /[?&]druck=1/.test(location.search)) window.addEventListener('load',function(){ setTimeout(function(){ window.print(); },400); });
+})();
+</script>
+</body>
+</html>

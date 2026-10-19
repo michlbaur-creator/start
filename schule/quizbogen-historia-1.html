@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quizbogen Historia · Episode 1 · mibaso.de</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:'Source Sans 3';font-weight:400;font-display:swap;src:url('fonts/source-sans-3-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:600;font-display:swap;src:url('fonts/source-sans-3-latin-600-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:700;font-display:swap;src:url('fonts/source-sans-3-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Serif 4';font-weight:600;font-display:swap;src:url('fonts/source-serif-4-latin-600-normal.woff2') format('woff2')}
+*{box-sizing:border-box}
+html,body{margin:0;background:#E9E4D8;color:#22201C;font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.leiste{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:10px 12px;background:#F7F3E8;border-bottom:1px solid #d7cfba}
+.leiste a,.leiste button{font:600 15px/1 'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;border-radius:999px;padding:10px 16px;text-decoration:none;cursor:pointer;border:1.5px solid #8F3F30;color:#8F3F30;background:#fff}
+.leiste button{background:#8F3F30;color:#fff}
+.leiste .hinweis{flex-basis:100%;margin:2px 0 0;text-align:center;font-size:13px;color:#6b6152}
+.leiste .zurueck{border-color:transparent;background:none;padding:10px 8px}
+.blatt{max-width:794px;margin:16px auto 32px;background:#fff;padding:44px 56px 40px;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8F3F30}
+h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:27px;line-height:1.1;margin:4px 0 0;color:#8F3F30}
+.felder{display:flex;gap:18px;margin:12px 0 0;font-size:13px;color:#55504A}
+.felder span{flex:3 1 0;border-bottom:1.2px solid #8a8378;padding-bottom:2px}
+.felder span.k{flex:1.2 1 0}
+.auftrag{margin:12px 0 4px;font-size:13.5px;line-height:1.4;padding:7px 12px;border-left:3px solid #8F3F30;background:#F6F3EE}
+.szene{display:grid;grid-template-columns:28px 1fr;column-gap:10px;padding:4px 0 4px;border-top:1px solid #DDD6CA;break-inside:avoid}
+.nr{width:24px;height:24px;border-radius:50%;border:1.6px solid #8F3F30;color:#8F3F30;font-weight:700;font-size:13.5px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.skopf{font-size:12px;color:#6b6152;margin:2px 0 0}
+.skopf b{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:14px;color:#8F3F30;margin-right:6px}
+.frage{margin:1px 0 0;break-inside:avoid}
+.teilbar .szene{break-inside:auto;padding:3px 0}
+.teilbar .opt{gap:0 12px;line-height:1.16}
+.teilbar .frage p{line-height:1.16}
+.skopf{break-after:avoid}
+.frage p{margin:0;font-size:13px;line-height:1.22;font-weight:600}
+.frage p i{font-style:normal;color:#8F3F30;margin-right:3px}
+.opt{list-style:none;margin:1px 0 0;padding:0 0 0 18px;display:flex;flex-wrap:wrap;gap:0 16px;font-size:12.5px;line-height:1.2}
+.opt li{display:flex;gap:6px;align-items:baseline}
+.opt li::before{content:"";flex:none;width:11px;height:11px;border:1.4px solid #4a453f;border-radius:2px;transform:translateY(1px)}
+.opt b{font-weight:700;color:#55504A}
+.ende{display:flex;justify-content:space-between;gap:16px;align-items:center;border-top:1.5px solid #8a8378;margin-top:4px;padding-top:12px;font-size:12.5px;color:#6b6152;break-inside:avoid}
+.ende .punkte{font-size:15px;font-weight:700;color:#22201C}
+.ende .punkte span{display:inline-block;width:46px;border-bottom:1.2px solid #22201C}
+/* Lösung */
+.ablauf{margin:12px 0 4px;padding:10px 16px;background:#F6F3EE;border-radius:10px;font-size:13.5px;line-height:1.4}
+.ablauf h2{margin:0 0 6px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8F3F30}
+.ablauf ol{margin:0;padding-left:20px}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12.5px;line-height:1.25}
+th{text-align:left;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#6b6152;padding:0 6px 4px;border-bottom:1.5px solid #8a8378}
+td{padding:3px 6px;border-bottom:1px solid #E4DED3;vertical-align:top}
+tr{break-inside:avoid}
+td.n{width:30px;font-weight:700;color:#8F3F30}
+td.t{width:30%;color:#55504A}
+td b{display:inline-block;min-width:16px;color:#8F3F30}
+.fuss{margin-top:12px;font-size:12px;color:#6b6152}
+@page{size:A4;margin:9mm 0 11mm;@bottom-center{content:"Seite " counter(page) " von " counter(pages);font:11px 'Source Sans 3',sans-serif;color:#8a8378}}
+@media (max-width:600px){.blatt{padding:24px 16px 28px;margin:0} h1{font-size:25px} .felder{flex-wrap:wrap} td.t,th:nth-child(2){display:none} td{overflow-wrap:anywhere}}
+@media print{
+  html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .leiste{display:none}
+  .blatt{max-width:none;margin:0;box-shadow:none;padding:0 14mm}
+}
+
+</style>
+</head>
+<body>
+<div class="leiste">
+<a class="zurueck" href="./#geschichte">‹ mibaso.de/schule</a>
+<button type="button" id="drucken">🖨️ Drucken</button>
+<a href="quizbogen-historia-1.pdf" id="pdf" download>📄 PDF herunterladen</a>
+<p class="hinweis" id="hinweis" hidden>iPhone/iPad: „Drucken“ öffnet das Teilen-Menü – dort „Drucken“ wählen.</p>
+</div>
+<main class="blatt">
+<header>
+<div class="kicker">Historia · Episode 1 · Quizbogen</div>
+<h1>Pharaonen, Griechen und Cäsaren</h1>
+<div class="felder"><span>Name</span><span class="k">Klasse</span><span class="k">Datum</span></div>
+<p class="auftrag"><b>So geht’s:</b> Wir schauen die Szenen gemeinsam an. Lies vor jeder Szene die beiden Fragen.
+Nach der Szene kreuzt du bei jeder Frage <b>eine</b> Antwort an.</p>
+</header>
+<section class="szene"><div class="nr">1</div><div><div class="skopf"><b>Narmer und das vereinigte Ägypten</b>um 3100 v. Chr.</div><div class="frage"><p><i>1a</i> Wo liegt Oberägypten auf der Karte?</p><ul class="opt"><li><b>A</b> Im Süden</li><li><b>B</b> Am Delta im Norden</li><li><b>C</b> In Mesopotamien</li></ul></div><div class="frage"><p><i>1b</i> Was kontrolliert der Pharao im vereinigten Ägypten?</p><ul class="opt"><li><b>A</b> Nur die Tempel</li><li><b>B</b> Nur den Handel am Delta</li><li><b>C</b> Land, Abgaben und Soldaten</li></ul></div></div></section>
+<section class="szene"><div class="nr">2</div><div><div class="skopf"><b>Cheops und die Große Pyramide</b>um 2600 v. Chr.</div><div class="frage"><p><i>2a</i> Was machte den Bau der Großen Pyramide möglich?</p><ul class="opt"><li><b>A</b> Ein einziges Baujahr</li><li><b>B</b> Nur die Arbeit des Pharaos</li><li><b>C</b> Planung, Fachwissen und viele Arbeitskräfte</li></ul></div><div class="frage"><p><i>2b</i> Welche doppelte Bedeutung hatte die Große Pyramide?</p><ul class="opt"><li><b>A</b> Marktplatz und Hafen</li><li><b>B</b> Festung und Straße</li><li><b>C</b> Grabmal und Zeichen der Macht</li></ul></div></div></section>
+<section class="szene"><div class="nr">3</div><div><div class="skopf"><b>Hammurabi und das Recht von Babylon</b>um 1750 v. Chr.</div><div class="frage"><p><i>3a</i> Worauf ließ Hammurabi Rechtssätze festhalten?</p><ul class="opt"><li><b>A</b> Auf einer Königsstraße</li><li><b>B</b> Auf einer großen Stele</li><li><b>C</b> Auf den Stadtmauern von Athen</li></ul></div><div class="frage"><p><i>3b</i> Waren vor Hammurabis Recht alle Menschen gleich?</p><ul class="opt"><li><b>A</b> Nein, der Rang spielte eine Rolle</li><li><b>B</b> Ja, ohne Ausnahme</li><li><b>C</b> Nur Händler waren gleich</li></ul></div></div></section>
+<section class="szene"><div class="nr">4</div><div><div class="skopf"><b>Ramses II. in der Schlacht bei Kadesch</b>1274 v. Chr.</div><div class="frage"><p><i>4a</i> Wie endet die Schlacht bei Kadesch?</p><ul class="opt"><li><b>A</b> Mit einem klaren Sieg Ramses’</li><li><b>B</b> Mit der Eroberung Babylons</li><li><b>C</b> Ohne klaren Sieger</li></ul></div><div class="frage"><p><i>4b</i> Was schließen beide Mächte Jahre später?</p><ul class="opt"><li><b>A</b> Den Attischen Seebund</li><li><b>B</b> Ein neues Perserreich</li><li><b>C</b> Einen Friedensvertrag</li></ul></div></div></section>
+<section class="szene"><div class="nr">5</div><div><div class="skopf"><b>Kyros und Dareios formen das Perserreich</b>6. Jahrhundert v. Chr.</div><div class="frage"><p><i>5a</i> Welche Stadt erobert Kyros II.?</p><ul class="opt"><li><b>A</b> Rom</li><li><b>B</b> Babylon</li><li><b>C</b> Athen</li></ul></div><div class="frage"><p><i>5b</i> Wie organisiert Dareios I. das große Reich?</p><ul class="opt"><li><b>A</b> Nur durch seine Flotte</li><li><b>B</b> Durch die Auflösung aller Verwaltungen</li><li><b>C</b> Durch Provinzen, Straßen und Berichte</li></ul></div></div></section>
+<section class="szene"><div class="nr">6</div><div><div class="skopf"><b>Marathon, Thermopylen und Salamis</b>490–480 v. Chr.</div><div class="frage"><p><i>6a</i> Wo scheitert Dareios’ Heer 490 v. Chr.?</p><ul class="opt"><li><b>A</b> Bei Marathon</li><li><b>B</b> Bei Zama</li><li><b>C</b> Bei Actium</li></ul></div><div class="frage"><p><i>6b</i> Warum wird die Meerenge bei Salamis entscheidend?</p><ul class="opt"><li><b>A</b> Dort zählt Beweglichkeit mehr als Größe</li><li><b>B</b> Dort zählen Größe und Masse noch mehr</li><li><b>C</b> Dort kann keine Flotte fahren</li></ul></div></div></section>
+<section class="szene"><div class="nr">7</div><div><div class="skopf"><b>Athen unter Perikles</b>um 450 v. Chr.</div><div class="frage"><p><i>7a</i> Wer darf in Athen in der Volksversammlung abstimmen?</p><ul class="opt"><li><b>A</b> Alle Einwohner</li><li><b>B</b> Freie männliche Bürger</li><li><b>C</b> Nur die Soldaten Spartas</li></ul></div><div class="frage"><p><i>7b</i> Was baut Athen unter Perikles aus?</p><ul class="opt"><li><b>A</b> Flotte und Akropolis</li><li><b>B</b> Königsstraße und Pyramide</li><li><b>C</b> Nur seine Landarmee</li></ul></div></div></section>
+<section class="szene"><div class="nr">8</div><div><div class="skopf"><b>Athen gegen Sparta</b>431–404 v. Chr.</div><div class="frage"><p><i>8a</i> Welche Stärke hat Athen im Peloponnesischen Krieg?</p><ul class="opt"><li><b>A</b> Die Überlegenheit zur See</li><li><b>B</b> Die Überlegenheit an Land</li><li><b>C</b> Die Kontrolle über Persien</li></ul></div><div class="frage"><p><i>8b</i> Was führt 404 v. Chr. zur Kapitulation Athens?</p><ul class="opt"><li><b>A</b> Alexanders Einmarsch</li><li><b>B</b> Lysanders Blockade des Hafens</li><li><b>C</b> Ein Sieg bei Marathon</li></ul></div></div></section>
+<section class="szene"><div class="nr">9</div><div><div class="skopf"><b>Alexander erobert das Perserreich</b>334–323 v. Chr.</div><div class="frage"><p><i>9a</i> Wen besiegt Alexander bei der Eroberung des Perserreichs?</p><ul class="opt"><li><b>A</b> Hammurabi</li><li><b>B</b> Dareios III.</li><li><b>C</b> Augustus</li></ul></div><div class="frage"><p><i>9b</i> Was geschieht nach Alexanders Tod?</p><ul class="opt"><li><b>A</b> Seine Feldherren teilen das Reich</li><li><b>B</b> Das Reich bleibt dauerhaft vereint</li><li><b>C</b> Rom übernimmt es sofort vollständig</li></ul></div></div></section>
+<section class="szene"><div class="nr">10</div><div><div class="skopf"><b>Qin Shihuangdi vereinigt China</b>221 v. Chr.</div><div class="frage"><p><i>10a</i> Was lässt Qin Shihuangdi vereinheitlichen?</p><ul class="opt"><li><b>A</b> Nur die Kleidung</li><li><b>B</b> Die griechischen Stadtstaaten</li><li><b>C</b> Schriftzeichen, Maße, Münzen und Verwaltung</li></ul></div><div class="frage"><p><i>10b</i> Welchen hohen Preis nennt der Sprechertext?</p><ul class="opt"><li><b>A</b> Den Bau einer Flotte</li><li><b>B</b> Zwangsarbeit und harte Strafen</li><li><b>C</b> Den Verlust aller Straßen</li></ul></div></div></section>
+<section class="szene"><div class="nr">11</div><div><div class="skopf"><b>Hannibal gegen Rom</b>218–202 v. Chr.</div><div class="frage"><p><i>11a</i> Welchen Weg nimmt Hannibal nach Italien?</p><ul class="opt"><li><b>A</b> Über den Indus</li><li><b>B</b> Durch die Meerenge von Salamis</li><li><b>C</b> Über die Alpen</li></ul></div><div class="frage"><p><i>11b</i> Wer besiegt Hannibal 202 v. Chr. bei Zama?</p><ul class="opt"><li><b>A</b> Scipio</li><li><b>B</b> Leonidas</li><li><b>C</b> Lysander</li></ul></div></div></section>
+<section class="szene"><div class="nr">12</div><div><div class="skopf"><b>Caesar überschreitet den Rubikon</b>49–44 v. Chr.</div><div class="frage"><p><i>12a</i> Was löst Caesars Überschreiten des Rubikon aus?</p><ul class="opt"><li><b>A</b> Den Bau der Großen Pyramide</li><li><b>B</b> Den Bürgerkrieg gegen Pompeius</li><li><b>C</b> Die Schlacht bei Salamis</li></ul></div><div class="frage"><p><i>12b</i> Was geschieht nach Caesars Ermordung?</p><ul class="opt"><li><b>A</b> Die Republik ist dauerhaft gerettet</li><li><b>B</b> Caesar wird Augustus</li><li><b>C</b> Der nächste Bürgerkrieg beginnt</li></ul></div></div></section>
+<section class="szene"><div class="nr">13</div><div><div class="skopf"><b>Kleopatra und der Kampf um Rom</b>31–30 v. Chr.</div><div class="frage"><p><i>13a</i> Wer gewinnt die Seeschlacht bei Actium?</p><ul class="opt"><li><b>A</b> Hannibals Seite</li><li><b>B</b> Octavians Seite</li><li><b>C</b> Das Heer Alexanders</li></ul></div><div class="frage"><p><i>13b</i> Was wird nach der Niederlage von Antonius und Kleopatra aus Ägypten?</p><ul class="opt"><li><b>A</b> Ein griechischer Stadtstaat</li><li><b>B</b> Eine römische Provinz</li><li><b>C</b> Teil des Perserreichs</li></ul></div></div></section>
+<section class="szene"><div class="nr">14</div><div><div class="skopf"><b>Augustus gründet die Kaiserzeit</b>27 v. Chr.–14 n. Chr.</div><div class="frage"><p><i>14a</i> Welche Macht bündelt Augustus in der Praxis?</p><ul class="opt"><li><b>A</b> Macht über Heer, Provinzen und Politik</li><li><b>B</b> Nur die Aufsicht über Tempel</li><li><b>C</b> Nur den Handel in Ägypten</li></ul></div><div class="frage"><p><i>14b</i> Was bleibt unter Augustus auf dem Papier bestehen?</p><ul class="opt"><li><b>A</b> Das Perserreich</li><li><b>B</b> Republik, Ämter und Senat</li><li><b>C</b> Der Attische Seebund</li></ul></div></div></section>
+<section class="szene"><div class="nr">15</div><div><div class="skopf"><b>Vom Wirken Jesu zu Kaiser Konstantin</b>1.–frühes 4. Jahrhundert</div><div class="frage"><p><i>15a</i> Wie zeigt die Karte die frühe Ausbreitung des Christentums?</p><ul class="opt"><li><b>A</b> Als Punkte und Wege</li><li><b>B</b> Als geschlossene Fläche</li><li><b>C</b> Nur als Grenze Judäas</li></ul></div><div class="frage"><p><i>15b</i> Was sichern Konstantin und Licinius Christen 313 zu?</p><ul class="opt"><li><b>A</b> Die Herrschaft über Rom</li><li><b>B</b> Freie Religionsausübung</li><li><b>C</b> Die Auflösung aller Gemeinden</li></ul></div></div></section>
+<section class="szene"><div class="nr">16</div><div><div class="skopf"><b>Das Ende des Weströmischen Reiches</b>395–476</div><div class="frage"><p><i>16a</i> Wer setzt 476 Romulus Augustulus ab?</p><ul class="opt"><li><b>A</b> Attila</li><li><b>B</b> Konstantin</li><li><b>C</b> Odoaker</li></ul></div><div class="frage"><p><i>16b</i> Was besteht nach dem Ende Westroms weiter?</p><ul class="opt"><li><b>A</b> Das Reich im Osten mit Konstantinopel</li><li><b>B</b> Das Reich Alexanders</li><li><b>C</b> Der Peloponnesische Bund</li></ul></div></div></section>
+<div class="ende"><span>Historia · historia.mibaso.de · Quizbögen: mibaso.de/schule</span><span class="punkte">Richtig: <span></span> von 32</span></div>
+</main>
+<script>
+(function(){
+  var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var pdf=document.getElementById('pdf');
+  var datei=null, url=pdf.getAttribute('href');
+  if(ios){ document.getElementById('hinweis').hidden=false; pdf.style.display='none';
+    if(navigator.share&&navigator.canShare&&window.fetch) fetch(url).then(function(r){return r.blob();}).then(function(b){ var f=new File([b],url,{type:'application/pdf'}); if(navigator.canShare({files:[f]})) datei=f; }).catch(function(){}); }
+  document.getElementById('drucken').addEventListener('click',function(){
+    if(!ios) return window.print();
+    if(datei) navigator.share({files:[datei],title:document.title}).catch(function(){}); else window.location.href=url; });
+  if(!ios && /[?&]druck=1/.test(location.search)) window.addEventListener('load',function(){ setTimeout(function(){ window.print(); },400); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lösung Historia · Episode 2 · mibaso.de</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:'Source Sans 3';font-weight:400;font-display:swap;src:url('fonts/source-sans-3-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:600;font-display:swap;src:url('fonts/source-sans-3-latin-600-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:700;font-display:swap;src:url('fonts/source-sans-3-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Serif 4';font-weight:600;font-display:swap;src:url('fonts/source-serif-4-latin-600-normal.woff2') format('woff2')}
+*{box-sizing:border-box}
+html,body{margin:0;background:#E9E4D8;color:#22201C;font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.leiste{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:10px 12px;background:#F7F3E8;border-bottom:1px solid #d7cfba}
+.leiste a,.leiste button{font:600 15px/1 'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;border-radius:999px;padding:10px 16px;text-decoration:none;cursor:pointer;border:1.5px solid #8F3F30;color:#8F3F30;background:#fff}
+.leiste button{background:#8F3F30;color:#fff}
+.leiste .hinweis{flex-basis:100%;margin:2px 0 0;text-align:center;font-size:13px;color:#6b6152}
+.leiste .zurueck{border-color:transparent;background:none;padding:10px 8px}
+.blatt{max-width:794px;margin:16px auto 32px;background:#fff;padding:44px 56px 40px;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8F3F30}
+h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:27px;line-height:1.1;margin:4px 0 0;color:#8F3F30}
+.felder{display:flex;gap:18px;margin:12px 0 0;font-size:13px;color:#55504A}
+.felder span{flex:3 1 0;border-bottom:1.2px solid #8a8378;padding-bottom:2px}
+.felder span.k{flex:1.2 1 0}
+.auftrag{margin:12px 0 4px;font-size:13.5px;line-height:1.4;padding:7px 12px;border-left:3px solid #8F3F30;background:#F6F3EE}
+.szene{display:grid;grid-template-columns:28px 1fr;column-gap:10px;padding:4px 0 4px;border-top:1px solid #DDD6CA;break-inside:avoid}
+.nr{width:24px;height:24px;border-radius:50%;border:1.6px solid #8F3F30;color:#8F3F30;font-weight:700;font-size:13.5px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.skopf{font-size:12px;color:#6b6152;margin:2px 0 0}
+.skopf b{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:14px;color:#8F3F30;margin-right:6px}
+.frage{margin:1px 0 0;break-inside:avoid}
+.teilbar .szene{break-inside:auto;padding:3px 0}
+.teilbar .opt{gap:0 12px;line-height:1.16}
+.teilbar .frage p{line-height:1.16}
+.skopf{break-after:avoid}
+.frage p{margin:0;font-size:13px;line-height:1.22;font-weight:600}
+.frage p i{font-style:normal;color:#8F3F30;margin-right:3px}
+.opt{list-style:none;margin:1px 0 0;padding:0 0 0 18px;display:flex;flex-wrap:wrap;gap:0 16px;font-size:12.5px;line-height:1.2}
+.opt li{display:flex;gap:6px;align-items:baseline}
+.opt li::before{content:"";flex:none;width:11px;height:11px;border:1.4px solid #4a453f;border-radius:2px;transform:translateY(1px)}
+.opt b{font-weight:700;color:#55504A}
+.ende{display:flex;justify-content:space-between;gap:16px;align-items:center;border-top:1.5px solid #8a8378;margin-top:4px;padding-top:12px;font-size:12.5px;color:#6b6152;break-inside:avoid}
+.ende .punkte{font-size:15px;font-weight:700;color:#22201C}
+.ende .punkte span{display:inline-block;width:46px;border-bottom:1.2px solid #22201C}
+/* Lösung */
+.ablauf{margin:12px 0 4px;padding:10px 16px;background:#F6F3EE;border-radius:10px;font-size:13.5px;line-height:1.4}
+.ablauf h2{margin:0 0 6px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8F3F30}
+.ablauf ol{margin:0;padding-left:20px}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12.5px;line-height:1.25}
+th{text-align:left;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#6b6152;padding:0 6px 4px;border-bottom:1.5px solid #8a8378}
+td{padding:3px 6px;border-bottom:1px solid #E4DED3;vertical-align:top}
+tr{break-inside:avoid}
+td.n{width:30px;font-weight:700;color:#8F3F30}
+td.t{width:30%;color:#55504A}
+td b{display:inline-block;min-width:16px;color:#8F3F30}
+.fuss{margin-top:12px;font-size:12px;color:#6b6152}
+@page{size:A4;margin:9mm 0 11mm;@bottom-center{content:"Seite " counter(page) " von " counter(pages);font:11px 'Source Sans 3',sans-serif;color:#8a8378}}
+@media (max-width:600px){.blatt{padding:24px 16px 28px;margin:0} h1{font-size:25px} .felder{flex-wrap:wrap} td.t,th:nth-child(2){display:none} td{overflow-wrap:anywhere}}
+@media print{
+  html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .leiste{display:none}
+  .blatt{max-width:none;margin:0;box-shadow:none;padding:0 14mm}
+}
+
+</style>
+</head>
+<body>
+<div class="leiste">
+<a class="zurueck" href="./#geschichte">‹ mibaso.de/schule</a>
+<button type="button" id="drucken">🖨️ Drucken</button>
+<a href="loesung-historia-2.pdf" id="pdf" download>📄 PDF herunterladen</a>
+<p class="hinweis" id="hinweis" hidden>iPhone/iPad: „Drucken“ öffnet das Teilen-Menü – dort „Drucken“ wählen.</p>
+</div>
+<main class="blatt">
+<header>
+<div class="kicker">Historia · Episode 2 · Lösung für die Lehrkraft</div>
+<h1>Kaiser, Kreuzfahrer und Revolutionäre</h1>
+</header>
+<div class="ablauf"><h2>Ablauf ohne Kopfhörer</h2><ol>
+<li>Am Beamer <b>historia.mibaso.de/episode-2</b> öffnen. Der Ton läuft über einen Lautsprecher.</li>
+<li>Quizbögen austeilen. Vor jeder Szene lesen alle kurz die beiden Fragen.</li>
+<li>Szene abspielen, danach etwa eine halbe Minute zum Ankreuzen, dann weiter zur nächsten Szene.</li>
+<li>Zum Schluss mit dieser Lösung gemeinsam auflösen. Auf dem Bogen stehen die Antworten in anderer Reihenfolge als in der App – maßgeblich sind die Buchstaben hier.</li>
+</ol></div>
+<table><thead><tr><th>Nr.</th><th>Szene</th><th>Frage a</th><th>Frage b</th></tr></thead><tbody>
+<tr><td class="n">1</td><td class="t">Mohammed und das Kalifenreich</td><td><b>A</b> Die Hidschra nach Medina</td><td><b>C</b> Ein weitreichendes Kalifenreich</td></tr>
+<tr><td class="n">2</td><td class="t">Karl der Große wird Kaiser</td><td><b>A</b> Papst Leo III.</td><td><b>A</b> Es wird geteilt</td></tr>
+<tr><td class="n">3</td><td class="t">Die weiten Wege der Wikinger</td><td><b>C</b> Sie handelten und siedelten</td><td><b>B</b> Atlantik und Osteuropa</td></tr>
+<tr><td class="n">4</td><td class="t">Otto I. und das neue Kaiserreich</td><td><b>C</b> Der Sieg auf dem Lechfeld</td><td><b>A</b> Auf Herzöge und Bischöfe</td></tr>
+<tr><td class="n">5</td><td class="t">Kreuzfahrer ziehen nach Jerusalem</td><td><b>A</b> Papst Urban II.</td><td><b>B</b> Saladin</td></tr>
+<tr><td class="n">6</td><td class="t">Dschingis Khan einigt die Mongolen</td><td><b>B</b> Temüdschin</td><td><b>A</b> Beweglichkeit und klare Organisation</td></tr>
+<tr><td class="n">7</td><td class="t">Der Schwarze Tod erreicht Europa</td><td><b>A</b> Über Handelswege</td><td><b>B</b> Arbeit wird knapper</td></tr>
+<tr><td class="n">8</td><td class="t">Jeanne d’Arc im Hundertjährigen Krieg</td><td><b>C</b> Orléans</td><td><b>A</b> Er dauerte länger und hatte Unterbrechungen</td></tr>
+<tr><td class="n">9</td><td class="t">Mehmed II. erobert Konstantinopel</td><td><b>A</b> Mehmed II.</td><td><b>A</b> Wegen seiner Lage am Bosporus</td></tr>
+<tr><td class="n">10</td><td class="t">Kolumbus, Cortés und Pizarro</td><td><b>B</b> Einen Weg nach Asien</td><td><b>C</b> Lokale Bündnisse und eingeschleppte Krankheiten</td></tr>
+<tr><td class="n">11</td><td class="t">Luther und die Reformation</td><td><b>A</b> Den Ablasshandel</td><td><b>C</b> Der Buchdruck</td></tr>
+<tr><td class="n">12</td><td class="t">Der Dreißigjährige Krieg</td><td><b>B</b> Der Prager Fenstersturz</td><td><b>C</b> Der Westfälische Friede</td></tr>
+<tr><td class="n">13</td><td class="t">Ludwig XIV. und Versailles</td><td><b>B</b> Es band den Adel an den König</td><td><b>B</b> Hohe Kosten für Hof und Kriege</td></tr>
+<tr><td class="n">14</td><td class="t">Wissenschaft und Aufklärung</td><td><b>C</b> Mit mathematischen Regeln</td><td><b>B</b> Gewaltenteilung</td></tr>
+<tr><td class="n">15</td><td class="t">Die amerikanische Revolution</td><td><b>B</b> George Washington</td><td><b>C</b> Französische Militär- und Finanzhilfe</td></tr>
+<tr><td class="n">16</td><td class="t">Revolution und Napoleon</td><td><b>C</b> Die Monarchie</td><td><b>B</b> Bei Waterloo</td></tr>
+</tbody></table>
+<p class="fuss">32 Fragen · Historia · historia.mibaso.de/episode-2 · Quizbögen und Lösungen: mibaso.de/schule</p>
+</main>
+<script>
+(function(){
+  var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var pdf=document.getElementById('pdf');
+  var datei=null, url=pdf.getAttribute('href');
+  if(ios){ document.getElementById('hinweis').hidden=false; pdf.style.display='none';
+    if(navigator.share&&navigator.canShare&&window.fetch) fetch(url).then(function(r){return r.blob();}).then(function(b){ var f=new File([b],url,{type:'application/pdf'}); if(navigator.canShare({files:[f]})) datei=f; }).catch(function(){}); }
+  document.getElementById('drucken').addEventListener('click',function(){
+    if(!ios) return window.print();
+    if(datei) navigator.share({files:[datei],title:document.title}).catch(function(){}); else window.location.href=url; });
+  if(!ios && /[?&]druck=1/.test(location.search)) window.addEventListener('load',function(){ setTimeout(function(){ window.print(); },400); });
+})();
+</script>
+</body>
+</html>

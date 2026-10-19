@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lösung Erdgeschichte · Die große Zeitreise · mibaso.de</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:'Source Sans 3';font-weight:400;font-display:swap;src:url('fonts/source-sans-3-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:600;font-display:swap;src:url('fonts/source-sans-3-latin-600-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:700;font-display:swap;src:url('fonts/source-sans-3-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Serif 4';font-weight:600;font-display:swap;src:url('fonts/source-serif-4-latin-600-normal.woff2') format('woff2')}
+*{box-sizing:border-box}
+html,body{margin:0;background:#E9E4D8;color:#22201C;font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.leiste{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:10px 12px;background:#F7F3E8;border-bottom:1px solid #d7cfba}
+.leiste a,.leiste button{font:600 15px/1 'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;border-radius:999px;padding:10px 16px;text-decoration:none;cursor:pointer;border:1.5px solid #7A5320;color:#7A5320;background:#fff}
+.leiste button{background:#7A5320;color:#fff}
+.leiste .hinweis{flex-basis:100%;margin:2px 0 0;text-align:center;font-size:13px;color:#6b6152}
+.leiste .zurueck{border-color:transparent;background:none;padding:10px 8px}
+.blatt{max-width:794px;margin:16px auto 32px;background:#fff;padding:44px 56px 40px;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7A5320}
+h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:27px;line-height:1.1;margin:4px 0 0;color:#7A5320}
+.felder{display:flex;gap:18px;margin:12px 0 0;font-size:13px;color:#55504A}
+.felder span{flex:3 1 0;border-bottom:1.2px solid #8a8378;padding-bottom:2px}
+.felder span.k{flex:1.2 1 0}
+.auftrag{margin:12px 0 4px;font-size:13.5px;line-height:1.4;padding:7px 12px;border-left:3px solid #7A5320;background:#F6F3EE}
+.szene{display:grid;grid-template-columns:28px 1fr;column-gap:10px;padding:4px 0 4px;border-top:1px solid #DDD6CA;break-inside:avoid}
+.nr{width:24px;height:24px;border-radius:50%;border:1.6px solid #7A5320;color:#7A5320;font-weight:700;font-size:13.5px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.skopf{font-size:12px;color:#6b6152;margin:2px 0 0}
+.skopf b{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:14px;color:#7A5320;margin-right:6px}
+.frage{margin:1px 0 0;break-inside:avoid}
+.teilbar .szene{break-inside:auto;padding:3px 0}
+.teilbar .opt{gap:0 12px;line-height:1.16}
+.teilbar .frage p{line-height:1.16}
+.skopf{break-after:avoid}
+.frage p{margin:0;font-size:13px;line-height:1.22;font-weight:600}
+.frage p i{font-style:normal;color:#7A5320;margin-right:3px}
+.opt{list-style:none;margin:1px 0 0;padding:0 0 0 18px;display:flex;flex-wrap:wrap;gap:0 16px;font-size:12.5px;line-height:1.2}
+.opt li{display:flex;gap:6px;align-items:baseline}
+.opt li::before{content:"";flex:none;width:11px;height:11px;border:1.4px solid #4a453f;border-radius:2px;transform:translateY(1px)}
+.opt b{font-weight:700;color:#55504A}
+.ende{display:flex;justify-content:space-between;gap:16px;align-items:center;border-top:1.5px solid #8a8378;margin-top:4px;padding-top:12px;font-size:12.5px;color:#6b6152;break-inside:avoid}
+.ende .punkte{font-size:15px;font-weight:700;color:#22201C}
+.ende .punkte span{display:inline-block;width:46px;border-bottom:1.2px solid #22201C}
+/* Lösung */
+.ablauf{margin:12px 0 4px;padding:10px 16px;background:#F6F3EE;border-radius:10px;font-size:13.5px;line-height:1.4}
+.ablauf h2{margin:0 0 6px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#7A5320}
+.ablauf ol{margin:0;padding-left:20px}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12.5px;line-height:1.25}
+th{text-align:left;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#6b6152;padding:0 6px 4px;border-bottom:1.5px solid #8a8378}
+td{padding:3px 6px;border-bottom:1px solid #E4DED3;vertical-align:top}
+tr{break-inside:avoid}
+td.n{width:30px;font-weight:700;color:#7A5320}
+td.t{width:30%;color:#55504A}
+td b{display:inline-block;min-width:16px;color:#7A5320}
+.fuss{margin-top:12px;font-size:12px;color:#6b6152}
+@page{size:A4;margin:9mm 0 11mm;@bottom-center{content:"Seite " counter(page) " von " counter(pages);font:11px 'Source Sans 3',sans-serif;color:#8a8378}}
+@media (max-width:600px){.blatt{padding:24px 16px 28px;margin:0} h1{font-size:25px} .felder{flex-wrap:wrap} td.t,th:nth-child(2){display:none} td{overflow-wrap:anywhere}}
+@media print{
+  html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .leiste{display:none}
+  .blatt{max-width:none;margin:0;box-shadow:none;padding:0 14mm}
+}
+
+</style>
+</head>
+<body>
+<div class="leiste">
+<a class="zurueck" href="./#geschichte">‹ mibaso.de/schule</a>
+<button type="button" id="drucken">🖨️ Drucken</button>
+<a href="loesung-zeitreise.pdf" id="pdf" download>📄 PDF herunterladen</a>
+<p class="hinweis" id="hinweis" hidden>iPhone/iPad: „Drucken“ öffnet das Teilen-Menü – dort „Drucken“ wählen.</p>
+</div>
+<main class="blatt">
+<header>
+<div class="kicker">Erdgeschichte · Die große Zeitreise · Lösung für die Lehrkraft</div>
+<h1>4,6 Milliarden Jahre in 22 Szenen</h1>
+</header>
+<div class="ablauf"><h2>Ablauf ohne Kopfhörer</h2><ol>
+<li>Am Beamer <b>evo.mibaso.de</b> öffnen und die Zeitreise starten. Der Ton läuft über einen Lautsprecher.</li>
+<li>Quizbögen austeilen. Vor jeder Szene lesen alle kurz die beiden Fragen.</li>
+<li>Szene abspielen, danach etwa eine halbe Minute zum Ankreuzen, dann weiter zur nächsten Szene.</li>
+<li>Zum Schluss mit dieser Lösung gemeinsam auflösen. Auf dem Bogen stehen die Antworten in anderer Reihenfolge als in der App – maßgeblich sind die Buchstaben hier.</li>
+</ol></div>
+<table><thead><tr><th>Nr.</th><th>Szene</th><th>Frage a</th><th>Frage b</th></tr></thead><tbody>
+<tr><td class="n">1</td><td class="t">Die junge Erde</td><td><b>C</b> Eine heiße Welt mit dünner Kruste, Einschlägen und starkem Vulkanismus</td><td><b>B</b> Aus vulkanischen Ausgasungen</td></tr>
+<tr><td class="n">2</td><td class="t">Die Erde kühlt langsam ab</td><td><b>C</b> Beim Abkühlen kondensierte Wasserdampf zu flüssigem Wasser.</td><td><b>A</b> Die Erdoberfläche musste sich ausreichend abkühlen.</td></tr>
+<tr><td class="n">3</td><td class="t">Die ersten Ozeane entstehen</td><td><b>A</b> Wasser löste viele Stoffe und bot Raum für zahlreiche Reaktionen.</td><td><b>A</b> In Senken und Becken der Erdoberfläche</td></tr>
+<tr><td class="n">4</td><td class="t">Die Ursuppe – Wo alles begann</td><td><b>A</b> Wasser, einfache gelöste Stoffe und Energiequellen</td><td><b>C</b> Eine Brühe voller fertiger Tiere und Pflanzen</td></tr>
+<tr><td class="n">5</td><td class="t">Die erste Zelle</td><td><b>A</b> Eine Membran grenzte einen eigenen Reaktionsraum von der Umgebung ab.</td><td><b>C</b> Die biologische Evolution</td></tr>
+<tr><td class="n">6</td><td class="t">Das Leben breitet sich aus</td><td><b>A</b> Seine Erbinformation kopieren und anschließend die Zelle teilen</td><td><b>C</b> Als Biofilm auf einer Oberfläche</td></tr>
+<tr><td class="n">7</td><td class="t">Die Erfinder des Sauerstoffs</td><td><b>B</b> Sauerstoff</td><td><b>B</b> Durch Photosynthese</td></tr>
+<tr><td class="n">8</td><td class="t">Die Sauerstoff-Revolution</td><td><b>B</b> Sie setzte viele anaerobe Organismen unter Druck und ermöglichte später energiereicheres Leben.</td><td><b>C</b> Eine Ozonschicht schwächte einen Teil der schädlichen UV-Strahlung ab.</td></tr>
+<tr><td class="n">9</td><td class="t">Die Revolution in der Zelle</td><td><b>A</b> Das Mitochondrium</td><td><b>B</b> Mitochondrien besitzen eigenes Erbmaterial.</td></tr>
+<tr><td class="n">10</td><td class="t">Die ersten komplexen Lebewesen</td><td><b>A</b> Ein Zellkern und weitere membranumhüllte Organellen</td><td><b>A</b> Tiere, Pflanzen und Pilze</td></tr>
+<tr><td class="n">11</td><td class="t">Zusammen geht mehr – Die ersten Vielzeller</td><td><b>C</b> Spezialisierung ermöglicht eine wirksame Arbeitsteilung.</td><td><b>C</b> Spezialisierte Zellen übernehmen unterschiedliche Aufgaben für den Organismus.</td></tr>
+<tr><td class="n">12</td><td class="t">Die ersten Tiere</td><td><b>B</b> Sie waren meist weich und besaßen kaum harte, gut erhaltungsfähige Teile.</td><td><b>B</b> Die genaue Einordnung ist bei vielen Formen noch unklar.</td></tr>
+<tr><td class="n">13</td><td class="t">Die Kambrische Explosion</td><td><b>A</b> Viele Tierbaupläne wurden über Millionen Jahre vielfältiger – nicht in einem Augenblick.</td><td><b>B</b> Viele unterschiedliche Körperbaupläne und Lebensweisen von Tieren</td></tr>
+<tr><td class="n">14</td><td class="t">Der Sprung an Land</td><td><b>A</b> Sie schufen Böden, Nahrung und neue Lebensräume an Land.</td><td><b>C</b> Sie waren klein und besaßen weder Blüten noch Samen.</td></tr>
+<tr><td class="n">15</td><td class="t">Die ersten Tiere an Land</td><td><b>B</b> Pflanzen boten Nahrung, Schutz und strukturierte Lebensräume.</td><td><b>B</b> Gliederfüßer wie frühe Tausendfüßer und Verwandte</td></tr>
+<tr><td class="n">16</td><td class="t">Der große Schritt – Wirbeltiere erobern das Land</td><td><b>C</b> Fischmerkmale sowie kräftige, stützfähige Flossen und ein beweglicher Hals</td><td><b>A</b> Tiktaalik zeigt ein Merkmalsmosaik zwischen wasserlebenden Fischen und frühen Landwirbeltieren.</td></tr>
+<tr><td class="n">17</td><td class="t">Das Ei, das die Welt veränderte</td><td><b>C</b> Es schützte und versorgte den Embryo in einer eigenen wässrigen Umgebung.</td><td><b>B</b> Eine schützende Hülle mit inneren Eihäuten</td></tr>
+<tr><td class="n">18</td><td class="t">Die Herrscher der Erde</td><td><b>C</b> Die Vögel</td><td><b>C</b> Zu einer eigenen Gruppe fliegender Reptilien</td></tr>
+<tr><td class="n">19</td><td class="t">Der Tag, an dem sich alles änderte</td><td><b>B</b> Staub und Aerosole veränderten weltweit Licht, Klima und Nahrungsketten.</td><td><b>A</b> Weniger Sonnenlicht schwächte Pflanzen und damit zahlreiche weitere Glieder der Nahrungskette.</td></tr>
+<tr><td class="n">20</td><td class="t">Eine neue Chance</td><td><b>B</b> Kleine Körper, Verstecke und eine vielseitige Lebensweise halfen manchen Arten zu überleben.</td><td><b>A</b> Nach dem Aussterben vieler Gruppen eröffneten sich langfristig neue Entwicklungsmöglichkeiten.</td></tr>
+<tr><td class="n">21</td><td class="t">Ein kleiner Schritt für ein Säugetier ...</td><td><b>B</b> Viele frei gewordene ökologische Nischen konnten neu besetzt werden.</td><td><b>C</b> Kleine Körper, Anpassungsfähigkeit und unterschiedliche Nahrung</td></tr>
+<tr><td class="n">22</td><td class="t">Ein Wimpernschlag</td><td><b>A</b> Weil Menschen nur einen winzigen Teil der 4,6 Milliarden Jahre langen Erdgeschichte ausmachen.</td><td><b>B</b> Aus langen Veränderungen entstand Vielfalt – und unsere neugierige Spur ist sehr jung.</td></tr>
+</tbody></table>
+<p class="fuss">44 Fragen · Zeitreise · evo.mibaso.de · Quizbögen und Lösungen: mibaso.de/schule</p>
+</main>
+<script>
+(function(){
+  var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var pdf=document.getElementById('pdf');
+  var datei=null, url=pdf.getAttribute('href');
+  if(ios){ document.getElementById('hinweis').hidden=false; pdf.style.display='none';
+    if(navigator.share&&navigator.canShare&&window.fetch) fetch(url).then(function(r){return r.blob();}).then(function(b){ var f=new File([b],url,{type:'application/pdf'}); if(navigator.canShare({files:[f]})) datei=f; }).catch(function(){}); }
+  document.getElementById('drucken').addEventListener('click',function(){
+    if(!ios) return window.print();
+    if(datei) navigator.share({files:[datei],title:document.title}).catch(function(){}); else window.location.href=url; });
+  if(!ios && /[?&]druck=1/.test(location.search)) window.addEventListener('load',function(){ setTimeout(function(){ window.print(); },400); });
+})();
+</script>
+</body>
+</html>

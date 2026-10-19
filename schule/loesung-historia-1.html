@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lösung Historia · Episode 1 · mibaso.de</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:'Source Sans 3';font-weight:400;font-display:swap;src:url('fonts/source-sans-3-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:600;font-display:swap;src:url('fonts/source-sans-3-latin-600-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:700;font-display:swap;src:url('fonts/source-sans-3-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Source Serif 4';font-weight:600;font-display:swap;src:url('fonts/source-serif-4-latin-600-normal.woff2') format('woff2')}
+*{box-sizing:border-box}
+html,body{margin:0;background:#E9E4D8;color:#22201C;font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.leiste{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:10px 12px;background:#F7F3E8;border-bottom:1px solid #d7cfba}
+.leiste a,.leiste button{font:600 15px/1 'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;border-radius:999px;padding:10px 16px;text-decoration:none;cursor:pointer;border:1.5px solid #8F3F30;color:#8F3F30;background:#fff}
+.leiste button{background:#8F3F30;color:#fff}
+.leiste .hinweis{flex-basis:100%;margin:2px 0 0;text-align:center;font-size:13px;color:#6b6152}
+.leiste .zurueck{border-color:transparent;background:none;padding:10px 8px}
+.blatt{max-width:794px;margin:16px auto 32px;background:#fff;padding:44px 56px 40px;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8F3F30}
+h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:27px;line-height:1.1;margin:4px 0 0;color:#8F3F30}
+.felder{display:flex;gap:18px;margin:12px 0 0;font-size:13px;color:#55504A}
+.felder span{flex:3 1 0;border-bottom:1.2px solid #8a8378;padding-bottom:2px}
+.felder span.k{flex:1.2 1 0}
+.auftrag{margin:12px 0 4px;font-size:13.5px;line-height:1.4;padding:7px 12px;border-left:3px solid #8F3F30;background:#F6F3EE}
+.szene{display:grid;grid-template-columns:28px 1fr;column-gap:10px;padding:4px 0 4px;border-top:1px solid #DDD6CA;break-inside:avoid}
+.nr{width:24px;height:24px;border-radius:50%;border:1.6px solid #8F3F30;color:#8F3F30;font-weight:700;font-size:13.5px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.skopf{font-size:12px;color:#6b6152;margin:2px 0 0}
+.skopf b{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:14px;color:#8F3F30;margin-right:6px}
+.frage{margin:1px 0 0;break-inside:avoid}
+.teilbar .szene{break-inside:auto;padding:3px 0}
+.teilbar .opt{gap:0 12px;line-height:1.16}
+.teilbar .frage p{line-height:1.16}
+.skopf{break-after:avoid}
+.frage p{margin:0;font-size:13px;line-height:1.22;font-weight:600}
+.frage p i{font-style:normal;color:#8F3F30;margin-right:3px}
+.opt{list-style:none;margin:1px 0 0;padding:0 0 0 18px;display:flex;flex-wrap:wrap;gap:0 16px;font-size:12.5px;line-height:1.2}
+.opt li{display:flex;gap:6px;align-items:baseline}
+.opt li::before{content:"";flex:none;width:11px;height:11px;border:1.4px solid #4a453f;border-radius:2px;transform:translateY(1px)}
+.opt b{font-weight:700;color:#55504A}
+.ende{display:flex;justify-content:space-between;gap:16px;align-items:center;border-top:1.5px solid #8a8378;margin-top:4px;padding-top:12px;font-size:12.5px;color:#6b6152;break-inside:avoid}
+.ende .punkte{font-size:15px;font-weight:700;color:#22201C}
+.ende .punkte span{display:inline-block;width:46px;border-bottom:1.2px solid #22201C}
+/* Lösung */
+.ablauf{margin:12px 0 4px;padding:10px 16px;background:#F6F3EE;border-radius:10px;font-size:13.5px;line-height:1.4}
+.ablauf h2{margin:0 0 6px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8F3F30}
+.ablauf ol{margin:0;padding-left:20px}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12.5px;line-height:1.25}
+th{text-align:left;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#6b6152;padding:0 6px 4px;border-bottom:1.5px solid #8a8378}
+td{padding:3px 6px;border-bottom:1px solid #E4DED3;vertical-align:top}
+tr{break-inside:avoid}
+td.n{width:30px;font-weight:700;color:#8F3F30}
+td.t{width:30%;color:#55504A}
+td b{display:inline-block;min-width:16px;color:#8F3F30}
+.fuss{margin-top:12px;font-size:12px;color:#6b6152}
+@page{size:A4;margin:9mm 0 11mm;@bottom-center{content:"Seite " counter(page) " von " counter(pages);font:11px 'Source Sans 3',sans-serif;color:#8a8378}}
+@media (max-width:600px){.blatt{padding:24px 16px 28px;margin:0} h1{font-size:25px} .felder{flex-wrap:wrap} td.t,th:nth-child(2){display:none} td{overflow-wrap:anywhere}}
+@media print{
+  html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .leiste{display:none}
+  .blatt{max-width:none;margin:0;box-shadow:none;padding:0 14mm}
+}
+
+</style>
+</head>
+<body>
+<div class="leiste">
+<a class="zurueck" href="./#geschichte">‹ mibaso.de/schule</a>
+<button type="button" id="drucken">🖨️ Drucken</button>
+<a href="loesung-historia-1.pdf" id="pdf" download>📄 PDF herunterladen</a>
+<p class="hinweis" id="hinweis" hidden>iPhone/iPad: „Drucken“ öffnet das Teilen-Menü – dort „Drucken“ wählen.</p>
+</div>
+<main class="blatt">
+<header>
+<div class="kicker">Historia · Episode 1 · Lösung für die Lehrkraft</div>
+<h1>Pharaonen, Griechen und Cäsaren</h1>
+</header>
+<div class="ablauf"><h2>Ablauf ohne Kopfhörer</h2><ol>
+<li>Am Beamer <b>historia.mibaso.de</b> öffnen und Episode 1 starten. Der Ton läuft über einen Lautsprecher.</li>
+<li>Quizbögen austeilen. Vor jeder Szene lesen alle kurz die beiden Fragen.</li>
+<li>Szene abspielen, danach etwa eine halbe Minute zum Ankreuzen, dann weiter zur nächsten Szene.</li>
+<li>Zum Schluss mit dieser Lösung gemeinsam auflösen. Auf dem Bogen stehen die Antworten in anderer Reihenfolge als in der App – maßgeblich sind die Buchstaben hier.</li>
+</ol></div>
+<table><thead><tr><th>Nr.</th><th>Szene</th><th>Frage a</th><th>Frage b</th></tr></thead><tbody>
+<tr><td class="n">1</td><td class="t">Narmer und das vereinigte Ägypten</td><td><b>A</b> Im Süden</td><td><b>C</b> Land, Abgaben und Soldaten</td></tr>
+<tr><td class="n">2</td><td class="t">Cheops und die Große Pyramide</td><td><b>C</b> Planung, Fachwissen und viele Arbeitskräfte</td><td><b>C</b> Grabmal und Zeichen der Macht</td></tr>
+<tr><td class="n">3</td><td class="t">Hammurabi und das Recht von Babylon</td><td><b>B</b> Auf einer großen Stele</td><td><b>A</b> Nein, der Rang spielte eine Rolle</td></tr>
+<tr><td class="n">4</td><td class="t">Ramses II. in der Schlacht bei Kadesch</td><td><b>C</b> Ohne klaren Sieger</td><td><b>C</b> Einen Friedensvertrag</td></tr>
+<tr><td class="n">5</td><td class="t">Kyros und Dareios formen das Perserreich</td><td><b>B</b> Babylon</td><td><b>C</b> Durch Provinzen, Straßen und Berichte</td></tr>
+<tr><td class="n">6</td><td class="t">Marathon, Thermopylen und Salamis</td><td><b>A</b> Bei Marathon</td><td><b>A</b> Dort zählt Beweglichkeit mehr als Größe</td></tr>
+<tr><td class="n">7</td><td class="t">Athen unter Perikles</td><td><b>B</b> Freie männliche Bürger</td><td><b>A</b> Flotte und Akropolis</td></tr>
+<tr><td class="n">8</td><td class="t">Athen gegen Sparta</td><td><b>A</b> Die Überlegenheit zur See</td><td><b>B</b> Lysanders Blockade des Hafens</td></tr>
+<tr><td class="n">9</td><td class="t">Alexander erobert das Perserreich</td><td><b>B</b> Dareios III.</td><td><b>A</b> Seine Feldherren teilen das Reich</td></tr>
+<tr><td class="n">10</td><td class="t">Qin Shihuangdi vereinigt China</td><td><b>C</b> Schriftzeichen, Maße, Münzen und Verwaltung</td><td><b>B</b> Zwangsarbeit und harte Strafen</td></tr>
+<tr><td class="n">11</td><td class="t">Hannibal gegen Rom</td><td><b>C</b> Über die Alpen</td><td><b>A</b> Scipio</td></tr>
+<tr><td class="n">12</td><td class="t">Caesar überschreitet den Rubikon</td><td><b>B</b> Den Bürgerkrieg gegen Pompeius</td><td><b>C</b> Der nächste Bürgerkrieg beginnt</td></tr>
+<tr><td class="n">13</td><td class="t">Kleopatra und der Kampf um Rom</td><td><b>B</b> Octavians Seite</td><td><b>B</b> Eine römische Provinz</td></tr>
+<tr><td class="n">14</td><td class="t">Augustus gründet die Kaiserzeit</td><td><b>A</b> Macht über Heer, Provinzen und Politik</td><td><b>B</b> Republik, Ämter und Senat</td></tr>
+<tr><td class="n">15</td><td class="t">Vom Wirken Jesu zu Kaiser Konstantin</td><td><b>A</b> Als Punkte und Wege</td><td><b>B</b> Freie Religionsausübung</td></tr>
+<tr><td class="n">16</td><td class="t">Das Ende des Weströmischen Reiches</td><td><b>C</b> Odoaker</td><td><b>A</b> Das Reich im Osten mit Konstantinopel</td></tr>
+</tbody></table>
+<p class="fuss">32 Fragen · Historia · historia.mibaso.de · Quizbögen und Lösungen: mibaso.de/schule</p>
+</main>
+<script>
+(function(){
+  var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var pdf=document.getElementById('pdf');
+  var datei=null, url=pdf.getAttribute('href');
+  if(ios){ document.getElementById('hinweis').hidden=false; pdf.style.display='none';
+    if(navigator.share&&navigator.canShare&&window.fetch) fetch(url).then(function(r){return r.blob();}).then(function(b){ var f=new File([b],url,{type:'application/pdf'}); if(navigator.canShare({files:[f]})) datei=f; }).catch(function(){}); }
+  document.getElementById('drucken').addEventListener('click',function(){
+    if(!ios) return window.print();
+    if(datei) navigator.share({files:[datei],title:document.title}).catch(function(){}); else window.location.href=url; });
+  if(!ios && /[?&]druck=1/.test(location.search)) window.addEventListener('load',function(){ setTimeout(function(){ window.print(); },400); });
+})();
+</script>
+</body>
+</html>
