@@ -733,5 +733,19 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
+<script>
+/* iPhone/iPad: Drucken klappt dort am zuverlässigsten über das PDF (Teilen › Drucken). */
+(function () {
+  var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (!ios) return;
+  document.querySelectorAll('.infoblatt').forEach(function (p) {
+    var a = p.querySelector('a[href*="druck=1"]'), pdf = p.querySelector('a.neben'), hin = p.querySelector('span');
+    if (!a || !pdf) return;
+    a.href = pdf.getAttribute('href'); a.target = '_blank'; a.rel = 'noopener';
+    pdf.style.display = 'none';
+    if (hin) hin.textContent = 'Öffnet das PDF – dann über das Teilen-Symbol „Drucken“ wählen';
+  });
+})();
+</script>
 </body>
 </html>

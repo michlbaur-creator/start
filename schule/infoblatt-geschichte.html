@@ -15,6 +15,7 @@ html,body{margin:0;background:#E9E4D8}
 .leiste{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:10px 12px;background:#F7F3E8;border-bottom:1px solid #d7cfba;font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .leiste a,.leiste button{font:600 15px/1 'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;border-radius:999px;padding:10px 16px;text-decoration:none;cursor:pointer;border:1.5px solid #8F3F30;color:#8F3F30;background:#fff}
 .leiste button{background:#8F3F30;color:#fff}
+  .leiste .hinweis{flex-basis:100%;margin:2px 0 0;text-align:center;font-size:13px;color:#6b6152}
 .leiste .zurueck{border-color:transparent;background:none;padding:10px 8px}
 .rahmen{padding:16px 0 32px;display:flex;justify-content:center;overflow:hidden}
 .blatt{width:794px;height:1123px;box-shadow:0 6px 24px rgba(0,0,0,.18);transform-origin:top left;background:#FBF8F1}
@@ -30,7 +31,8 @@ html,body{margin:0;background:#E9E4D8}
 <div class="leiste">
 <a class="zurueck" href="./">‹ mibaso.de/schule</a>
 <button type="button" id="drucken">🖨️ Drucken</button>
-<a href="infoblatt-geschichte.pdf" download>📄 PDF herunterladen</a>
+<a href="infoblatt-geschichte.pdf" id="pdf" download>📄 PDF herunterladen</a>
+<p class="hinweis" id="hinweis" hidden>iPhone/iPad: Tippe auf „Drucken“ – das PDF öffnet sich. Dort über das Teilen-Symbol „Drucken“ wählen.</p>
 </div>
 <div class="rahmen" id="rahmen"><div class="blatt" id="blatt">
 <div style="width: 794px; height: 1123px; box-sizing: border-box; background: #FBF8F1; font-family: 'Source Sans 3', sans-serif; color: #2B2925; display: flex; flex-direction: column">
@@ -106,8 +108,11 @@ html,body{margin:0;background:#E9E4D8}
   var b=document.getElementById('blatt'), r=document.getElementById('rahmen');
   function passen(){ var w=document.documentElement.clientWidth, s=Math.min(1,(w-24)/794); b.style.transform=s<1?'scale('+s+')':''; b.style.marginLeft=s<1?((w-794*s)/2)+'px':''; r.style.justifyContent=s<1?'flex-start':''; r.style.height=s<1?(1123*s+48)+'px':''; }
   window.addEventListener('resize',passen); passen();
-  document.getElementById('drucken').addEventListener('click',function(){ window.print(); });
-  if(/[?&]druck=1/.test(location.search)) window.addEventListener('load',function(){ setTimeout(function(){ window.print(); },400); });
+  var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var pdf=document.getElementById('pdf');
+  if(ios){ document.getElementById('hinweis').hidden=false; pdf.removeAttribute('download'); pdf.target='_blank'; pdf.textContent='📄 PDF öffnen'; }
+  document.getElementById('drucken').addEventListener('click',function(){ if(ios) window.open(pdf.getAttribute('href'),'_blank'); else window.print(); });
+  if(!ios && /[?&]druck=1/.test(location.search)) window.addEventListener('load',function(){ setTimeout(function(){ window.print(); },400); });
 })();
 </script>
 </body>
