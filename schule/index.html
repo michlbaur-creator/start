@@ -734,16 +734,27 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 <script>
-/* iPhone/iPad: Drucken klappt dort am zuverlässigsten über das PDF (Teilen › Drucken). */
+/* iPhone/iPad: Drucken über das Teilen-Menü (klappt auch in der Mibaso-App auf dem Home-Bildschirm). */
 (function () {
   var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   if (!ios) return;
   document.querySelectorAll('.infoblatt').forEach(function (p) {
     var a = p.querySelector('a[href*="druck=1"]'), pdf = p.querySelector('a.neben'), hin = p.querySelector('span');
     if (!a || !pdf) return;
-    a.href = pdf.getAttribute('href'); a.target = '_blank'; a.rel = 'noopener';
+    var url = pdf.getAttribute('href'), titel = a.textContent.replace('🖨️', '').replace(' drucken', '').trim(), datei = null;
     pdf.style.display = 'none';
-    if (hin) hin.textContent = 'Öffnet das PDF – dann über das Teilen-Symbol „Drucken“ wählen';
+    if (navigator.share && navigator.canShare && window.fetch) {
+      fetch(url).then(function (r) { return r.blob(); }).then(function (b) {
+        var f = new File([b], url, { type: 'application/pdf' });
+        if (navigator.canShare({ files: [f] })) datei = f;
+      }).catch(function () {});
+    }
+    if (hin) hin.textContent = 'Öffnet das Teilen-Menü – dort „Drucken“ wählen';
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (datei) { navigator.share({ files: [datei], title: titel }).catch(function () {}); }
+      else { window.location.href = url; }
+    });
   });
 })();
 </script>

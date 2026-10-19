@@ -32,7 +32,7 @@ html,body{margin:0;background:#E9E4D8}
 <a class="zurueck" href="./">‹ mibaso.de/schule</a>
 <button type="button" id="drucken">🖨️ Drucken</button>
 <a href="infoblatt-biologie.pdf" id="pdf" download>📄 PDF herunterladen</a>
-<p class="hinweis" id="hinweis" hidden>iPhone/iPad: Tippe auf „Drucken“ – das PDF öffnet sich. Dort über das Teilen-Symbol „Drucken“ wählen.</p>
+<p class="hinweis" id="hinweis" hidden>iPhone/iPad: „Drucken“ öffnet das Teilen-Menü – dort „Drucken“ wählen.</p>
 </div>
 <div class="rahmen" id="rahmen"><div class="blatt" id="blatt">
 <div style="width: 794px; height: 1123px; box-sizing: border-box; background: #FBF8F1; font-family: 'Source Sans 3', sans-serif; color: #2B2925; display: flex; flex-direction: column">
@@ -104,8 +104,12 @@ html,body{margin:0;background:#E9E4D8}
   window.addEventListener('resize',passen); passen();
   var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   var pdf=document.getElementById('pdf');
-  if(ios){ document.getElementById('hinweis').hidden=false; pdf.removeAttribute('download'); pdf.target='_blank'; pdf.textContent='📄 PDF öffnen'; }
-  document.getElementById('drucken').addEventListener('click',function(){ if(ios) window.open(pdf.getAttribute('href'),'_blank'); else window.print(); });
+  var datei=null, url=pdf.getAttribute('href');
+  if(ios){ document.getElementById('hinweis').hidden=false; pdf.style.display='none';
+    if(navigator.share&&navigator.canShare&&window.fetch) fetch(url).then(function(r){return r.blob();}).then(function(b){ var f=new File([b],url,{type:'application/pdf'}); if(navigator.canShare({files:[f]})) datei=f; }).catch(function(){}); }
+  document.getElementById('drucken').addEventListener('click',function(){
+    if(!ios) return window.print();
+    if(datei) navigator.share({files:[datei],title:document.title}).catch(function(){}); else window.location.href=url; });
   if(!ios && /[?&]druck=1/.test(location.search)) window.addEventListener('load',function(){ setTimeout(function(){ window.print(); },400); });
 })();
 </script>
