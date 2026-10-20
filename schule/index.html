@@ -81,6 +81,16 @@
     padding:8px 16px;border-radius:999px;margin-top:auto;}
   .los:hover{filter:brightness(1.15);}
   .karte .adresse{display:none;}
+  @media (min-width:640px){.karten.vier{grid-template-columns:1fr 1fr;}}
+  .unterkopf{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--akzent);margin:22px 0 4px;}
+  .unterkopf:first-of-type{margin-top:4px;}
+  .unter-lead{font-family:var(--sans);font-size:13.5px;color:var(--leise);margin-bottom:12px;}
+  .karte.pfad{border-top:3px solid var(--akzent);}
+  .karte .leitfrage{font-style:italic;font-size:14.5px;line-height:1.4;margin-bottom:8px;}
+  .karte .stationen{counter-reset:st;}
+  .karte .stationen li{padding-left:18px;}
+  .karte .stationen li::before{counter-increment:st;content:counter(st);font-size:10.5px;top:2px;}
+  .karte .achtung{font-family:var(--sans);font-size:12.5px;line-height:1.4;color:#7a3b2a;background:color-mix(in srgb, var(--akzent) 9%, transparent);border-radius:8px;padding:7px 10px;margin:-4px 0 12px;}
   .boegen{font-family:var(--sans);font-size:13px;color:var(--leise);margin-top:10px;}
   .boegen a{color:var(--akzent);font-weight:600;text-decoration:none;border-bottom:1px solid color-mix(in srgb, var(--akzent) 35%, transparent);}
   .boegen a:hover{border-bottom-color:var(--akzent);}
@@ -171,6 +181,10 @@
     .kc b{color:#000;}
     .kc-hinweis{font-size:7.6pt;margin:0 0 9px;}
     .los,.boegen{display:none;}
+    .unterkopf{margin:8px 0 4px;font-size:8pt;}
+    .karten.vier{grid-template-columns:1fr 1fr;}
+    .unter-lead{font-size:8pt;margin-bottom:5px;}
+    .karte .achtung{font-size:7.6pt;padding:2pt 4pt;margin:0 0 4px;}
     .karte .adresse{display:block;font-family:var(--sans);font-size:7.6pt;color:#333;
       word-break:break-all;}
     .praxis{margin-bottom:10px;}
@@ -571,42 +585,115 @@
   <section class="fach gesch" id="geschichte">
     <h2>Geschichte</h2>
     <p class="fsub">Weltgeschichte als chronologische Reise: kurze Szenen mit
-    Orientierungskarte, historischem Bild, Sprechertext und Quiz. Alle drei Episoden
-    sind vollständig verfügbar. Die Szenen arbeiten mit gesprochenem Text: für die
-    Einzel- und Partnerarbeit werden Kopfhörer benötigt, bei der Projektion genügt
-    ein Lautsprecher. Ohne Kopfhörer schaut die Klasse gemeinsam am Beamer und kreuzt
-    auf einem Quizbogen an – zu jeder Episode gibt es Bogen und Lösung zum Ausdrucken.</p>
+    Orientierungskarte, historischem Bild, Sprechertext und Quiz. Neu sind vier
+    Lernpfade für den Unterricht; die drei Episoden lassen sich weiterhin frei
+    entdecken. Mit Kopfhörern hört man den Sprecher – ohne Kopfhörer wird der Ton
+    ausgeschaltet, dann erscheint der Sprechertext zum Mitlesen.</p>
     <p class="infoblatt"><a href="infoblatt-geschichte.html?druck=1">🖨️ Infoblatt Geschichte drucken</a><a class="neben" href="infoblatt-geschichte.pdf" download>📄 PDF</a><span>A4 · mit QR-Code zum Aushängen oder Austeilen</span></p>
+    <h3 class="unterkopf">Im Unterricht · vier Lernpfade</h3>
+    <p class="unter-lead">Je eine Leitfrage, fünf Stationen mit Quiz, eine eigene Denkaufgabe auf Papier und eine gemeinsame Besprechung. Der Lernpass speichert den Fortschritt auf dem Gerät, am Ende gibt es eine Urkunde. Hinweise für die Lehrkraft stehen in jedem Lernpfad.</p>
+    <div class="karten vier">
+
+      <article class="karte pfad">
+        <h3>Macht und Mitbestimmung in der Antike</h3>
+        <p class="was">Vom Pharao zur römischen Kaiserzeit.</p>
+        <p class="leitfrage">Wer entscheidet – und wie wird Herrschaft organisiert und begründet?</p>
+        <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <ul class="stationen">
+          <li>Ein Staat am Nil</li>
+          <li>Recht und gesellschaftlicher Rang</li>
+          <li>Ein Großreich organisieren</li>
+          <li>Mitbestimmen in Athen</li>
+          <li>Vom Bürgerkrieg zur Kaiserzeit</li>
+        </ul>
+        <a class="los" href="https://historia.mibaso.de/lernpfad-antike/">Lernpfad 1 starten</a>
+        <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Ur- und Frühgeschichte sowie Antike</p>
+        <div class="adresse">historia.mibaso.de/lernpfad-antike/</div>
+      </article>
+
+      <article class="karte pfad">
+        <h3>Glaube und Herrschaft im Mittelalter</h3>
+        <p class="was">Gemeinschaften, Kaiser und Konflikte · 622–1453.</p>
+        <p class="leitfrage">Wie verbinden sich religiöse Gemeinschaften, politische Herrschaft und militärische Macht?</p>
+        <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <ul class="stationen">
+          <li>Gemeinschaft und Kalifenreich</li>
+          <li>Karl und die Kaiserkrone</li>
+          <li>Otto und die Bischöfe</li>
+          <li>Kreuzzüge und ihre Folgen</li>
+          <li>Konstantinopel 1453</li>
+        </ul>
+        <a class="los" href="https://historia.mibaso.de/lernpfad-mittelalter/">Lernpfad 2 starten</a>
+        <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Mittelalter und Neuzeit</p>
+        <div class="adresse">historia.mibaso.de/lernpfad-mittelalter/</div>
+      </article>
+
+      <article class="karte pfad">
+        <h3>Herrschaft hinterfragen – Rechte erkämpfen</h3>
+        <p class="was">Reformation, Aufklärung und Revolution · 1517–1815.</p>
+        <p class="leitfrage">Wie werden religiöse und politische Autoritäten infrage gestellt – und für wen gelten neue Rechte?</p>
+        <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <ul class="stationen">
+          <li>Autorität wird bestritten</li>
+          <li>Glaubensstreit und Machtpolitik</li>
+          <li>Herrschaft in Versailles</li>
+          <li>Vernunft und überprüfbare Belege</li>
+          <li>Revolutionen und ihre Grenzen</li>
+        </ul>
+        <a class="los" href="https://historia.mibaso.de/lernpfad-rechte/">Lernpfad 3 starten</a>
+        <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Mittelalter und Neuzeit</p>
+        <div class="adresse">historia.mibaso.de/lernpfad-rechte/</div>
+      </article>
+
+      <article class="karte pfad">
+        <h3>Demokratie unter Druck</h3>
+        <p class="was">Weimar, NS-Diktatur, Weltkrieg und Holocaust · 1919–1945.</p>
+        <p class="leitfrage">Wie wird eine Demokratie geschwächt und beseitigt – und welche Folgen hat die nationalsozialistische Herrschaft?</p>
+        <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <p class="achtung">Nur mit der Lehrkraft bearbeiten, nicht für die Vertretungsstunde: Die Einheit behandelt Entrechtung, Krieg und den Holocaust. Vorwissen und Gesprächsbedarf vorab klären.</p>
+        <ul class="stationen">
+          <li>Eine Republik unter Druck</li>
+          <li>Die Ernennung im Januar 1933</li>
+          <li>Demokratie wird beseitigt</li>
+          <li>Der Zweite Weltkrieg</li>
+          <li>Der Holocaust</li>
+        </ul>
+        <a class="los" href="https://historia.mibaso.de/lernpfad-demokratie/">Lernpfad 4 starten</a>
+        <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Neuzeit und Neueste Zeit</p>
+        <div class="adresse">historia.mibaso.de/lernpfad-demokratie/</div>
+      </article>
+
+    </div>
+
+    <h3 class="unterkopf">Frei entdecken · drei Episoden</h3>
     <div class="karten">
 
       <article class="karte">
         <h3>Historia — Episode 1</h3>
         <p class="was">Pharaonen, Griechen und Cäsaren: sechzehn Schlüsselszenen von
         Narmer bis zum Ende des Weströmischen Reiches.</p>
-        <div class="marker"><span>Kl. 6–10</span><span>je Szene 2–4 Min</span><span>Handy, Tablet oder Beamer</span><span>🔊 Ton nötig</span></div>
+        <div class="marker"><span>Kl. 6–10</span><span>je Szene 2–4 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 Ton an/aus</span></div>
         <ul>
           <li>Jede Szene zuerst mit Karte, dann mit Bild</li>
           <li>Zwei Vertiefungspunkte je Szene</li>
           <li>Zwei Quizfragen je Szene</li>
           <li>Untertitel für alle Sprechertexte</li>
         </ul>
-        <a class="los" href="https://historia.mibaso.de/">Episode 1 öffnen</a>
-        <p class="boegen">Ohne Kopfhörer: <a href="quizbogen-historia-1.html">Quizbogen</a> · <a href="loesung-historia-1.html">Lösung</a></p>
+        <a class="los" href="https://historia.mibaso.de/entdecken/">Episode 1 öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Ur- und Frühgeschichte sowie Antike</p>
-        <div class="adresse">historia.mibaso.de</div>
+        <div class="adresse">historia.mibaso.de/entdecken</div>
       </article>
 
       <article class="karte">
         <h3>Historia — Episode 2</h3>
         <p class="was">Kaiser, Kreuzfahrer und Revolutionäre: von der Hidschra 622
         bis Waterloo 1815, ebenfalls in sechzehn Szenen.</p>
-        <div class="marker"><span>Kl. 7–11</span><span>je Szene 2–4 Min</span><span>Handy, Tablet oder Beamer</span><span>🔊 Ton nötig</span></div>
+        <div class="marker"><span>Kl. 7–11</span><span>je Szene 2–4 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 Ton an/aus</span></div>
         <ul>
           <li>Bilder, Karten und Sprechertexte vollständig</li>
           <li>Vertiefung und Quiz wie in Episode 1</li>
         </ul>
         <a class="los" href="https://historia.mibaso.de/episode-2">Episode 2 öffnen</a>
-        <p class="boegen">Ohne Kopfhörer: <a href="quizbogen-historia-2.html">Quizbogen</a> · <a href="loesung-historia-2.html">Lösung</a></p>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Mittelalter und Neuzeit</p>
         <div class="adresse">historia.mibaso.de/episode-2</div>
       </article>
@@ -615,7 +702,7 @@
         <h3>Historia — Episode 3</h3>
         <p class="was">Nationen, Weltkriege und Gegenwart: von der Industrialisierung
         bis zur global vernetzten Welt, in zwanzig Szenen.</p>
-        <div class="marker"><span>Kl. 8–12</span><span>je Szene 2–4 Min</span><span>Handy, Tablet oder Beamer</span><span>🔊 Ton nötig</span></div>
+        <div class="marker"><span>Kl. 8–12</span><span>je Szene 2–4 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 Ton an/aus</span></div>
         <ul>
           <li>Industrialisierung und Soziale Frage</li>
           <li>Nationalstaaten und Weltkriege</li>
@@ -623,7 +710,6 @@
           <li>Aufbau und Bedienung wie Episode 1 und 2</li>
         </ul>
         <a class="los" href="https://historia.mibaso.de/episode-3">Episode 3 öffnen</a>
-        <p class="boegen">Ohne Kopfhörer: <a href="quizbogen-historia-3.html">Quizbogen</a> · <a href="loesung-historia-3.html">Lösung</a></p>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Neuzeit und Neueste Zeit</p>
         <div class="adresse">historia.mibaso.de/episode-3</div>
       </article>
@@ -633,27 +719,102 @@
 
   <section class="fach evo" id="erdgeschichte">
     <h2>Erdgeschichte und Evolution</h2>
-    <p class="fsub">Fächerübergreifend zwischen Biologie und Geschichte —
-    und ein guter Einstieg in beide. Auch hier gehört gesprochener Text dazu:
-    Kopfhörer für die Einzel- und Partnerarbeit, Lautsprecher bei der Projektion –
-    dazu passt der Quizbogen zum Ankreuzen.</p>
+    <p class="fsub">Fächerübergreifend zwischen Biologie und Geschichte — vom ersten
+    Leben bis zu den ersten Städten. Neu sind vier Lernpfade für den Unterricht. Auch
+    hier lässt sich der Ton ausschalten; für die große Zeitreise gibt es zusätzlich
+    einen Quizbogen zum Ankreuzen am Beamer.</p>
     <p class="infoblatt"><a href="infoblatt-geschichte.html?druck=1">🖨️ Infoblatt Geschichte und Erdgeschichte drucken</a><a class="neben" href="infoblatt-geschichte.pdf" download>📄 PDF</a><span>A4 · mit QR-Code zum Aushängen oder Austeilen</span></p>
+    <h3 class="unterkopf">Im Unterricht · vier Lernpfade</h3>
+    <p class="unter-lead">Je eine Leitfrage, fünf Stationen mit Quiz, eine eigene Denkaufgabe auf Papier und eine gemeinsame Besprechung. Der Lernpass speichert den Fortschritt auf dem Gerät, am Ende gibt es eine Urkunde. Hinweise für die Lehrkraft stehen in jedem Lernpfad.</p>
+    <div class="karten vier">
+
+      <article class="karte pfad">
+        <h3>Vom Einzeller zur Vielfalt</h3>
+        <p class="was">Zellen, Zusammenarbeit und neue Lebensformen.</p>
+        <p class="leitfrage">Wie verändert das Leben seine Umwelt – und wie entstehen neue Möglichkeiten durch Zusammenarbeit?</p>
+        <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <ul class="stationen">
+          <li>Leben in einer Zelle</li>
+          <li>Leben verändert die Umwelt</li>
+          <li>Zusammenarbeit im Kleinen</li>
+          <li>Aus Zellen wird ein Team</li>
+          <li>Vielfalt im Meer</li>
+        </ul>
+        <a class="los" href="https://evo.mibaso.de/lernpfad-leben/">Lernpfad 1 starten</a>
+        <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
+        <div class="adresse">evo.mibaso.de/lernpfad-leben/</div>
+      </article>
+
+      <article class="karte pfad">
+        <h3>Mensch werden: ein verzweigter Weg</h3>
+        <p class="was">Spuren, Werkzeuge und gemeinsame Herkunft.</p>
+        <p class="leitfrage">Warum ist die Entwicklung des Menschen ein verzweigter Weg mit vielen gleichzeitig lebenden Linien?</p>
+        <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <ul class="stationen">
+          <li>Verwandt und verzweigt</li>
+          <li>Auf zwei Beinen</li>
+          <li>Werkzeuge und Veränderungen</li>
+          <li>Menschen unterwegs</li>
+          <li>Eine Menschheit</li>
+        </ul>
+        <a class="los" href="https://evo.mibaso.de/lernpfad-mensch/">Lernpfad 2 starten</a>
+        <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen · Geschichte: Ur- und Frühgeschichte</p>
+        <div class="adresse">evo.mibaso.de/lernpfad-mensch/</div>
+      </article>
+
+      <article class="karte pfad">
+        <h3>Vom Wandern zum Bleiben</h3>
+        <p class="was">Dörfer, Felder und Herden.</p>
+        <p class="leitfrage">Wie wurden aus wandernden Gruppen Menschen, die Dörfer bauten, Felder bestellten und Tiere hielten?</p>
+        <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <ul class="stationen">
+          <li>Leben ohne Acker</li>
+          <li>Gemeinsam bauen und bleiben</li>
+          <li>Pflanzen und Tiere verändern sich</li>
+          <li>Viele Wege zur Landwirtschaft</li>
+          <li>Das neue Zusammenleben</li>
+        </ul>
+        <a class="los" href="https://evo.mibaso.de/lernpfad/">Lernpfad 3 starten</a>
+        <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Ur- und Frühgeschichte sowie Antike</p>
+        <div class="adresse">evo.mibaso.de/lernpfad/</div>
+      </article>
+
+      <article class="karte pfad">
+        <h3>Vom Dorf zur Stadt</h3>
+        <p class="was">Vorräte, Schrift und Macht.</p>
+        <p class="leitfrage">Wie verändern Vorräte, neue Berufe und die Schrift das Zusammenleben – und wer entscheidet in einer wachsenden Stadt?</p>
+        <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <ul class="stationen">
+          <li>Vorräte brauchen Überblick</li>
+          <li>Neue Aufgaben entstehen</li>
+          <li>Zeichen, Listen und Macht</li>
+          <li>Uruk: eine Stadt als Netzwerk</li>
+          <li>Wer entscheidet für die Stadt?</li>
+        </ul>
+        <a class="los" href="https://evo.mibaso.de/lernpfad-2/">Lernpfad 4 starten</a>
+        <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Ur- und Frühgeschichte sowie Antike</p>
+        <div class="adresse">evo.mibaso.de/lernpfad-2/</div>
+      </article>
+
+    </div>
+
+    <h3 class="unterkopf">Frei entdecken</h3>
     <div class="karten">
 
       <article class="karte">
         <h3>Die große Zeitreise</h3>
         <p class="was">4,6 Milliarden Jahre in zweiundzwanzig Szenen: von der
         glühenden Erde über die erste Zelle bis zu den Säugetieren.</p>
-        <div class="marker"><span>Kl. 6–12</span><span>ca. 25 Min gesamt</span><span>Handy, Tablet oder Beamer</span><span>🔊 Ton nötig</span></div>
+        <div class="marker"><span>Kl. 6–12</span><span>ca. 25 Min gesamt</span><span>Handy, Tablet oder Beamer</span><span>🔇 Ton an/aus</span></div>
         <ul>
           <li>Sprechertexte, Animationen und Atmosphäre</li>
           <li>Zwei Quizfragen je Szene, dazu ein Abschlussquiz</li>
           <li>Interaktiver Tierstammbaum zur Vertiefung</li>
         </ul>
-        <a class="los" href="https://evo.mibaso.de/">Zeitreise starten</a>
-        <p class="boegen">Ohne Kopfhörer: <a href="quizbogen-zeitreise.html">Quizbogen</a> · <a href="loesung-zeitreise.html">Lösung</a></p>
+        <a class="los" href="https://evo.mibaso.de/entdecken/">Zeitreise starten</a>
+        <p class="boegen">Für den Beamer: <a href="quizbogen-zeitreise.html">Quizbogen</a> · <a href="loesung-zeitreise.html">Lösung</a></p>
         <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung · Sachunterricht: Geschichte und Zeit</p>
-        <div class="adresse">evo.mibaso.de</div>
+        <div class="adresse">evo.mibaso.de/entdecken</div>
       </article>
 
     </div>
@@ -665,8 +826,9 @@
     <a href="infoblatt-biologie.html">Biologie</a> · <a href="infoblatt-chemie.html">Chemie</a> ·
     <a href="infoblatt-geschichte.html">Geschichte und Erdgeschichte</a> (je eine A4-Seite zum Drucken oder als PDF).
     Einfach ausdrucken und ins Vertretungsfach legen – die Schülerinnen und Schüler scannen den Code
-    und legen los. Für Geschichte und die Zeitreise gibt es zusätzlich Quizbögen mit Lösung: Die Klasse
-    schaut gemeinsam am Beamer und kreuzt still an. So klappt die Stunde auch ohne Kopfhörer.</p>
+    und legen los. In Historia und der Zeitreise lässt sich der Ton ausschalten, die Sprechertexte erscheinen
+    dann zum Mitlesen. Für die große Zeitreise gibt es zusätzlich einen Quizbogen mit Lösung zum
+    Ankreuzen am Beamer. So klappt die Stunde auch ohne Kopfhörer.</p>
     <p><b>Auf Smartphone und Tablet.</b> Alle Einheiten sind für diese Geräte gemacht
     und lassen sich dort vollständig durchführen — im Klassenraum wie im Gelände. Ein
     Browser genügt, es ist nichts zu installieren.</p>
