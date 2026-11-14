@@ -75,6 +75,8 @@
   .karte ul{list-style:none;font-family:var(--sans);font-size:13px;line-height:1.5;
     margin-bottom:12px;}
   .karte ul li{padding-left:13px;position:relative;color:var(--leise);}
+  .karte ul li.bonus{padding-left:0;}
+  .karte ul li.bonus::before{content:"";}
   .karte ul li::before{content:"·";position:absolute;left:3px;color:var(--akzent);font-weight:700;}
   .los{display:inline-block;align-self:flex-start;background:var(--akzent);color:#F7F3E8;
     text-decoration:none;font-family:var(--sans);font-size:13.5px;
@@ -279,7 +281,7 @@
   <!-- ===================== BIOLOGIE ===================== -->
   <section class="fach" id="biologie">
     <h2>Biologie · Sachunterricht · Naturwissenschaften</h2>
-    <p class="fsub">Zwei Ökosysteme in voller Tiefe, je eine Doppelstunde zu Tieren im Winter, zu Haustieren und zu Vögeln, dazu Bestimmen und Ordnen mit
+    <p class="fsub">Zwei Ökosysteme in voller Tiefe, je eine Doppelstunde zu Tieren im Winter, zu Haustieren und zu Vögeln, neun Lernspiele, dazu Bestimmen und Ordnen mit
     150 Pflanzen- und zahlreichen Tierarten aus der Region. Jeder Eintrag führt
     direkt zur passenden Station — ohne Umweg über eine Übersicht.</p>
     <p class="infoblatt"><a href="infoblatt-biologie.html?druck=1">🖨️ Infoblatt Biologie drucken</a><a class="neben" href="infoblatt-biologie.pdf" download>📄 PDF</a><span>A4 · mit QR-Code zum Aushängen oder Austeilen</span></p>
@@ -300,6 +302,7 @@
           <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-jahreslauf.html">Der Wald im Jahreslauf</a></li>
           <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-nutzen.html">Warum der Wald so wichtig ist</a></li>
           <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-invasive.html">Invasive Arten</a></li>
+          <li class="bonus">🎲 <a href="https://bio.mibaso.de/flora/interaktiv/haehersaat.html">Bonus-Spiel: Hähersaat</a> — als Eichelhäher Eicheln verstecken</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/flora/waldpass.html">Forscherpass „Expedition Wald“</a>
         <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Bewertung: Handeln und Umwelt</p>
@@ -319,6 +322,8 @@
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/nahrungsnetz.html">Wer frisst wen? — Nahrungsnetz</a></li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/bodenleben.html">Was wir nicht sehen — Bodenleben</a></li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/wiese-lebt.html">Wie hängt alles zusammen?</a></li>
+          <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/sammelflug.html">Bonus-Spiel: Sammelflug</a> — ein Tag als Wildbiene</li>
+          <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/falterspiel.html">Leiterspiele: Vom Ei zum Falter</a> — und <a href="https://bio.mibaso.de/fauna/interaktiv/libellenspiel.html">Vom Wasser in die Luft</a></li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/wiesenpass.html">Forscherpass „Expedition Wiese“</a>
         <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Fortpflanzung und Entwicklung</p>
@@ -333,6 +338,8 @@
         <ul>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/winterpass.html#w1">Teil 1 · Kalt erwischt?</a> — gleichwarm und wechselwarm, Winterschlaf, Winterruhe, Winterstarre, Fell, Federn, Fett und der Speckhandschuh-Versuch</li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/winterpass.html#w2">Teil 2 · Fortfliegen oder bleiben?</a> — Zugvögel und Wintergäste, Vorräte, Spuren im Schnee, Helfen – aber richtig</li>
+          <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/kalte-kost.html">Bonus-Spiel: Kalte Kost</a> — ein Wintertag als Kohlmeise</li>
+          <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/faehrtenleser.html">Bonus-Spiel: Fährtenleser</a> — wer war das im Schnee?</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/winterpass.html">Winterpass „Expedition Winter“</a>
         <p class="kc"><b>Kerncurriculum:</b> Stoffwechsel und Regelmechanismen · Vielfalt, Veränderung und Abstammung von Lebewesen · Bewertung: Naturschutz</p>
@@ -348,6 +355,7 @@
         <ul>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/haustierpass.html#h1">Teil 1 · Vom Wolf zum Hund</a> — Bilderreihe zur Domestikation, Wolf und Hund im Vergleich, Körpersprache des Hundes mit Fotos, Züchtung zum Ausprobieren</li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/haustierpass.html#h2">Teil 2 · Vom Wildschwein zum Hausschwein</a> — Wild- und Nutzformen weiterer Haustiere, artgerechte Haltung, Eier-Code</li>
+          <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/zuchtspiel.html">Bonus-Spiel: Vom Wolf zum Hütehund</a> — Züchten in sechs Würfen</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/haustierpass.html">Haustierpass „Wild &amp; zahm“</a>
         <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen · Informationsfluss: Verhalten · Bewertung: Haltung und Nutzung</p>
@@ -381,6 +389,7 @@
           <li>Wer kommt zu Besuch? — 21 Futterhausgäste mit Lehrtafeln</li>
           <li>Beobachten wie die Profis — Film, Verhalten, Zählkarte wie bei der Stunde der Wintervögel</li>
           <li>Das große Bilderquiz — 10 Fragen mit je vier Bildern</li>
+          <li class="bonus">🎲 Im Pass: Ansturm am Futterhaus, Rätselvogel des Tages, Schnabel-Duell für zwei Teams</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/futterhauspass.html">Futterhaus-Pass „Vögel am Futterhaus“</a>
         <p class="kc"><b>Kerncurriculum:</b> Biologische Strukturen · Vielfalt · Mensch und Umwelt</p>
@@ -399,6 +408,7 @@
           <li>Auf großer Fahrt — Zugwege von Storch, Schwalbe, Kuckuck, Mauersegler und Bergfink auf der Karte</li>
           <li>Kompass im Kopf — Orientierung, Gefahren unterwegs, Vogelschutz</li>
           <li>Das große Bilderquiz — 10 Fragen mit je vier Bildern</li>
+          <li class="bonus">🎲 Im Pass: Rätselzugvogel des Tages, Wettflug für zwei Teams, Reise-Album</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/zugvogelpass.html">Zugvogel-Pass „Auf großer Reise“</a>
         <p class="kc"><b>Kerncurriculum:</b> Biologische Strukturen · Vielfalt · Mensch und Umwelt</p>
@@ -417,6 +427,7 @@
           <li><a href="https://bio.mibaso.de/flora/interaktiv/bestaeubung-animiert.html">Bestäubung Schritt für Schritt — Animation</a></li>
           <li><a href="https://flora.mibaso.de/interaktiv/bluetenoekologie.html">Blütenökologie — wer besucht wen?</a></li>
           <li><a href="https://fauna.mibaso.de/interaktiv/hummeln-flyer.html">Unsere Hummeln</a></li>
+          <li class="bonus">🎲 <a href="https://bio.mibaso.de/flora/interaktiv/pollenpost.html">Bonus-Spiel: Pollenpost</a> — Pollen nur zur gleichen Art</li>
         </ul>
         <a class="los" href="https://bio.mibaso.de/flora/pflanzenpass.html">Forscherpass „Expedition Wiese“</a>
         <p class="kc"><b>Kerncurriculum:</b> Fortpflanzung und Entwicklung · Wechselwirkungen in Ökosystemen</p>
@@ -543,6 +554,27 @@
         </ul>
         <a class="los" href="https://bio.mibaso.de/">Alle Pässe auf bio.mibaso.de</a>
         <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Erkenntnisgewinnung</p>
+        <div class="adresse">bio.mibaso.de</div>
+      </article>
+
+      <article class="karte" id="lernspiele">
+        <h3>Lernspiele — spielend verstehen</h3>
+        <p class="was">Kurze Spiele zum Festigen und als Belohnung nach den Stationen: Die Kinder
+        schlüpfen in die Rolle eines Tieres und erleben, worauf es im Leben draußen ankommt.
+        Jedes Spiel hat drei Stufen, ein Sammelbuch und Hinweise für Lehrkräfte.</p>
+        <div class="marker"><span>Kl. 5–6</span><span>je 3–10 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <ul>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/sammelflug.html">Sammelflug</a> — als Wildbiene Nektar und Pollen sammeln, bevor Regen und Traktor kommen <span class="her">Wiese · Tiere</span></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/pollenpost.html">Pollenpost</a> — als Hummel und Nachtfalter Blüten der gleichen Art bestäuben <span class="her">Wiese · Pflanzen</span></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/haehersaat.html">Hähersaat</a> — als Eichelhäher Eicheln verstecken; Vergessenes wird zum Baum <span class="her">Wald</span></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/kalte-kost.html">Kalte Kost</a> — als Kohlmeise Fett für die lange Winternacht anfressen <span class="her">Winter</span></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/faehrtenleser.html">Fährtenleser</a> — Spuren im Schnee folgen, bevor es dunkel wird <span class="her">Winter</span></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/durchs-jahr.html">Durchs Jahr!</a> — zwölf Monate als Kohlmeise, Rauchschwalbe oder Igel überstehen</li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/falterspiel.html">Vom Ei zum Falter</a> und <a href="https://bio.mibaso.de/fauna/interaktiv/libellenspiel.html">Vom Wasser in die Luft</a> — Leiterspiele zur Metamorphose <span class="her">Wiese · Tiere</span></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/zuchtspiel.html">Vom Wolf zum Hütehund</a> — Zuchtspiel in sechs Würfen <span class="her">Wild &amp; zahm</span></li>
+        </ul>
+        <a class="los" href="https://bio.mibaso.de/flora/interaktiv/pollenpost.html">Mit der Pollenpost beginnen</a>
+        <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Stoffwechsel und Regelmechanismen · Fortpflanzung und Entwicklung</p>
         <div class="adresse">bio.mibaso.de</div>
       </article>
 
