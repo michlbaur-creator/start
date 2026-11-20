@@ -234,6 +234,19 @@
     .fach > h2, .fach > .fsub{break-after:avoid;}
     .praxis{break-inside:auto;}
   }
+  /* Stations- und Inhaltslisten zum Aufklappen */
+  details.liste{flex:1 0 auto;margin:2px 0 10px;}
+  details.liste>summary{cursor:pointer;list-style:none;font-family:var(--sans);font-size:13.5px;font-weight:600;color:var(--akzent);
+    padding:6px 0;display:inline-flex;align-items:center;gap:4px;}
+  details.liste>summary::-webkit-details-marker{display:none;}
+  details.liste>summary::before{content:"›";display:inline-block;transition:transform .15s;font-size:16px;line-height:1;}
+  details.liste[open]>summary::before{transform:rotate(90deg);}
+  details.liste>summary .anz{color:var(--leise);font-weight:400;}
+  details.liste .auf{display:none;}
+  details.liste[open] .auf{display:inline;}
+  details.liste[open] .zu{display:none;}
+  details.liste>ul{margin-top:4px;}
+  @media print{ details.liste>summary{display:none;} }
 </style>
 <script src="/assets/zaehler.js" defer></script>
 </head>
@@ -258,8 +271,8 @@
     <ul>
       <li><span class="hk" aria-hidden="true">✓</span><span><b>Keine Anmeldung.</b>
       Kein Konto, kein Passwort, keine Schullizenz.</span></li>
-      <li><span class="hk" aria-hidden="true">✓</span><span><b>Keine Daten.</b>
-      Nichts wird erhoben oder weitergegeben, kein Tracking, keine Werbung.</span></li>
+      <li><span class="hk" aria-hidden="true">✓</span><span><b>Keine persönlichen Daten.</b>
+      Keine Namen, keine Cookies, keine Werbung. Gezählt werden nur anonyme Seitenaufrufe.</span></li>
       <li><span class="hk" aria-hidden="true">✓</span><span><b>Läuft offline.</b>
       Einmal geladen, funktioniert alles auch ohne WLAN — etwa im Wald.</span></li>
       <li><span class="hk" aria-hidden="true">✓</span><span><b>Kostenlos.</b>
@@ -292,20 +305,22 @@
         <h3>Ökosystem Wald</h3>
         <p class="was">Acht Stationen, die den Wald von oben nach unten durchgehen —
         vom Kronendach bis in den Boden.</p>
-        <div class="marker"><span>Kl. 5–10</span><span>je 15–25 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <div class="marker"><span>Kl. 5–10</span><span>je 8–10 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-stockwerke.html">Der Aufbau des Waldes — Stockwerke</a></li>
-          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-waldboden.html">Das Geheimnis des Waldbodens</a></li>
-          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-baeume.html">Bäume erkennen</a></li>
-          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-erkennen.html">Waldpflanzen entdecken</a></li>
-          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-fruehblueher.html">Frühblüher im Wald</a></li>
           <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-jahreslauf.html">Der Wald im Jahreslauf</a></li>
-          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-nutzen.html">Warum der Wald so wichtig ist</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-erkennen.html">Waldpflanzen entdecken</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-baeume.html">Bäume erkennen</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-fruehblueher.html">Frühblüher im Wald</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-waldboden.html">Das Geheimnis des Waldbodens</a></li>
           <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-invasive.html">Invasive Arten</a></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/wald-nutzen.html">Warum der Wald so wichtig ist</a></li>
           <li class="bonus">🎲 <a href="https://bio.mibaso.de/flora/interaktiv/haehersaat.html">Bonus-Spiel: Hähersaat</a> — als Eichelhäher Eicheln verstecken</li>
           <li class="bonus">🎲 <a href="https://bio.mibaso.de/flora/interaktiv/lichtrennen.html">Bonus-Spiel: Wettlauf ums Licht</a> — Frühblüher gegen das Blätterdach</li>
         </ul>
-        <a class="los" href="https://bio.mibaso.de/flora/waldpass.html">Forscherpass „Expedition Wald“</a>
+        </details>
+        <a class="los" href="https://bio.mibaso.de/flora/waldpass.html">Waldpass „Expedition Wald“</a>
         <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Bewertung: Handeln und Umwelt</p>
         <div class="adresse">bio.mibaso.de/flora/waldpass.html</div>
       </article>
@@ -313,19 +328,21 @@
       <article class="karte">
         <h3>Ökosystem Wiese</h3>
         <p class="was">Sieben Stationen rund um die Wiese und ihre Bewohner —
-        von der Frage, wem sie eigentlich gehört, bis zum Nahrungsnetz.</p>
-        <div class="marker"><span>Kl. 5–8</span><span>je 15–25 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        von der Frage, wem sie eigentlich gehört, bis ins Bodenleben.</p>
+        <div class="marker"><span>Kl. 5–8</span><span>je 8–12 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/grundlagen.html">Wem gehört die Wiese?</a></li>
-          <li><a href="https://bio.mibaso.de/fauna/interaktiv/lebensraum.html">Wo wohnen Insekten?</a></li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/verwandlung.html">Wie wird man Insekt? — Metamorphose</a></li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/bestaeubung.html">Wer bestäubt wen?</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/lebensraum.html">Wo wohnen Insekten?</a></li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/nahrungsnetz.html">Wer frisst wen? — Nahrungsnetz</a></li>
-          <li><a href="https://bio.mibaso.de/fauna/interaktiv/bodenleben.html">Was wir nicht sehen — Bodenleben</a></li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/wiese-lebt.html">Wie hängt alles zusammen?</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/bodenleben.html">Was wir nicht sehen — Bodenleben</a></li>
           <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/sammelflug.html">Bonus-Spiel: Sammelflug</a> — ein Tag als Wildbiene</li>
           <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/falterspiel.html">Leiterspiele: Vom Ei zum Falter</a> — und <a href="https://bio.mibaso.de/fauna/interaktiv/libellenspiel.html">Vom Wasser in die Luft</a></li>
         </ul>
+        </details>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/wiesenpass.html">Wiesenpass „Expedition Wiese“</a>
         <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Fortpflanzung und Entwicklung</p>
         <div class="adresse">bio.mibaso.de/fauna/interaktiv/wiesenpass.html</div>
@@ -336,12 +353,14 @@
         <p class="was">Eine Doppelstunde in zwei Teilen: Wie Tiere Frost und Hunger überstehen —
         mit Winterpass, Nuss-Vorrat, Abzeichen und Urkunde.</p>
         <div class="marker"><span>Kl. 5–6</span><span>2 × ca. 45 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/winterpass.html#w1">Teil 1 · Kalt erwischt?</a> — gleichwarm und wechselwarm, Winterschlaf, Winterruhe, Winterstarre, Fell, Federn, Fett und der Speckhandschuh-Versuch</li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/winterpass.html#w2">Teil 2 · Fortfliegen oder bleiben?</a> — Zugvögel und Wintergäste, Vorräte, Spuren im Schnee, Helfen – aber richtig</li>
           <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/kalte-kost.html">Bonus-Spiel: Kalte Kost</a> — ein Wintertag als Kohlmeise</li>
           <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/faehrtenleser.html">Bonus-Spiel: Fährtenleser</a> — wer war das im Schnee?</li>
         </ul>
+        </details>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/winterpass.html">Winterpass „Expedition Winter“</a>
         <p class="kc"><b>Kerncurriculum:</b> Stoffwechsel und Regelmechanismen · Vielfalt, Veränderung und Abstammung von Lebewesen · Bewertung: Naturschutz</p>
         <div class="adresse">bio.mibaso.de/fauna/interaktiv/winterpass.html</div>
@@ -353,11 +372,13 @@
         Hausschwein wurden — und was Haustiere heute brauchen. Mit Haustierpass, Knochen-Napf,
         Abzeichen und Urkunde.</p>
         <div class="marker"><span>Kl. 5–6</span><span>2 × ca. 45 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/haustierpass.html#h1">Teil 1 · Vom Wolf zum Hund</a> — Bilderreihe zur Domestikation, Wolf und Hund im Vergleich, Körpersprache des Hundes mit Fotos, Züchtung zum Ausprobieren</li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/haustierpass.html#h2">Teil 2 · Vom Wildschwein zum Hausschwein</a> — Wild- und Nutzformen weiterer Haustiere, artgerechte Haltung, Eier-Code</li>
           <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/zuchtspiel.html">Bonus-Spiel: Vom Wolf zum Hütehund</a> — Züchten in sechs Würfen</li>
         </ul>
+        </details>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/haustierpass.html">Haustierpass „Wild &amp; zahm“</a>
         <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen · Informationsfluss: Verhalten · Bewertung: Haltung und Nutzung</p>
         <div class="adresse">bio.mibaso.de/fauna/interaktiv/haustierpass.html</div>
@@ -369,11 +390,13 @@
         passt — und wie Vögel ihre Jungen großziehen. Mit Vogelpass, Federnest, Abzeichen und
         Urkunde, Lehrtafeln und eigenen Fotos.</p>
         <div class="marker"><span>Kl. 5–6</span><span>2 × ca. 45 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/vogelpass.html#v1">Teil 1 · Bauplan Vogel</a> — Leichtbau, Federn mit „Klettverschluss“, Schnabelformen im Bilderquiz, Fußformen und der Sitzfuß-Trick</li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/vogelpass.html#v2">Teil 2 · Ei, Nest und Brutpflege</a> — das Ei im Schnitt, 21 Tage im Zeitraffer, Nestformen, Nesthocker und Nestflüchter, Bestimmungsschlüssel für 20 Gartenvögel</li>
           <li class="bonus">🎲 <a href="https://bio.mibaso.de/fauna/interaktiv/nestwerk.html">Bonus-Spiel: Nestwerk</a> — drei Vögel, drei Nester</li>
         </ul>
+        </details>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/vogelpass.html">Vogelpass „Vögel – gebaut zum Fliegen“</a>
         <p class="kc"><b>Kerncurriculum:</b> Biologische Strukturen · Fortpflanzung und Entwicklung · Vielfalt</p>
         <div class="adresse">bio.mibaso.de/fauna/interaktiv/vogelpass.html</div>
@@ -385,6 +408,7 @@
         und wer zu Besuch kommt. Mit Futterhauspass, Abzeichen und Urkunde, Lehrtafeln und
         einem eigenen Film.</p>
         <div class="marker"><span>Kl. 5–6</span><span>ca. 45 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Der richtige Platz — Katzen, Glasscheiben, Sauberkeit</li>
           <li>Was kommt auf den Tisch? — gutes und schlechtes Futter, Schnabel und Nahrung</li>
@@ -393,6 +417,7 @@
           <li>Das große Bilderquiz — 10 Fragen mit je vier Bildern</li>
           <li class="bonus">🎲 Im Pass: Ansturm am Futterhaus, Rätselvogel des Tages, Schnabel-Duell für zwei Teams</li>
         </ul>
+        </details>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/futterhauspass.html">Futterhauspass „Vögel am Futterhaus“</a>
         <p class="kc"><b>Kerncurriculum:</b> Biologische Strukturen · Vielfalt · Mensch und Umwelt</p>
         <div class="adresse">bio.mibaso.de/fauna/interaktiv/futterhauspass.html</div>
@@ -404,6 +429,7 @@
         kommen und gehen und wie sie bis nach Afrika finden. Mit Zugvogelpass, Karte, Abzeichen
         und Urkunde – der Storch fliegt mit jeder Etappe weiter Richtung Südafrika.</p>
         <div class="marker"><span>Kl. 5–6</span><span>ca. 45 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Warum in die Ferne? — Futter entscheidet, wer fort muss</li>
           <li>Der Vogel-Kalender — Sommergäste, Wintergäste, Jahresvögel</li>
@@ -412,6 +438,7 @@
           <li>Das große Bilderquiz — 10 Fragen mit je vier Bildern</li>
           <li class="bonus">🎲 Im Pass: Rätselzugvogel des Tages, Wettflug für zwei Teams, Reise-Album</li>
         </ul>
+        </details>
         <a class="los" href="https://bio.mibaso.de/fauna/interaktiv/zugvogelpass.html">Zugvogelpass „Auf großer Reise“</a>
         <p class="kc"><b>Kerncurriculum:</b> Biologische Strukturen · Vielfalt · Mensch und Umwelt</p>
         <div class="adresse">bio.mibaso.de/fauna/interaktiv/zugvogelpass.html</div>
@@ -420,18 +447,20 @@
       <article class="karte">
         <h3>Bestäubung</h3>
         <p class="was">Blüte und Bestäuber als Team — einmal aus Sicht der Pflanze,
-        einmal aus Sicht der Insekten. Zwei Stationen stammen aus den Forscherpässen
-        „Expedition Wiese“.</p>
+        einmal aus Sicht der Insekten. Zwei Stationen stammen aus dem Wiesenpass und dem
+        Pflanzenpass.</p>
         <div class="marker"><span>Kl. 5–8</span><span>je 15–20 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
-          <li><a href="https://bio.mibaso.de/fauna/interaktiv/bestaeubung.html">Wer bestäubt wen?</a> <span class="her">Expedition Wiese · Tiere</span></li>
-          <li><a href="https://bio.mibaso.de/flora/interaktiv/bestaeubung-erklaerung.html">Von der Blüte zum Samen</a> <span class="her">Expedition Wiese · Pflanzen</span></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/bestaeubung.html">Wer bestäubt wen?</a> <span class="her">Wiesenpass</span></li>
+          <li><a href="https://bio.mibaso.de/flora/interaktiv/bestaeubung-erklaerung.html">Von der Blüte zum Samen</a> <span class="her">Pflanzenpass</span></li>
           <li><a href="https://bio.mibaso.de/flora/interaktiv/bestaeubung-animiert.html">Bestäubung Schritt für Schritt — Animation</a></li>
           <li><a href="https://flora.mibaso.de/interaktiv/bluetenoekologie.html">Blütenökologie — wer besucht wen?</a></li>
           <li><a href="https://fauna.mibaso.de/interaktiv/hummeln-flyer.html">Unsere Hummeln</a></li>
           <li class="bonus">🎲 <a href="https://bio.mibaso.de/flora/interaktiv/pollenpost.html">Bonus-Spiel: Pollenpost</a> — Pollen nur zur gleichen Art</li>
         </ul>
-        <a class="los" href="https://bio.mibaso.de/flora/pflanzenpass.html">Forscherpass „Expedition Wiese“</a>
+        </details>
+        <a class="los" href="https://bio.mibaso.de/flora/pflanzenpass.html">Pflanzenpass „Expedition Wiese“</a>
         <p class="kc"><b>Kerncurriculum:</b> Fortpflanzung und Entwicklung · Wechselwirkungen in Ökosystemen</p>
         <div class="adresse">bio.mibaso.de/flora/pflanzenpass.html</div>
       </article>
@@ -441,6 +470,7 @@
         <p class="was">Wie eine Pflanze gebaut ist, wie sie ihre Samen auf die Reise
         schickt und wie sie schwierige Bedingungen übersteht.</p>
         <div class="marker"><span>Kl. 5–8</span><span>je 15–20 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://bio.mibaso.de/flora/interaktiv/pflanze-verstehen.html">Der Bauplan — Aufbau einer Pflanze</a></li>
           <li><a href="https://flora.mibaso.de/interaktiv/pflanze-zuordnung.html">Pflanze beschriften — Anatomie-Check</a></li>
@@ -448,6 +478,7 @@
           <li><a href="https://flora.mibaso.de/interaktiv/samenverbreitung.html">Wie Pflanzen reisen — Zuordnen und Üben</a></li>
           <li><a href="https://bio.mibaso.de/flora/interaktiv/pflanzenstrategien.html">Überlebenskünstler — Pflanzenstrategien</a></li>
         </ul>
+        </details>
         <a class="los" href="https://bio.mibaso.de/flora/interaktiv/pflanze-verstehen.html">Mit dem Bauplan beginnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Fortpflanzung und Entwicklung · Biologische Strukturen und ihre Funktion</p>
         <div class="adresse">bio.mibaso.de/flora/interaktiv/pflanze-verstehen.html</div>
@@ -458,6 +489,7 @@
         <p class="was">Ein Lernpfad in fünf Schritten — jeder Schritt lässt sich
         einzeln aufrufen, etwa nur die Animation für den Einstieg am Beamer.</p>
         <div class="marker"><span>Kl. 5–10</span><span>20–30 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://flora.mibaso.de/interaktiv/energie-pfad.html#schritt-1">Schritt 1 · Fotosynthese — Licht wird Zucker</a></li>
           <li><a href="https://flora.mibaso.de/interaktiv/energie-pfad.html#schritt-2">Schritt 2 · Atmung — Zucker wird Energie</a></li>
@@ -466,6 +498,7 @@
           <li><a href="https://flora.mibaso.de/interaktiv/energie-pfad.html#schritt-5">Schritt 5 · Quiz</a></li>
           <li><a href="https://bio.mibaso.de/flora/interaktiv/jahreszeiten-baum.html">Dazu: Ein Jahr im Apfelbaum</a></li>
         </ul>
+        </details>
         <a class="los" href="https://flora.mibaso.de/interaktiv/energie-pfad.html#schritt-1">Lernpfad starten</a>
         <p class="kc"><b>Kerncurriculum:</b> Stoffwechsel und Regelmechanismen</p>
         <div class="adresse">flora.mibaso.de/interaktiv/energie-pfad.html</div>
@@ -476,6 +509,7 @@
         <p class="was">Das Pflanzenreich zum Durchklicken — von den Moosen bis zu den
         Blütenpflanzen, hinunter bis zu den Familien und ihren heimischen Arten.</p>
         <div class="marker"><span>Kl. 5–10</span><span>15–30 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://flora.mibaso.de/interaktiv/systematik.html#root">Das Reich der Pflanzen — Überblick</a></li>
           <li>Großgruppen:
@@ -495,6 +529,7 @@
           <li><a href="https://flora.mibaso.de/quiz/familien-quiz.html">Welche Pflanze passt nicht? — Familien-Quiz</a></li>
           <li><a href="https://flora.mibaso.de/quiz/pflanzenquiz.html">Pflanzenquiz</a></li>
         </ul>
+        </details>
         <a class="los" href="https://flora.mibaso.de/interaktiv/systematik.html#root">Pflanzenreich öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
         <div class="adresse">flora.mibaso.de/interaktiv/systematik.html</div>
@@ -505,6 +540,7 @@
         <p class="was">Systematik zum Anfassen: die Rangstufen verstehen, im Stammbaum
         verzweigen, Verwandtschaften erkennen.</p>
         <div class="marker"><span>Kl. 5–10 · Stammbaum ab Kl. 9</span><span>20–45 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://fauna.mibaso.de/interaktiv/systematik.html">Systematik &amp; Ränge — vom Reich bis zur Art</a></li>
           <li><a href="https://fauna.mibaso.de/interaktiv/stammbaum.html">Stammbaum der Tiere — Überblick</a></li>
@@ -518,6 +554,7 @@
           <li><a href="https://fauna.mibaso.de/interaktiv/tierquiz.html">Tierquiz</a></li>
           <li><a href="#erdgeschichte">Wie die Tiergruppen entstanden: Die große Zeitreise</a></li>
         </ul>
+        </details>
         <a class="los" href="https://fauna.mibaso.de/interaktiv/stammbaum.html">Stammbaum öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
         <div class="adresse">fauna.mibaso.de/interaktiv/stammbaum.html</div>
@@ -528,33 +565,37 @@
         <p class="was">Zwei Bestimmungswege — geführt über Fragen oder frei über
         Filter. Funktioniert auf dem Handy und ohne Empfang.</p>
         <div class="marker"><span>Kl. 5–13</span><span>Exkursion</span><span>draußen, Handy</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://flora.mibaso.de/bestimmen-gefuehrt.html">Frag dich durch — geführte Pflanzenbestimmung</a></li>
           <li><a href="https://flora.mibaso.de/bestimmen.html">Was blüht hier? — 150 Arten frei filtern</a></li>
           <li><a href="https://fauna.mibaso.de/interaktiv/schluessel.html">Was kreucht und fleucht? — Tiere bestimmen</a></li>
           <li><a href="https://flora.mibaso.de/sammelpass.html">Mein Sammelpass — gefundene Arten sammeln</a></li>
         </ul>
+        </details>
         <a class="los" href="https://flora.mibaso.de/bestimmen-gefuehrt.html">Bestimmung öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
         <div class="adresse">flora.mibaso.de · fauna.mibaso.de</div>
       </article>
 
       <article class="karte">
-        <h3>Forscherpässe für den Projekttag</h3>
+        <h3>Acht Forscherpässe für den Projekttag</h3>
         <p class="was">Spielerische Sammelaufgaben für eine ganze Einheit oder einen
         Wandertag: Stationen lösen, Abzeichen sammeln, Meister werden.</p>
-        <div class="marker"><span>Kl. 4–10</span><span>Projekttag</span><span>drinnen und draußen</span></div>
+        <div class="marker"><span>Kl. 5–10</span><span>Projekttag</span><span>drinnen und draußen</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
-          <li><a href="https://bio.mibaso.de/flora/pflanzenpass.html">Expedition Wiese — die Pflanzen</a></li>
-          <li><a href="https://bio.mibaso.de/fauna/interaktiv/wiesenpass.html">Expedition Wiese — die Tiere</a></li>
-          <li><a href="https://bio.mibaso.de/flora/waldpass.html">Expedition Wald — vom Zapfen zum Wald-Meister</a></li>
-          <li><a href="https://bio.mibaso.de/fauna/interaktiv/winterpass.html">Expedition Winter — Tiere im Winter</a></li>
-          <li><a href="https://bio.mibaso.de/fauna/interaktiv/haustierpass.html">Wild &amp; zahm — vom Wildtier zum Haustier</a></li>
-          <li><a href="https://bio.mibaso.de/fauna/interaktiv/vogelpass.html">Vögel — gebaut zum Fliegen</a></li>
-          <li><a href="https://bio.mibaso.de/fauna/interaktiv/futterhauspass.html">Vögel am Futterhaus</a></li>
-          <li><a href="https://bio.mibaso.de/fauna/interaktiv/zugvogelpass.html">Zugvögel – auf großer Reise</a></li>
-          <li><a href="https://bio.mibaso.de/fauna/interaktiv/garten.html">Mein Naturgarten – wächst mit jedem Pass, mit Aufträgen für draußen</a></li>
+          <li><a href="https://bio.mibaso.de/flora/pflanzenpass.html">Pflanzenpass — Expedition Wiese, die Pflanzen</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/wiesenpass.html">Wiesenpass — Expedition Wiese, die Tiere</a></li>
+          <li><a href="https://bio.mibaso.de/flora/waldpass.html">Waldpass — Expedition Wald</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/winterpass.html">Winterpass — Tiere im Winter</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/haustierpass.html">Haustierpass — Wild &amp; zahm</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/vogelpass.html">Vogelpass — gebaut zum Fliegen</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/futterhauspass.html">Futterhauspass — Vögel am Futterhaus</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/zugvogelpass.html">Zugvogelpass — auf großer Reise</a></li>
+          <li><a href="https://bio.mibaso.de/fauna/interaktiv/garten.html">Mein Naturgarten — wächst mit jedem Pass, mit Aufträgen für draußen</a></li>
         </ul>
+        </details>
         <a class="los" href="https://bio.mibaso.de/">Alle Pässe auf bio.mibaso.de</a>
         <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Erkenntnisgewinnung</p>
         <div class="adresse">bio.mibaso.de</div>
@@ -566,6 +607,7 @@
         schlüpfen in die Rolle eines Tieres oder einer Pflanze und erleben, worauf es im Leben draußen ankommt.
         Jedes Spiel hat drei Stufen, ein Sammelbuch und Hinweise für Lehrkräfte. In der Spielecke sammeln die Kinder alle Sterne für ihr Naturforscher-Diplom.</p>
         <div class="marker"><span>Kl. 5–6</span><span>je 3–10 Min</span><span>Handy, Tablet oder Beamer</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/sammelflug.html">Sammelflug</a> — als Wildbiene Nektar und Pollen sammeln, bevor Regen und Traktor kommen <span class="her">Wiese · Tiere</span></li>
           <li><a href="https://bio.mibaso.de/flora/interaktiv/pollenpost.html">Pollenpost</a> — als Hummel und Nachtfalter Blüten der gleichen Art bestäuben <span class="her">Wiese · Pflanzen</span></li>
@@ -578,6 +620,7 @@
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/falterspiel.html">Vom Ei zum Falter</a> und <a href="https://bio.mibaso.de/fauna/interaktiv/libellenspiel.html">Vom Wasser in die Luft</a> — Leiterspiele zur Metamorphose <span class="her">Wiese · Tiere</span></li>
           <li><a href="https://bio.mibaso.de/fauna/interaktiv/zuchtspiel.html">Vom Wolf zum Hütehund</a> — Zuchtspiel in sechs Würfen <span class="her">Wild &amp; zahm</span></li>
         </ul>
+        </details>
         <a class="los" href="https://bio.mibaso.de/spiele/">Zur Spielecke mit Naturforscher-Diplom</a>
         <p class="kc"><b>Kerncurriculum:</b> Wechselwirkungen in Ökosystemen · Stoffwechsel und Regelmechanismen · Fortpflanzung und Entwicklung</p>
         <div class="adresse">bio.mibaso.de/spiele</div>
@@ -602,11 +645,13 @@
         <p class="was">Säuren im Alltag und im Labor: gefährlich oder harmlos, was alle
         Säuren gemeinsam haben, Indikatoren wie Rotkohlsaft und der pH-Wert.</p>
         <div class="marker"><span>Kl. 7–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Säure-Steckbrief und Sortierspiele</li>
           <li>Rotkohl-Indikator zum Ausprobieren</li>
           <li>pH-Skala mit Alltagsstoffen</li>
         </ul>
+        </details>
         <a class="los" href="https://chemie.mibaso.de/#e1">Expedition öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Schatzkiste der Natur – Chemie in Alltag und Technik · Welt der Stoffe</p>
         <div class="adresse">chemie.mibaso.de</div>
@@ -617,11 +662,13 @@
         <p class="was">Von der Kohlensäure über CO₂, Klima und sauren Regen bis zum
         Springbrunnen-Versuch und dem Zerfall der Säuren in Ionen.</p>
         <div class="marker"><span>Kl. 8–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Kohlenstoffdioxid-Kreislauf zum Antippen</li>
           <li>Springbrunnen-Versuch als Animation</li>
           <li>Elektrolytische Dissoziation im Teilchenmodell</li>
         </ul>
+        </details>
         <a class="los" href="https://chemie.mibaso.de/#e2">Expedition öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Schatzkiste der Natur – Chemie in Alltag und Technik · Verwandlungen – Chemische Reaktion</p>
         <div class="adresse">chemie.mibaso.de</div>
@@ -632,11 +679,13 @@
         <p class="was">Vom Seifenstück bis zur Brezel: wie Laugen entstehen, was sie
         gemeinsam haben und was passiert, wenn Säure auf Lauge trifft.</p>
         <div class="marker"><span>Kl. 8–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Metall trifft Wasser als Animation</li>
           <li>Ammoniak-Springbrunnen im Film</li>
           <li>Neutralisation Schritt für Schritt</li>
         </ul>
+        </details>
         <a class="los" href="https://chemie.mibaso.de/#e3">Expedition öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Schatzkiste der Natur – Chemie in Alltag und Technik · Der Mix macht’s – Stoffgemische</p>
         <div class="adresse">chemie.mibaso.de</div>
@@ -647,11 +696,13 @@
         <p class="was">Aus zwei Giften wird ein Gewürz: Natrium trifft Chlor, das
         Ionengitter, Salze lösen, Kristalle züchten und Salze benennen.</p>
         <div class="marker"><span>Kl. 8–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Elektronenübergang als Animation</li>
           <li>Ionengitter und Sprödigkeit zum Ausprobieren</li>
           <li>Salz-Baukasten für Formeln und Namen</li>
         </ul>
+        </details>
         <a class="los" href="https://chemie.mibaso.de/#e4">Expedition öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Schatzkiste der Natur – Chemie in Alltag und Technik · Blick hinter die Kulissen – Aufbau von Stoffen und chemische Bindung</p>
         <div class="adresse">chemie.mibaso.de</div>
@@ -662,11 +713,13 @@
         <p class="was">Warum Atome sich verbinden: Elektronenpaarbindung, Moleküle bauen,
         das besondere Wassermolekül und die Metallbindung.</p>
         <div class="marker"><span>Kl. 9–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Molekül-Baukasten mit Elektronen- und Strichformel</li>
           <li>Tauziehen um das Elektronenpaar</li>
           <li>Elektronengas mit Strom und Hammerschlag</li>
         </ul>
+        </details>
         <a class="los" href="https://chemie.mibaso.de/#e5">Expedition öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Blick hinter die Kulissen – Aufbau von Stoffen und chemische Bindung</p>
         <div class="adresse">chemie.mibaso.de</div>
@@ -677,11 +730,13 @@
         <p class="was">Einstieg in die organische Chemie: Kohlenstoff nachweisen, Methan,
         die homologe Reihe der Alkane, Erdöl-Destillation und Verbrennung.</p>
         <div class="marker"><span>Kl. 9–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Methan-Molekül zum Drehen</li>
           <li>Alkan-Leiter mit Siedetemperaturen</li>
           <li>Destillationsturm zum Antippen</li>
         </ul>
+        </details>
         <a class="los" href="https://chemie.mibaso.de/#e6">Expedition öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Magie des Kohlenstoffs – Organische Verbindungen · Schatzkiste der Natur – Chemie in Alltag und Technik</p>
         <div class="adresse">chemie.mibaso.de</div>
@@ -692,11 +747,13 @@
         <p class="was">Isomere und ihre Namen, Cycloalkane, Alkene mit dem Brom-Test,
         Ethin, Polymerisation zu Kunststoff und Benzol.</p>
         <div class="marker"><span>Kl. 9–10</span><span>ca. 40 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 ohne Ton</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Isomeren-Baukasten mit Namensregeln</li>
           <li>Brom-Test: Addition und Substitution</li>
           <li>Polyethylen entsteht im Teilchenmodell</li>
         </ul>
+        </details>
         <a class="los" href="https://chemie.mibaso.de/#e7">Expedition öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Magie des Kohlenstoffs – Organische Verbindungen · Blick hinter die Kulissen – Aufbau von Stoffen und chemische Bindung</p>
         <div class="adresse">chemie.mibaso.de</div>
@@ -722,6 +779,7 @@
         <p class="was">Vom Pharao zur römischen Kaiserzeit.</p>
         <p class="leitfrage">Wer entscheidet – und wie wird Herrschaft organisiert und begründet?</p>
         <div class="marker"><span>Kl. 6–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul class="stationen">
           <li>Ein Staat am Nil</li>
           <li>Recht und gesellschaftlicher Rang</li>
@@ -729,6 +787,7 @@
           <li>Mitbestimmen in Athen</li>
           <li>Vom Bürgerkrieg zur Kaiserzeit</li>
         </ul>
+        </details>
         <a class="los" href="https://historia.mibaso.de/lernpfad-antike/">Lernpfad 1 starten</a>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Ur- und Frühgeschichte sowie Antike</p>
         <div class="adresse">historia.mibaso.de/lernpfad-antike/</div>
@@ -739,6 +798,7 @@
         <p class="was">Gemeinschaften, Kaiser und Konflikte · 622–1453.</p>
         <p class="leitfrage">Wie verbinden sich religiöse Gemeinschaften, politische Herrschaft und militärische Macht?</p>
         <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul class="stationen">
           <li>Gemeinschaft und Kalifenreich</li>
           <li>Karl und die Kaiserkrone</li>
@@ -746,6 +806,7 @@
           <li>Kreuzzüge und ihre Folgen</li>
           <li>Konstantinopel 1453</li>
         </ul>
+        </details>
         <a class="los" href="https://historia.mibaso.de/lernpfad-mittelalter/">Lernpfad 2 starten</a>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Mittelalter und Neuzeit</p>
         <div class="adresse">historia.mibaso.de/lernpfad-mittelalter/</div>
@@ -756,6 +817,7 @@
         <p class="was">Reformation, Aufklärung und Revolution · 1517–1815.</p>
         <p class="leitfrage">Wie werden religiöse und politische Autoritäten infrage gestellt – und für wen gelten neue Rechte?</p>
         <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul class="stationen">
           <li>Autorität wird bestritten</li>
           <li>Glaubensstreit und Machtpolitik</li>
@@ -763,6 +825,7 @@
           <li>Vernunft und überprüfbare Belege</li>
           <li>Revolutionen und ihre Grenzen</li>
         </ul>
+        </details>
         <a class="los" href="https://historia.mibaso.de/lernpfad-rechte/">Lernpfad 3 starten</a>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Mittelalter und Neuzeit</p>
         <div class="adresse">historia.mibaso.de/lernpfad-rechte/</div>
@@ -774,6 +837,7 @@
         <p class="leitfrage">Wie wird eine Demokratie geschwächt und beseitigt – und welche Folgen hat die nationalsozialistische Herrschaft?</p>
         <div class="marker"><span>Kl. 10–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
         <p class="achtung">Nur mit der Lehrkraft bearbeiten, nicht für die Vertretungsstunde: Die Einheit behandelt Entrechtung, Krieg und den Holocaust. Vorwissen und Gesprächsbedarf vorab klären.</p>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul class="stationen">
           <li>Eine Republik unter Druck</li>
           <li>Die Ernennung im Januar 1933</li>
@@ -781,6 +845,7 @@
           <li>Der Zweite Weltkrieg</li>
           <li>Der Holocaust</li>
         </ul>
+        </details>
         <a class="los" href="https://historia.mibaso.de/lernpfad-demokratie/">Lernpfad 4 starten</a>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Neuzeit und Neueste Zeit</p>
         <div class="adresse">historia.mibaso.de/lernpfad-demokratie/</div>
@@ -796,12 +861,14 @@
         <p class="was">Pharaonen, Griechen und Cäsaren: sechzehn Schlüsselszenen von
         Narmer bis zum Ende des Weströmischen Reiches.</p>
         <div class="marker"><span>Kl. 6–10</span><span>je Szene 2–4 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Jede Szene zuerst mit Karte, dann mit Bild</li>
           <li>Zwei Vertiefungspunkte je Szene</li>
           <li>Zwei Quizfragen je Szene</li>
           <li>Untertitel für alle Sprechertexte</li>
         </ul>
+        </details>
         <a class="los" href="https://historia.mibaso.de/entdecken/">Episode 1 öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Ur- und Frühgeschichte sowie Antike</p>
         <div class="adresse">historia.mibaso.de/entdecken</div>
@@ -812,10 +879,12 @@
         <p class="was">Kaiser, Kreuzfahrer und Revolutionäre: von der Hidschra 622
         bis Waterloo 1815, ebenfalls in sechzehn Szenen.</p>
         <div class="marker"><span>Kl. 8–11</span><span>je Szene 2–4 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Bilder, Karten und Sprechertexte vollständig</li>
           <li>Vertiefung und Quiz wie in Episode 1</li>
         </ul>
+        </details>
         <a class="los" href="https://historia.mibaso.de/episode-2">Episode 2 öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Mittelalter und Neuzeit</p>
         <div class="adresse">historia.mibaso.de/episode-2</div>
@@ -826,12 +895,14 @@
         <p class="was">Nationen, Weltkriege und Gegenwart: von der Industrialisierung
         bis zur global vernetzten Welt, in zwanzig Szenen.</p>
         <div class="marker"><span>Kl. 9–13</span><span>je Szene 2–4 Min</span><span>Handy, Tablet oder Beamer</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Industrialisierung und Soziale Frage</li>
           <li>Nationalstaaten und Weltkriege</li>
           <li>Neuordnung nach 1945 und 1989</li>
           <li>Aufbau und Bedienung wie Episode 1 und 2</li>
         </ul>
+        </details>
         <a class="los" href="https://historia.mibaso.de/episode-3">Episode 3 öffnen</a>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Neuzeit und Neueste Zeit</p>
         <div class="adresse">historia.mibaso.de/episode-3</div>
@@ -856,6 +927,7 @@
         <p class="was">Zellen, Zusammenarbeit und neue Lebensformen.</p>
         <p class="leitfrage">Wie verändert das Leben seine Umwelt – und wie entstehen neue Möglichkeiten durch Zusammenarbeit?</p>
         <div class="marker"><span>Kl. 8–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul class="stationen">
           <li>Leben in einer Zelle</li>
           <li>Leben verändert die Umwelt</li>
@@ -863,6 +935,7 @@
           <li>Aus Zellen wird ein Team</li>
           <li>Vielfalt im Meer</li>
         </ul>
+        </details>
         <a class="los" href="https://evo.mibaso.de/lernpfad-leben/">Lernpfad 1 starten</a>
         <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen</p>
         <div class="adresse">evo.mibaso.de/lernpfad-leben/</div>
@@ -873,6 +946,7 @@
         <p class="was">Spuren, Werkzeuge und gemeinsame Herkunft.</p>
         <p class="leitfrage">Warum ist die Entwicklung des Menschen ein verzweigter Weg mit vielen gleichzeitig lebenden Linien?</p>
         <div class="marker"><span>Kl. 6–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul class="stationen">
           <li>Verwandt und verzweigt</li>
           <li>Auf zwei Beinen</li>
@@ -880,6 +954,7 @@
           <li>Menschen unterwegs</li>
           <li>Eine Menschheit</li>
         </ul>
+        </details>
         <a class="los" href="https://evo.mibaso.de/lernpfad-mensch/">Lernpfad 2 starten</a>
         <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung von Lebewesen · Geschichte: Ur- und Frühgeschichte</p>
         <div class="adresse">evo.mibaso.de/lernpfad-mensch/</div>
@@ -890,6 +965,7 @@
         <p class="was">Dörfer, Felder und Herden.</p>
         <p class="leitfrage">Wie wurden aus wandernden Gruppen Menschen, die Dörfer bauten, Felder bestellten und Tiere hielten?</p>
         <div class="marker"><span>Kl. 6–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul class="stationen">
           <li>Leben ohne Acker</li>
           <li>Gemeinsam bauen und bleiben</li>
@@ -897,6 +973,7 @@
           <li>Viele Wege zur Landwirtschaft</li>
           <li>Das neue Zusammenleben</li>
         </ul>
+        </details>
         <a class="los" href="https://evo.mibaso.de/lernpfad/">Lernpfad 3 starten</a>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Ur- und Frühgeschichte sowie Antike</p>
         <div class="adresse">evo.mibaso.de/lernpfad/</div>
@@ -907,6 +984,7 @@
         <p class="was">Vorräte, Schrift und Macht.</p>
         <p class="leitfrage">Wie verändern Vorräte, neue Berufe und die Schrift das Zusammenleben – und wer entscheidet in einer wachsenden Stadt?</p>
         <div class="marker"><span>Kl. 6–13</span><span>ca. 40 Min</span><span>5 Stationen · 10 Fragen</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Stationen anzeigen</span><span class="auf">Stationen ausblenden</span></summary>
         <ul class="stationen">
           <li>Vorräte brauchen Überblick</li>
           <li>Neue Aufgaben entstehen</li>
@@ -914,6 +992,7 @@
           <li>Uruk: eine Stadt als Netzwerk</li>
           <li>Wer entscheidet für die Stadt?</li>
         </ul>
+        </details>
         <a class="los" href="https://evo.mibaso.de/lernpfad-2/">Lernpfad 4 starten</a>
         <p class="kc"><b>Kerncurriculum:</b> Basisnarrative Ur- und Frühgeschichte sowie Antike</p>
         <div class="adresse">evo.mibaso.de/lernpfad-2/</div>
@@ -929,11 +1008,13 @@
         <p class="was">4,6 Milliarden Jahre in zweiundzwanzig Szenen: von der
         glühenden Erde über die erste Zelle bis zu den Säugetieren.</p>
         <div class="marker"><span>Kl. 6–12</span><span>ca. 25 Min gesamt</span><span>Handy, Tablet oder Beamer</span><span>🔇 Ton an/aus</span></div>
+        <details class="liste"><summary><span class="zu">Inhalt anzeigen</span><span class="auf">Inhalt ausblenden</span></summary>
         <ul>
           <li>Sprechertexte, Animationen und Atmosphäre</li>
           <li>Zwei Quizfragen je Szene, dazu ein Abschlussquiz</li>
           <li>Interaktiver Tierstammbaum zur Vertiefung</li>
         </ul>
+        </details>
         <a class="los" href="https://evo.mibaso.de/entdecken/">Zeitreise starten</a>
         <p class="boegen">Für den Beamer: <a href="quizbogen-zeitreise.html">Quizbogen</a> · <a href="loesung-zeitreise.html">Lösung</a></p>
         <p class="kc"><b>Kerncurriculum:</b> Vielfalt, Veränderung und Abstammung · Sachunterricht: Geschichte und Zeit</p>
@@ -967,7 +1048,8 @@
     Tablet auf den Startbildschirm legen und starten dann wie eine normale App — ohne
     App-Store. Die Anleitung für iPhone und Android steht auf mibaso.de unter
     „Als App aufs Handy legen“.</p>
-    <p><b>Datenschutz.</b> Die Apps erheben keine Daten. Was Schülerinnen und Schüler
+    <p><b>Datenschutz.</b> Die Apps erheben keine persönlichen Daten und setzen keine Cookies;
+    gezählt werden nur anonyme Seitenaufrufe. Was Schülerinnen und Schüler
     sammeln — etwa gefundene Arten — bleibt allein auf ihrem eigenen Gerät und
     verlässt es nicht.</p>
   </section>
@@ -1052,6 +1134,12 @@ if ('serviceWorker' in navigator) {
     });
   });
 })();
+</script>
+<script>
+/* Beim Drucken alle Listen aufklappen, danach wieder wie vorher */
+(function(){var offen=[];
+addEventListener("beforeprint",function(){offen=[];document.querySelectorAll("details.liste").forEach(function(d){if(!d.open){offen.push(d);d.open=true;}});});
+addEventListener("afterprint",function(){offen.forEach(function(d){d.open=false;});offen=[];});})();
 </script>
 </body>
 </html>
